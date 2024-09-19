@@ -1,0 +1,74 @@
+import 'package:get/get_navigation/src/routes/get_route.dart';
+import 'package:xpropertyapp/views/%20agents_details_screen/agents_details_screen.dart';
+import 'package:xpropertyapp/views/add_property_screen/add_property_screen.dart';
+import 'package:xpropertyapp/views/agents_screen/agents_screen.dart';
+import 'package:xpropertyapp/views/audio_call_screen/audio_call_screen.dart';
+import 'package:xpropertyapp/views/auth/change_password_screen/change_password_screen.dart';
+import 'package:xpropertyapp/views/auth/reset_password/otp_verification_screen.dart';
+import 'package:xpropertyapp/views/auth/reset_password/rest_password_screen/reset_password_screen.dart';
+import 'package:xpropertyapp/views/auth/sign_in/sign_in_screen.dart';
+import 'package:xpropertyapp/views/auth/sign_up/email_verification_screen.dart';
+import 'package:xpropertyapp/views/auth/reset_password/forgot_password_screen.dart';
+import 'package:xpropertyapp/views/auth/sign_up/sign_up_screen.dart';
+import 'package:xpropertyapp/views/chat_screen/chat_screen.dart';
+import 'package:xpropertyapp/views/confirm_screen/confirm_screen.dart';
+import 'package:xpropertyapp/views/congratulations_screen/congratulations_screen.dart';
+import 'package:xpropertyapp/views/contact_us_screen/contact_us_screen.dart';
+import 'package:xpropertyapp/views/dashboard_screen/dashboard_screen.dart';
+import 'package:xpropertyapp/views/details_screen/details_screen.dart';
+import 'package:xpropertyapp/views/drawer_menu_screen/drawer_menu_mobile_layout_screen.dart';
+import 'package:xpropertyapp/views/filters_screen/filters_screen.dart';
+import 'package:xpropertyapp/views/find_map_screen/find_map_screen.dart';
+import 'package:xpropertyapp/views/followers_screen/followers_screen.dart';
+import 'package:xpropertyapp/views/following_screen/following_screen.dart';
+import 'package:xpropertyapp/views/navigation/navigation_screen.dart';
+import 'package:xpropertyapp/views/news_blog_screen/news_blog_screen.dart';
+import 'package:xpropertyapp/views/news_screen/news_screen.dart';
+import 'package:xpropertyapp/views/notification_screen/notification_screen.dart';
+import 'package:xpropertyapp/views/properties_screen/property_screen.dart';
+import 'package:xpropertyapp/views/terms_and_policies_screen/terms_and_policies_screen.dart';
+import '../bindings/splash_screen_binding.dart';
+import '../views/about_us_screen/about_us_screen.dart';
+import '../views/onboard_screen/onboard_screen.dart';
+import '../views/splash_screen/splash_screen.dart';
+import '../views/welcome_screen/welcome_screen.dart';
+
+part '../routes/route_pages.dart';
+
+class Routes {
+  // Page List
+  static var list = RoutePageList.list;
+  // Route Names
+  static const String splashScreen = '/splash_screen';
+  static const String onboardScreen = '/onboard_screen';
+  static const String welcomeScreen = '/welcome_screen';
+  static const String signInScreen = '/sign_in_screen';
+  static const String signUpScreen = '/sign_up_screen';
+  static const String dashboardScreen = '/dashboard_screen';
+  static const String emailVerificationScreen = '/email_verification_screen';
+  static const String confirmScreen = '/confirm_screen';
+  static const String navigationScreen = '/navigation_screen';
+  static const String notificationScreen = '/notification_screen';
+  static const String chatScreen = '/chat_screen';
+  static const String newsScreen = '/news_screen';
+  static const String propertyScreen = '/property_screen';
+  static const String newsBlogScreen = '/news_blog_screen';
+  static const String detailsScreen = '/details_screen';
+  static const String followersScreen = '/followers_screen';
+  static const String followingScreen = '/following_screen';
+  static const String filtersScreen = '/filters_screen';
+  static const String aboutUSScreen = '/about_us_screen';
+  static const String termsAndPoliciesScreen = '/terms_and_policies_screen';
+  static const String contactUsScreen = '/contact_us_screen';
+  static const String forgotPasswordScreen = '/forgot_password_screen';
+  static const String otpVerificationScreen = '/otp_verification_screen';
+  static const String agentsScreen = '/agents_mobile_layout_screen';
+  static const String agentsDetailsScreen = '/agents_details_mobile_layout_screen';
+  static const String dowerMenuScreen = '/drawer_menu_screen';
+  static const String audioCallScreen = '/audio_call_screen';
+  static const String findMapScreen = '/find_map_screen';
+  static const String addPropertyScreen = '/add_property_screen';
+  static const String resetPasswordScreen = '/reset_password_screen';
+  static const String congratulationScreen = '/congratulation_screen';
+  static const String changePasswordScreen = '/change_password_screen';
+}
