@@ -1,14 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
-import 'package:xpropertyapp/widgets/background_widget/background_widget.dart';
-
 import '../../custom_assets/assets.gen.dart';
 import '../../language/language.dart';
 import '../../routes/routes.dart';
+import '../../widgets/background_widget/background_widget.dart';
 import '../../widgets/common/custom_search_field_widget.dart';
 import '../../widgets/common/others/custom_image_widget.dart';
-import '../../widgets/common/text_lebels/title_heading2_widget.dart';
 import '../../widgets/list_card_widget.dart';
 import '../../widgets/listing_data.dart';
 import '../res/assets_res.dart';

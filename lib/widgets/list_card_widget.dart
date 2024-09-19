@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:xpropertyapp/custom_assets/assets.gen.dart';
-import 'package:xpropertyapp/views/utils/custom_color.dart';
-import 'package:xpropertyapp/views/utils/dimensions.dart';
-import 'package:xpropertyapp/views/utils/size.dart';
-import 'package:xpropertyapp/widgets/common/others/custom_image_widget.dart';
+import '../custom_assets/assets.gen.dart';
 import '../routes/routes.dart';
+import '../views/utils/custom_color.dart';
+import '../views/utils/dimensions.dart';
+import '../views/utils/size.dart';
+import 'common/others/custom_image_widget.dart';
 import 'common/title_sub_title_widget.dart';
 
 class ListCardItems extends StatelessWidget {
@@ -52,7 +52,8 @@ class ListCardItems extends StatelessWidget {
               Row(
                 children: [
                   Padding(
-                    padding: EdgeInsets.only(top: Dimensions.paddingSize * 0.65),
+                    padding:
+                        EdgeInsets.only(top: Dimensions.paddingSize * 0.65),
                     child: CustomImageWidget(
                       path: Assets.icons.ellipse30,
                       height: Dimensions.heightSize * 0.6,

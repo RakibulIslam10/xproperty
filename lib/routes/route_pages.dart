@@ -105,7 +105,7 @@ class RoutePageList {
     ),
     GetPage(
       name: Routes.dowerMenuScreen,
-      page: () =>  MyDrawerMenu(),
+      page: () => MyDrawerMenu(),
     ),
     GetPage(
       name: Routes.audioCallScreen,
@@ -130,6 +130,10 @@ class RoutePageList {
     GetPage(
       name: Routes.changePasswordScreen,
       page: () => const ChangePasswordScreen(),
+    ),
+    GetPage(
+      name: Routes.profileScreen,
+      page: () => const ProfileScreen(),
     ),
   ];
 }

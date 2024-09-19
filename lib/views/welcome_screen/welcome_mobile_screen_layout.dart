@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:xpropertyapp/routes/routes.dart';
-import 'package:xpropertyapp/views/utils/custom_color.dart';
-import 'package:xpropertyapp/views/utils/dimensions.dart';
-import 'package:xpropertyapp/widgets/background_widget/background_widget.dart';
-import 'package:xpropertyapp/widgets/common/buttons/primary_button.dart';
-import 'package:xpropertyapp/widgets/common/title_sub_title_widget.dart';
 import '../../language/language.dart';
+import '../../routes/routes.dart';
+import '../../widgets/background_widget/background_widget.dart';
+import '../../widgets/common/buttons/primary_button.dart';
+import '../../widgets/common/title_sub_title_widget.dart';
 import '../res/assets_res.dart';
+import '../utils/custom_color.dart';
+import '../utils/dimensions.dart';
 import '../utils/size.dart';
 
 class WelcomeHomeMobileScreenLayout extends StatelessWidget {

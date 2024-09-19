@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
-import 'package:xpropertyapp/views/notification_screen/notifications_mobile_screen_layout.dart';
 import '../utils/responsive_layout.dart';
+import 'notifications_mobile_screen_layout.dart';
 
 class NotificationScreen extends StatelessWidget {
   const NotificationScreen({super.key});

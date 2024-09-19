@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:xpropertyapp/routes/routes.dart';
-import 'package:xpropertyapp/views/utils/dimensions.dart';
-import 'package:xpropertyapp/widgets/custom_paint_widget.dart';
 import '../../../language/language.dart';
+import '../../../routes/routes.dart';
 import '../../../widgets/common/appbar/back_button.dart';
 import '../../../widgets/common/buttons/primary_button.dart';
 import '../../../widgets/common/inputs/my_input_filed.dart';
@@ -12,8 +10,10 @@ import '../../../widgets/common/text_lebels/title_heading1_widget.dart';
 import '../../../widgets/common/text_lebels/title_heading2_widget.dart';
 import '../../../widgets/common/text_lebels/title_heading4_widget.dart';
 import '../../../widgets/custom_circular_container_widget.dart';
+import '../../../widgets/custom_paint_widget.dart';
 import '../../res/assets_res.dart';
 import '../../utils/custom_color.dart';
+import '../../utils/dimensions.dart';
 import '../../utils/size.dart';
 
 class SignUpMobileScreenLayout extends StatelessWidget {

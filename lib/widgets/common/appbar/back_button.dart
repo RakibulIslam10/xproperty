@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:xpropertyapp/custom_assets/assets.gen.dart';
-import 'package:xpropertyapp/views/utils/dimensions.dart';
+import '../../../custom_assets/assets.gen.dart';
+import '../../../views/utils/dimensions.dart';
 import '../others/custom_image_widget.dart';
 
 class BackButtonWidget extends StatelessWidget {
@@ -11,10 +10,7 @@ class BackButtonWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return InkWell(
-      hoverColor: Colors.transparent,
-      splashColor: Colors.transparent,
-      highlightColor: Colors.transparent,
+    return GestureDetector(
       onTap: onTap,
       child: Padding(
         padding: EdgeInsets.only(

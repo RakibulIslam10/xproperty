@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:xpropertyapp/widgets/follow_button_widget.dart';
-
 import '../../custom_assets/assets.gen.dart';
 import '../../language/language.dart';
 import '../../widgets/common/appbar/back_button.dart';
 import '../../widgets/common/others/custom_image_widget.dart';
 import '../../widgets/common/text_lebels/title_heading2_widget.dart';
+import '../../widgets/follow_button_widget.dart';
 import '../utils/custom_color.dart';
 import '../utils/dimensions.dart';
 import '../utils/size.dart';

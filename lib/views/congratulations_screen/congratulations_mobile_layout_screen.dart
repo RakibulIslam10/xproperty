@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:xpropertyapp/custom_assets/assets.gen.dart';
-import 'package:xpropertyapp/language/language.dart';
-import 'package:xpropertyapp/routes/routes.dart';
-import 'package:xpropertyapp/views/utils/custom_color.dart';
-import 'package:xpropertyapp/views/utils/dimensions.dart';
-import 'package:xpropertyapp/views/utils/size.dart';
-import 'package:xpropertyapp/widgets/common/others/custom_image_widget.dart';
-import 'package:xpropertyapp/widgets/common/title_sub_title_widget.dart';
+import '../../custom_assets/assets.gen.dart';
+import '../../language/language.dart';
+import '../../routes/routes.dart';
 import '../../widgets/common/buttons/primary_button.dart';
+import '../../widgets/common/others/custom_image_widget.dart';
+import '../../widgets/common/title_sub_title_widget.dart';
 import '../../widgets/custom_circular_container_widget.dart';
+import '../utils/custom_color.dart';
+import '../utils/dimensions.dart';
+import '../utils/size.dart';
 
 class CongratulationsMobileLayoutScreen extends StatelessWidget {
   const CongratulationsMobileLayoutScreen({super.key});

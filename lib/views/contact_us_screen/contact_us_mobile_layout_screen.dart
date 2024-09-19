@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:xpropertyapp/custom_assets/assets.gen.dart';
-import 'package:xpropertyapp/views/utils/size.dart';
-import 'package:xpropertyapp/widgets/message_box_inquiry_form_widget.dart';
+import '../../custom_assets/assets.gen.dart';
 import '../../language/language.dart';
 import '../../widgets/common/appbar/back_button.dart';
 import '../../widgets/common/buttons/primary_button.dart';
@@ -10,9 +8,11 @@ import '../../widgets/common/others/custom_image_widget.dart';
 import '../../widgets/common/text_lebels/title_heading2_widget.dart';
 import '../../widgets/common/title_sub_title_widget.dart';
 import '../../widgets/custom_inquiry_form_widget.dart';
+import '../../widgets/message_box_inquiry_form_widget.dart';
 import '../res/assets_res.dart';
 import '../utils/custom_color.dart';
 import '../utils/dimensions.dart';
+import '../utils/size.dart';
 
 class ContactUsMobileLayoutScreen extends StatelessWidget {
   const ContactUsMobileLayoutScreen({super.key});

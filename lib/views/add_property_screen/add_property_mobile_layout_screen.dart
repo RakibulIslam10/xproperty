@@ -27,7 +27,7 @@ class AddPropertyMobileLayoutScreen extends StatelessWidget {
 
   final _controller = Get.put(ButtonColorController());
   final _sliderController = Get.put(SliderController());
-  final DropdownController dropdownController = Get.put(DropdownController());
+  final dropdownController = Get.put(DropdownController());
 
   @override
   Widget build(BuildContext context) {
@@ -48,17 +48,13 @@ class AddPropertyMobileLayoutScreen extends StatelessWidget {
           crossAxisAlignment: crossStart,
           children: [
             _sellAndRentButtonWidget(),
-            _inquiryFormWidget(),
+            _titleAndDescriptionFormWidget(),
             const CustomInquiryFormWidget(hintText: "Area"),
             const CustomInquiryFormWidget(hintText: "0.00"),
-            const TitleHeading3Widget(text: Strings.propertiesType),
-            _outlineButtonList(),
+            _propertyTypeTextAndButtonWidget(),
             _priceRangeTextWidget(),
             CustomSliderWidget(controller: _sliderController),
-             TitleHeading3Widget(
-                padding: EdgeInsets.symmetric(vertical: Dimensions.marginSizeVertical * 0.2),
-                text: Strings.bedrooms),
-            NumberedContainer(),
+            _bedroomsTextAndNumberedContainerWidget(),
             _gardenFilterButton(),
             _selectImageTextWidget(),
             _imagePickWidget(),
@@ -67,6 +63,60 @@ class AddPropertyMobileLayoutScreen extends StatelessWidget {
             _buttonWidget(),
           ],
         ),
+      ),
+    );
+  }
+
+  _bedroomsTextAndNumberedContainerWidget() {
+    return Column(
+      crossAxisAlignment: crossStart,
+      children: [
+        TitleHeading3Widget(
+            padding: EdgeInsets.symmetric(
+                vertical: Dimensions.marginSizeVertical * 0.2),
+            text: Strings.bedrooms),
+        NumberedContainer(),
+      ],
+    );
+  }
+
+  _propertyTypeTextAndButtonWidget() {
+    return Padding(
+      padding:
+          EdgeInsets.symmetric(vertical: Dimensions.marginSizeVertical * 0.5),
+      child: Column(
+        crossAxisAlignment: crossStart,
+        children: [
+          const TitleHeading3Widget(text: Strings.propertiesType),
+          verticalSpace(Dimensions.marginSizeVertical * 0.3),
+          SizedBox(
+            height: Dimensions.heightSize * 2.8,
+            child: ListView(
+              scrollDirection: Axis.horizontal,
+              children: [
+                OutlineButtonWidget(
+                    index: 0,
+                    onPressed: () {
+                      _controller.outlineButtonOnchange(0);
+                    },
+                    title: Strings.residential),
+                OutlineButtonWidget(
+                  index: 1,
+                  onPressed: () {
+                    _controller.outlineButtonOnchange(1);
+                  },
+                  title: Strings.commercial,
+                ),
+                OutlineButtonWidget(
+                    index: 2,
+                    onPressed: () {
+                      _controller.outlineButtonOnchange(2);
+                    },
+                    title: Strings.industrial),
+              ],
+            ),
+          )
+        ],
       ),
     );
   }
@@ -144,6 +194,7 @@ class AddPropertyMobileLayoutScreen extends StatelessWidget {
 
   _appBarWidget() {
     return AppBar(
+      scrolledUnderElevation: 0,
       backgroundColor: CustomColor.whiteColor,
       leading: BackButtonWidget(onTap: () {
         Get.back();
@@ -198,14 +249,6 @@ class AddPropertyMobileLayoutScreen extends StatelessWidget {
     );
   }
 
-  _sliderWidget() {
-    return Slider(
-      activeColor: CustomColor.primaryLightColor,
-      value: 0.7,
-      onChanged: (value) {},
-    );
-  }
-
   _priceRangeTextWidget() {
     return Padding(
       padding: EdgeInsets.only(
@@ -216,7 +259,7 @@ class AddPropertyMobileLayoutScreen extends StatelessWidget {
         children: [
           const TitleHeading3Widget(text: Strings.priceRange),
           Obx(
-                () => TitleHeading3Widget(
+            () => TitleHeading3Widget(
                 text: "${_sliderController.sliderValue} - 10000.0"),
           )
         ],
@@ -224,37 +267,7 @@ class AddPropertyMobileLayoutScreen extends StatelessWidget {
     );
   }
 
-  _outlineButtonList() {
-    return Padding(
-      padding:
-          EdgeInsets.symmetric(vertical: Dimensions.marginSizeVertical * 0.4),
-      child: Row(
-        mainAxisAlignment: mainSpaceBet,
-        children: [
-          OutlineButtonWidget(
-              index: 0,
-              onPressed: () {
-                _controller.outlineButtonOnchange(0);
-              },
-              title: Strings.residential),
-          OutlineButtonWidget(
-              index: 1,
-              onPressed: () {
-                _controller.outlineButtonOnchange(1);
-              },
-              title: Strings.commercial),
-          OutlineButtonWidget(
-              index: 2,
-              onPressed: () {
-                _controller.outlineButtonOnchange(2);
-              },
-              title: Strings.industrial),
-        ],
-      ),
-    );
-  }
-
-  _inquiryFormWidget() {
+  _titleAndDescriptionFormWidget() {
     return Column(
       crossAxisAlignment: crossStart,
       children: [

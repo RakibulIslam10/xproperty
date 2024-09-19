@@ -1,5 +1,5 @@
 import 'package:flutter/cupertino.dart';
-import 'package:xpropertyapp/views/welcome_screen/welcome_mobile_screen_layout.dart';
+import 'package:xproperty/views/welcome_screen/welcome_mobile_screen_layout.dart';
 
 import '../utils/responsive_layout.dart';
 

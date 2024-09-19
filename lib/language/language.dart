@@ -25,6 +25,8 @@ class Strings {
   static const String resetPassword = "RESET PASSWORD";
   static const String resetPassword2 = "Reset Password";
   static const String newPassword = "New Password";
+  static const String oldPassword = "Old Password";
+  static const String confirmNewPassword = "Confirm New Password";
   static const String confirmPassword = "Confirm Password";
   static const String yourIdentityHasBeenVerified =
       "Your identity has been verified, Set your new Passwor";

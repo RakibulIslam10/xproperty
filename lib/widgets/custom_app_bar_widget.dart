@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:get/get.dart';
-import 'package:xpropertyapp/custom_assets/assets.gen.dart';
-import 'package:xpropertyapp/language/language.dart';
-import 'package:xpropertyapp/routes/routes.dart';
-import 'package:xpropertyapp/views/utils/custom_color.dart';
-import 'package:xpropertyapp/widgets/common/others/custom_image_widget.dart';
-import 'package:xpropertyapp/widgets/common/title_sub_title_widget.dart';
+import '../custom_assets/assets.gen.dart';
+import '../language/language.dart';
+import '../routes/routes.dart';
+import '../views/utils/custom_color.dart';
 import '../views/utils/dimensions.dart';
+import 'common/others/custom_image_widget.dart';
+import 'common/title_sub_title_widget.dart';
 
 class CustomAppBar extends StatefulWidget implements PreferredSizeWidget {
   const CustomAppBar({
@@ -23,16 +24,24 @@ class CustomAppBar extends StatefulWidget implements PreferredSizeWidget {
 class _CustomAppBarState extends State<CustomAppBar> {
   @override
   Widget build(BuildContext context) {
-    return AppBar(
-      backgroundColor: CustomColor.whiteColor,
-      titleSpacing: Dimensions.heightSize * 0.6,
-      toolbarHeight: Dimensions.heightSize * 5,
-      leadingWidth: Dimensions.widthSize * 7,
-      leading: _logoWidget(),
-      title: _appBarTitleSubTitleWidget(),
-      actions: [
-        _actionButton(),
-      ],
+    return Padding(
+      padding: EdgeInsets.only(top: Dimensions.paddingSize * 0.4),
+      child: AppBar(
+        scrolledUnderElevation: 0,
+        backgroundColor: CustomColor.whiteColor,
+        titleSpacing: Dimensions.heightSize * 0.6,
+        toolbarHeight: Dimensions.heightSize * 5,
+        leadingWidth: Dimensions.widthSize * 7,
+        leading: _logoWidget(),
+        title: _appBarTitleSubTitleWidget(),
+        actions: [
+          _actionButton(),
+        ],
+        systemOverlayStyle: const SystemUiOverlayStyle(
+          statusBarColor: CustomColor.primaryLightColor,
+          statusBarIconBrightness: Brightness.light,
+        ),
+      ),
     );
   }
 
@@ -107,7 +116,7 @@ class _CustomAppBarState extends State<CustomAppBar> {
       child: TitleSubTitleWidget(
         subTitleFonWeight: FontWeight.bold,
         fontWeight: FontWeight.w500,
-        titleFontSize: Dimensions.headingTextSize3,
+        titleFontSize: Dimensions.headingTextSize3 * 1.1,
         isCenterText: true,
         title: Strings.appName,
         subTitle: Strings.findYourNook,

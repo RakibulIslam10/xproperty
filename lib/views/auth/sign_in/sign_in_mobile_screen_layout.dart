@@ -1,20 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:xpropertyapp/routes/routes.dart';
-import 'package:xpropertyapp/views/utils/dimensions.dart';
-import 'package:xpropertyapp/widgets/common/title_sub_title_widget.dart';
-import 'package:xpropertyapp/widgets/custom_paint_widget.dart';
 import '../../../custom_assets/assets.gen.dart';
 import '../../../language/language.dart';
+import '../../../routes/routes.dart';
 import '../../../widgets/common/appbar/back_button.dart';
 import '../../../widgets/common/buttons/primary_button.dart';
 import '../../../widgets/common/inputs/my_input_filed.dart';
 import '../../../widgets/common/others/custom_image_widget.dart';
 import '../../../widgets/common/text_lebels/title_heading2_widget.dart';
 import '../../../widgets/common/text_lebels/title_heading4_widget.dart';
+import '../../../widgets/common/title_sub_title_widget.dart';
 import '../../../widgets/custom_circular_container_widget.dart';
+import '../../../widgets/custom_paint_widget.dart';
 import '../../res/assets_res.dart';
 import '../../utils/custom_color.dart';
+import '../../utils/dimensions.dart';
 import '../../utils/size.dart';
 
 class SignInMobileScreenLayout extends StatelessWidget {
@@ -108,104 +108,122 @@ class SignInMobileScreenLayout extends StatelessWidget {
   _threeButtonWidget() {
     return Column(
       children: [
-        verticalSpace(Dimensions.marginSizeVertical),
+        _signInButton(),
+        _textWidget(),
+        verticalSpace(Dimensions.marginSizeVertical * 1.5),
+        _googleSignInButton(),
+        verticalSpace(Dimensions.marginSizeVertical * 0.5),
+        _facebookSignInButton(),
+      ],
+    );
+  }
+
+  _facebookSignInButton() {
+    return Stack(
+      children: [
         PrimaryButton(
           fontWeight: FontWeight.bold,
-          title: Strings.signIn,
-          fontSize: Dimensions.headingTextSize2,
+          title: Strings.signUpInWithFacebook,
+          fontSize: Dimensions.headingTextSize3,
           buttonTextColor: CustomColor.whiteColor,
-          buttonColor: CustomColor.primaryLightColor,
+          buttonColor: CustomColor.secondaryLightColor,
           radius: Dimensions.radius * 22,
           borderColor: Colors.transparent,
           onPressed: () {
             Get.toNamed(Routes.navigationScreen);
           },
         ),
-        verticalSpace(Dimensions.marginSizeVertical * 0.5),
-        Row(
-          mainAxisAlignment: mainCenter,
-          children: [
-            TitleHeading2Widget(
-              fontWeight: FontWeight.normal,
-              text: Strings.dontHaveAnAccount,
-              fontSize: Dimensions.headingTextSize4,
-              color: CustomColor.primaryLightColor.withOpacity(0.60),
-            ),
-            horizontalSpace(Dimensions.marginSizeHorizontal * 0.4),
-            GestureDetector(
-              onTap: () {
-                Get.toNamed(Routes.signUpScreen);
-              },
-              child: const TitleHeading4Widget(
-                text: Strings.signUp,
-                fontWeight: FontWeight.bold,
-                color: CustomColor.primaryLightColor,
+        Positioned(
+            top: 5,
+            bottom: 5,
+            left: 5,
+            child: CircleAvatar(
+              backgroundColor: CustomColor.whiteColor,
+              radius: Dimensions.iconSizeLarge,
+              child: CustomImageWidget(
+                path: Assets.icons.facebook.path,
+                height: Dimensions.iconSizeLarge,
+                width: Dimensions.iconSizeLarge, // Adjust width as needed
               ),
-            ),
-          ],
-        ),
-        verticalSpace(Dimensions.marginSizeVertical * 1.5),
-        Stack(
-          children: [
-            PrimaryButton(
-              fontWeight: FontWeight.bold,
-              title: Strings.signUpInWithGoogle,
-              fontSize: Dimensions.headingTextSize3,
-              buttonTextColor: CustomColor.whiteColor,
-              buttonColor: CustomColor.secondaryLightColor,
-              radius: Dimensions.radius * 22,
-              borderColor: Colors.transparent,
-              onPressed: () {
-                Get.toNamed(Routes.navigationScreen);
-              },
-            ),
-            Positioned(
-                top: 5,
-                bottom: 5,
-                left: 5,
-                child: CircleAvatar(
-                  backgroundColor: CustomColor.whiteColor,
-                  radius: Dimensions.iconSizeLarge,
-                  child: CustomImageWidget(
-                    path: Assets.icons.google.path,
-                    height: Dimensions.iconSizeLarge,
-                    width: Dimensions.iconSizeLarge, // Adjust width as needed
-                  ),
-                ))
-          ],
-        ),
-        verticalSpace(Dimensions.heightSize),
-        Stack(
-          children: [
-            PrimaryButton(
-              fontWeight: FontWeight.bold,
-              title: Strings.signUpInWithFacebook,
-              fontSize: Dimensions.headingTextSize3,
-              buttonTextColor: CustomColor.whiteColor,
-              buttonColor: CustomColor.secondaryLightColor,
-              radius: Dimensions.radius * 22,
-              borderColor: Colors.transparent,
-              onPressed: () {
-                Get.toNamed(Routes.navigationScreen);
-              },
-            ),
-            Positioned(
-                top: 5,
-                bottom: 5,
-                left: 5,
-                child: CircleAvatar(
-                  backgroundColor: CustomColor.whiteColor,
-                  radius: Dimensions.iconSizeLarge,
-                  child: CustomImageWidget(
-                    path: Assets.icons.facebook.path,
-                    height: Dimensions.iconSizeLarge,
-                    width: Dimensions.iconSizeLarge, // Adjust width as needed
-                  ),
-                ))
-          ],
-        ),
-        verticalSpace(Dimensions.heightSize),
+            ))
       ],
+    );
+  }
+
+  _googleSignInButton() {
+    return Stack(
+      children: [
+        PrimaryButton(
+          fontWeight: FontWeight.bold,
+          title: Strings.signUpInWithGoogle,
+          fontSize: Dimensions.headingTextSize3,
+          buttonTextColor: CustomColor.whiteColor,
+          buttonColor: CustomColor.secondaryLightColor,
+          radius: Dimensions.radius * 22,
+          borderColor: Colors.transparent,
+          onPressed: () {
+            Get.toNamed(Routes.navigationScreen);
+          },
+        ),
+        Positioned(
+            top: 5,
+            bottom: 5,
+            left: 5,
+            child: CircleAvatar(
+              backgroundColor: CustomColor.whiteColor,
+              radius: Dimensions.iconSizeLarge,
+              child: CustomImageWidget(
+                path: Assets.icons.google.path,
+                height: Dimensions.iconSizeLarge,
+                width: Dimensions.iconSizeLarge, // Adjust width as needed
+              ),
+            ))
+      ],
+    );
+  }
+
+  _textWidget() {
+    return Row(
+      mainAxisAlignment: mainCenter,
+      children: [
+        TitleHeading2Widget(
+          fontWeight: FontWeight.normal,
+          text: Strings.dontHaveAnAccount,
+          fontSize: Dimensions.headingTextSize4,
+          color: CustomColor.primaryLightColor.withOpacity(0.60),
+        ),
+        horizontalSpace(Dimensions.marginSizeHorizontal * 0.4),
+        GestureDetector(
+          onTap: () {
+            Get.toNamed(Routes.signUpScreen);
+          },
+          child: const TitleHeading4Widget(
+            text: Strings.signUp,
+            fontWeight: FontWeight.bold,
+            color: CustomColor.primaryLightColor,
+          ),
+        ),
+      ],
+    );
+  }
+
+   _signInButton() {
+    return Padding(
+      padding: EdgeInsets.only(
+          top: Dimensions.marginSizeVertical,
+          bottom: Dimensions.marginSizeVertical * 0.5),
+      child: PrimaryButton(
+        fontWeight: FontWeight.bold,
+        title: Strings.signIn,
+        fontSize: Dimensions.headingTextSize2,
+        buttonTextColor: CustomColor.whiteColor,
+        buttonColor: CustomColor.primaryLightColor,
+        radius: Dimensions.radius * 22,
+        borderColor: Colors.transparent,
+        onPressed: () {
+          Get.toNamed(Routes.navigationScreen);
+        },
+      ),
     );
   }
 

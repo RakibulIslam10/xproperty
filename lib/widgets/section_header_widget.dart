@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:xpropertyapp/views/utils/custom_color.dart';
-import 'package:xpropertyapp/views/utils/dimensions.dart';
-import 'package:xpropertyapp/views/utils/size.dart';
-
 import '../language/language.dart';
+import '../views/utils/custom_color.dart';
+import '../views/utils/dimensions.dart';
+import '../views/utils/size.dart';
 
 class SectionHeader extends StatelessWidget {
   const SectionHeader({
@@ -33,11 +32,13 @@ class SectionHeader extends StatelessWidget {
           ),
           TextButton(
             onPressed: onTapSeeAll,
-           child: Text(Strings.seeAll,
-             style: TextStyle(
-                 fontSize: Dimensions.headingTextSize3 * 1,
-                 color: CustomColor.primaryLightColor,
-                 fontWeight: FontWeight.bold),),
+            child: Text(
+              Strings.seeAll,
+              style: TextStyle(
+                  fontSize: Dimensions.headingTextSize3 * 1,
+                  color: CustomColor.primaryLightColor,
+                  fontWeight: FontWeight.bold),
+            ),
           )
         ],
       ),

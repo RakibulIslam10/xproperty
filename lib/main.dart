@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'package:xpropertyapp/routes/routes.dart';
-import 'package:xpropertyapp/views/utils/custom_color.dart';
+import 'package:xproperty/routes/routes.dart';
+import 'package:xproperty/views/utils/custom_color.dart';
 
 void main() {
   runApp(

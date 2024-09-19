@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
-import 'package:xpropertyapp/views/utils/custom_color.dart';
+
+import '../views/utils/custom_color.dart';
 
 class CustomCircularContainer extends StatelessWidget {
   final double top;
@@ -7,11 +8,11 @@ class CustomCircularContainer extends StatelessWidget {
   final double size;
 
   const CustomCircularContainer({
-    Key? key,
+    super.key,
     required this.top,
     required this.left,
     required this.size,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

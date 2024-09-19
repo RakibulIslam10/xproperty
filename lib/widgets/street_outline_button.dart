@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:xpropertyapp/views/utils/custom_color.dart';
-import 'package:xpropertyapp/views/utils/dimensions.dart';
 
 import '../controller/filters_screen/button_color_controlller.dart';
+import '../views/utils/custom_color.dart';
+import '../views/utils/dimensions.dart';
 
 class StreetOutlineButtonWidget extends StatelessWidget {
   final int index;

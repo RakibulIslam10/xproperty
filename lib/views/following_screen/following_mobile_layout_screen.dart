@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:xpropertyapp/controller/filters_screen/button_color_controlller.dart';
 import '../../controller/followers_screen/follow_button_controller.dart';
 import '../../custom_assets/assets.gen.dart';
 import '../../language/language.dart';

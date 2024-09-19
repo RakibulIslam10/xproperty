@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:xpropertyapp/views/utils/custom_color.dart';
-import 'package:xpropertyapp/views/utils/dimensions.dart';
-import 'package:xpropertyapp/views/utils/size.dart';
-import 'package:xpropertyapp/widgets/common/others/custom_image_widget.dart';
-
+import '../views/utils/custom_color.dart';
+import '../views/utils/dimensions.dart';
+import '../views/utils/size.dart';
+import 'common/others/custom_image_widget.dart';
 import 'common/title_sub_title_widget.dart';
 
 class GridCardWidget extends StatelessWidget {
@@ -13,14 +12,13 @@ class GridCardWidget extends StatelessWidget {
   final String subTitle;
   final String subTitle2;
 
-  const GridCardWidget({
-    super.key,
-    required this.title,
-    required this.title2,
-    required this.imageUrl,
-    required this.subTitle,
-    required this.subTitle2
-  });
+  const GridCardWidget(
+      {super.key,
+      required this.title,
+      required this.title2,
+      required this.imageUrl,
+      required this.subTitle,
+      required this.subTitle2});
 
   @override
   Widget build(BuildContext context) {

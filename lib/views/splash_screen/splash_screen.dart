@@ -1,20 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:xpropertyapp/views/utils/custom_color.dart';
-import 'package:xpropertyapp/views/utils/dimensions.dart';
-import 'package:xpropertyapp/widgets/common/others/custom_image_widget.dart';
-import 'package:xpropertyapp/widgets/common/title_sub_title_widget.dart';
 import '../../language/language.dart';
+import '../../widgets/common/others/custom_image_widget.dart';
+import '../../widgets/common/title_sub_title_widget.dart';
 import '../res/assets_res.dart';
+import '../utils/custom_color.dart';
+import '../utils/dimensions.dart';
 import '../utils/size.dart';
 
-class SplashScreen extends StatefulWidget {
+class SplashScreen extends StatelessWidget {
   const SplashScreen({super.key});
 
-  @override
-  State<SplashScreen> createState() => _SplashScreenState();
-}
-
-class _SplashScreenState extends State<SplashScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(

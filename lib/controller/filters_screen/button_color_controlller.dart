@@ -1,5 +1,6 @@
 import 'package:get/get.dart';
-import 'package:xpropertyapp/language/language.dart';
+
+import '../../language/language.dart';
 
 class ButtonColorController extends GetxController {
   RxInt myIndex = 0.obs;

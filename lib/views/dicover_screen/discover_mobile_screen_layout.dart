@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:xpropertyapp/views/drawer_menu_screen/drawer_menu_mobile_layout_screen.dart';
 import '../../custom_assets/assets.gen.dart';
 import '../../language/language.dart';
 import '../../routes/routes.dart';
@@ -10,6 +9,7 @@ import '../../widgets/custom_app_bar_widget.dart';
 import '../../widgets/custom_circular_container_widget.dart';
 import '../../widgets/list_card_widget.dart';
 import '../../widgets/listing_data.dart';
+import '../drawer_menu_screen/drawer_menu_mobile_layout_screen.dart';
 import '../utils/custom_color.dart';
 import '../utils/dimensions.dart';
 

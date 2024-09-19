@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:get/get.dart';
-import 'package:xpropertyapp/custom_assets/assets.gen.dart';
-import 'package:xpropertyapp/views/res/assets_res.dart';
+import '../../custom_assets/assets.gen.dart';
 import '../../language/language.dart';
 import '../../routes/routes.dart';
 import '../../widgets/background_widget/background_widget.dart';
 import '../../widgets/common/others/custom_image_widget.dart';
 import '../../widgets/common/text_lebels/title_heading2_widget.dart';
+import '../../widgets/profile_picture_status_widget.dart';
+import '../res/assets_res.dart';
 import '../utils/custom_color.dart';
 import '../utils/dimensions.dart';
 import '../utils/size.dart';
@@ -87,7 +89,7 @@ class AudioCallMobileLayoutScreen extends StatelessWidget {
             color: CustomColor.whiteColor,
           ),
         ),
-        horizontalSpace(Dimensions.marginSizeHorizontal),
+        horizontalSpace(Dimensions.marginSizeHorizontal * 0.6),
         GestureDetector(
           onTap: () {
             Get.back();
@@ -108,22 +110,25 @@ class AudioCallMobileLayoutScreen extends StatelessWidget {
 
   _appBarWidget() {
     return AppBar(
-        automaticallyImplyLeading: false,
-        backgroundColor: Colors.transparent,
-        actions: [_callButtonWidget()],
-        title: _logoAndTextWidget());
+      toolbarHeight: Dimensions.heightSize * 5.5,
+      automaticallyImplyLeading: false,
+      backgroundColor: Colors.transparent,
+      actions: [_emailButtonWidget()],
+      title: _logoAndTextWidget(),
+      systemOverlayStyle: const SystemUiOverlayStyle(
+        statusBarColor: CustomColor.primaryLightColor,
+        statusBarIconBrightness: Brightness.light,
+      ),
+    );
   }
 
   _logoAndTextWidget() {
     return Row(
       children: [
-        CircleAvatar(
-          backgroundImage: AssetImage(Assets.background.personProfile.path),
-          radius: Dimensions.radius * 2.4,
-        ),
+        const ProfilePictureStatusWidget(),
         Padding(
-          padding:
-              EdgeInsets.symmetric(horizontal: Dimensions.marginSizeHorizontal),
+          padding: EdgeInsets.symmetric(
+              horizontal: Dimensions.marginSizeHorizontal * 0.4),
           child: Column(
             crossAxisAlignment: crossStart,
             children: [
@@ -145,7 +150,7 @@ class AudioCallMobileLayoutScreen extends StatelessWidget {
     );
   }
 
-  _callButtonWidget() {
+  _emailButtonWidget() {
     return Padding(
       padding: EdgeInsets.symmetric(
           horizontal: Dimensions.marginSizeHorizontal * 0.5),
@@ -155,6 +160,8 @@ class AudioCallMobileLayoutScreen extends StatelessWidget {
           },
           icon: CustomImageWidget(
             path: Assets.icons.iconMail,
+            height: Dimensions.heightSize,
+            width: Dimensions.widthSize * 2,
             color: CustomColor.whiteColor,
           )),
     );

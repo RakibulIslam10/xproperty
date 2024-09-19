@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:xpropertyapp/routes/routes.dart';
-import 'package:xpropertyapp/views/utils/custom_color.dart';
-import 'package:xpropertyapp/views/utils/size.dart';
-import 'package:xpropertyapp/widgets/custom_dower_items_list_widget.dart';
 import '../../controller/navigation/navigation_controller.dart';
 import '../../custom_assets/assets.gen.dart';
 import '../../language/language.dart';
+import '../../routes/routes.dart';
 import '../../widgets/common/title_sub_title_widget.dart';
+import '../../widgets/custom_dower_items_list_widget.dart';
+import '../utils/custom_color.dart';
 import '../utils/dimensions.dart';
+import '../utils/size.dart';
 
 class MyDrawerMenu extends StatelessWidget {
   MyDrawerMenu({super.key});
@@ -89,13 +89,15 @@ class MyDrawerMenu extends StatelessWidget {
             text: Strings.termsAndPolicies,
             backgroundColor: CustomColor.whiteColor),
         CustomDowerItemsListWidget(
-            onTap: () {},
+            onTap: () {
+              Get.toNamed(Routes.changePasswordScreen);
+            },
             iconPath: Assets.icons.iconKey,
             text: Strings.changePassword,
             backgroundColor: CustomColor.whiteColor),
         CustomDowerItemsListWidget(
             onTap: () {
-              Get.toNamed(Routes.welcomeScreen);
+              Get.offAllNamed(Routes.welcomeScreen);
             },
             iconPath: Assets.icons.iconPowerO,
             text: Strings.signOut,

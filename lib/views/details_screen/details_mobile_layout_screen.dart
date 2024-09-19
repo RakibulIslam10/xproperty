@@ -1,17 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:xpropertyapp/views/utils/size.dart';
-import 'package:xpropertyapp/widgets/common/others/custom_image_widget.dart';
-import 'package:xpropertyapp/widgets/common/text_lebels/title_heading1_widget.dart';
-import 'package:xpropertyapp/widgets/common/title_sub_title_widget.dart';
 import '../../custom_assets/assets.gen.dart';
 import '../../language/language.dart';
 import '../../routes/routes.dart';
+import '../../widgets/common/others/custom_image_widget.dart';
+import '../../widgets/common/text_lebels/title_heading1_widget.dart';
 import '../../widgets/common/text_lebels/title_heading2_widget.dart';
+import '../../widgets/common/title_sub_title_widget.dart';
 import '../../widgets/list_card_widget.dart';
 import '../../widgets/listing_data.dart';
 import '../utils/custom_color.dart';
 import '../utils/dimensions.dart';
+import '../utils/size.dart';
 
 class DetailsMobileLayoutScreen extends StatefulWidget {
   const DetailsMobileLayoutScreen({super.key});
@@ -86,7 +86,7 @@ class _DetailsMobileLayoutScreenState extends State<DetailsMobileLayoutScreen> {
       child: Column(
         crossAxisAlignment: crossStart,
         children: [
-          verticalSpace(Dimensions.marginSizeVertical * 0.6),
+          verticalSpace(Dimensions.marginSizeVertical * 1.2),
           _backButtonWidget(),
           verticalSpace(Dimensions.marginSizeVertical * 2),
           TitleSubTitleWidget(
@@ -214,7 +214,7 @@ class _DetailsMobileLayoutScreenState extends State<DetailsMobileLayoutScreen> {
               ),
               child: CustomImageWidget(
                 path: Assets.background.house.path,
-                height: Dimensions.heightSize * 17,
+                height: Dimensions.heightSize * 18,
                 width: double.infinity,
               ),
             )),

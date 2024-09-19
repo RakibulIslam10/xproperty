@@ -1,5 +1,5 @@
 import 'package:get/get.dart';
-import 'package:xpropertyapp/routes/routes.dart';
+import '../../routes/routes.dart';
 import '../../views/res/assets_res.dart';
 import 'onboarding_info.dart';
 

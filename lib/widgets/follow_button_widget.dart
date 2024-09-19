@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:xpropertyapp/views/utils/custom_color.dart';
-import 'package:xpropertyapp/views/utils/dimensions.dart';
+import '../views/utils/custom_color.dart';
+import '../views/utils/dimensions.dart';
 
 class CustomButton extends StatelessWidget {
   final VoidCallback onPressed;
@@ -29,7 +29,7 @@ class CustomButton extends StatelessWidget {
               vertical: Dimensions.marginSizeVertical * 0.4),
         ),
         child: Text(
-          '$text',
+          text,
           style: TextStyle(fontSize: Dimensions.headingTextSize6),
         ),
       ),

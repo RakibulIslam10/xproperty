@@ -1,17 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:xpropertyapp/views/drawer_menu_screen/drawer_menu_mobile_layout_screen.dart';
-import 'package:xpropertyapp/views/utils/custom_color.dart';
-import 'package:xpropertyapp/views/utils/size.dart';
-import 'package:xpropertyapp/widgets/common/others/custom_image_widget.dart';
-import 'package:xpropertyapp/widgets/common/title_sub_title_widget.dart';
-import 'package:xpropertyapp/widgets/custom_app_bar_widget.dart';
 import '../../custom_assets/assets.gen.dart';
 import '../../language/language.dart';
 import '../../routes/routes.dart';
+import '../../widgets/common/others/custom_image_widget.dart';
+import '../../widgets/common/title_sub_title_widget.dart';
+import '../../widgets/custom_app_bar_widget.dart';
 import '../../widgets/list_card_widget.dart';
 import '../../widgets/listing_data.dart';
+import '../drawer_menu_screen/drawer_menu_mobile_layout_screen.dart';
+import '../utils/custom_color.dart';
 import '../utils/dimensions.dart';
+import '../utils/size.dart';
 
 class ProfileMobileScreenLayout extends StatelessWidget {
   const ProfileMobileScreenLayout({super.key});

@@ -1,4 +1,4 @@
-import 'package:xpropertyapp/custom_assets/assets.gen.dart';
+import '../custom_assets/assets.gen.dart';
 import '../language/language.dart';
 
 class GridCustomDataList {

@@ -1,14 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:xpropertyapp/views/dashboard_screen/dashboard_screen.dart';
-import 'package:xpropertyapp/views/dicover_screen/discover_screen.dart';
-import 'package:xpropertyapp/views/inbox_screen/inbox_screen.dart';
-import 'package:xpropertyapp/views/profile_screen/profile_screen.dart';
-import 'package:xpropertyapp/views/utils/custom_color.dart';
-import 'package:xpropertyapp/widgets/common/others/custom_image_widget.dart';
 import '../../controller/navigation/navigation_controller.dart';
 import '../../custom_assets/assets.gen.dart';
 import '../../language/language.dart';
+import '../../widgets/common/others/custom_image_widget.dart';
+import '../utils/custom_color.dart';
 
 class BottomNavScreen extends StatelessWidget {
   BottomNavScreen({super.key});

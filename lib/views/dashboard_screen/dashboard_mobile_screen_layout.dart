@@ -1,19 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
-import 'package:xpropertyapp/custom_assets/assets.gen.dart';
-import 'package:xpropertyapp/routes/routes.dart';
-import 'package:xpropertyapp/views/drawer_menu_screen/drawer_menu_mobile_layout_screen.dart';
-import 'package:xpropertyapp/views/utils/custom_color.dart';
-import 'package:xpropertyapp/widgets/common/custom_search_field_widget.dart';
-import 'package:xpropertyapp/widgets/common/others/custom_image_widget.dart';
-import 'package:xpropertyapp/widgets/grid_card_widget.dart';
-import 'package:xpropertyapp/widgets/list_card_widget.dart';
-import 'package:xpropertyapp/widgets/listing_data.dart';
+import '../../custom_assets/assets.gen.dart';
 import '../../language/language.dart';
+import '../../routes/routes.dart';
+import '../../widgets/common/custom_search_field_widget.dart';
+import '../../widgets/common/others/custom_image_widget.dart';
 import '../../widgets/custom_app_bar_widget.dart';
 import '../../widgets/custom_circular_container_widget.dart';
+import '../../widgets/grid_card_widget.dart';
+import '../../widgets/list_card_widget.dart';
+import '../../widgets/listing_data.dart';
 import '../../widgets/section_header_widget.dart';
+import '../drawer_menu_screen/drawer_menu_mobile_layout_screen.dart';
+import '../utils/custom_color.dart';
 import '../utils/dimensions.dart';
 
 class DashboardMobileScreenLayout extends StatelessWidget {
@@ -26,11 +26,11 @@ class DashboardMobileScreenLayout extends StatelessWidget {
     return Scaffold(
       appBar: const CustomAppBar(),
       endDrawer: MyDrawerMenu(),
-      body: _bodyWidget(),
+      body: _bodyWidget(context),
     );
   }
 
-  _bodyWidget() {
+  _bodyWidget(context) {
     return Stack(
       children: [
         _circularContainers(),

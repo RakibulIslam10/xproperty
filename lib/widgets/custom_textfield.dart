@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:xpropertyapp/views/utils/custom_color.dart';
-import 'package:xpropertyapp/views/utils/dimensions.dart';
+
+import '../views/utils/custom_color.dart';
+import '../views/utils/dimensions.dart';
 
 class CustomTextField extends StatelessWidget {
   const CustomTextField({super.key, required this.hintText});

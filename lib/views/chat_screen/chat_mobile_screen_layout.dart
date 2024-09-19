@@ -1,16 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:get/get.dart';
-import 'package:xpropertyapp/custom_assets/assets.gen.dart';
-import 'package:xpropertyapp/routes/routes.dart';
-import 'package:xpropertyapp/views/profile_screen/profile_screen.dart';
-import 'package:xpropertyapp/views/utils/size.dart';
-import 'package:xpropertyapp/widgets/common/others/custom_image_widget.dart';
-import 'package:xpropertyapp/widgets/common/text_lebels/title_heading1_widget.dart';
+import 'package:xproperty/widgets/chat_text_box_widget.dart';
+import 'package:xproperty/widgets/profile_picture_status_widget.dart';
+import '../../custom_assets/assets.gen.dart';
 import '../../language/language.dart';
+import '../../routes/routes.dart';
 import '../../widgets/common/appbar/back_button.dart';
+import '../../widgets/common/others/custom_image_widget.dart';
 import '../../widgets/common/text_lebels/title_heading2_widget.dart';
 import '../utils/custom_color.dart';
 import '../utils/dimensions.dart';
+import '../utils/size.dart';
 
 class ChatMobileScreenLayout extends StatelessWidget {
   const ChatMobileScreenLayout({super.key});
@@ -29,8 +30,8 @@ class ChatMobileScreenLayout extends StatelessWidget {
     return Padding(
       padding: EdgeInsets.only(
           bottom: Dimensions.paddingSize * 4.5,
-          right: Dimensions.paddingSize * 0.25,
-          left: Dimensions.paddingSize * 0.25),
+          right: Dimensions.paddingSize * 0.50,
+          left: Dimensions.paddingSize * 0.50),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisAlignment: mainEnd,
@@ -43,6 +44,9 @@ class ChatMobileScreenLayout extends StatelessWidget {
     );
   }
 
+
+
+
   _typeMessageBoxWidget() {
     return Padding(
       padding: EdgeInsets.all(Dimensions.paddingSize),
@@ -50,19 +54,23 @@ class ChatMobileScreenLayout extends StatelessWidget {
           decoration: BoxDecoration(
               color: CustomColor.greyColor.withOpacity(0.4),
               borderRadius: BorderRadius.circular(Dimensions.radius)),
-          child: Row(
-            children: [
-              Expanded(
-                child: TextFormField(
-                  decoration: const InputDecoration(
-                      hintText: Strings.typeAMessage,
-                      hintStyle: TextStyle(color: CustomColor.greyColor),
-                      border: OutlineInputBorder(borderSide: BorderSide.none)),
-                ),
-              ),
-              _sendButtonWidget(),
-            ],
-          )),
+          child: _textFieldAndSendButtonWidget()),
+    );
+  }
+
+  _textFieldAndSendButtonWidget() {
+    return Row(
+      children: [
+        Expanded(
+          child: TextFormField(
+            decoration: const InputDecoration(
+                hintText: Strings.typeAMessage,
+                hintStyle: TextStyle(color: CustomColor.greyColor),
+                border: OutlineInputBorder(borderSide: BorderSide.none)),
+          ),
+        ),
+        _sendButtonWidget(),
+      ],
     );
   }
 
@@ -96,26 +104,12 @@ class ChatMobileScreenLayout extends StatelessWidget {
                 fontWeight: FontWeight.normal,
               ),
               verticalSpace(Dimensions.heightSize * 0.2),
-              Container(
-                padding: const EdgeInsets.all(10),
-                decoration: BoxDecoration(
-                  color: CustomColor.greyColor.withOpacity(0.5),
-                  borderRadius: const BorderRadius.only(
-                      bottomLeft: Radius.circular(10),
-                      bottomRight: Radius.circular(10),
-                      topRight: Radius.circular(8)),
-                ),
-                child: TitleHeading1Widget(
-                  text: Strings.whatsUpBuddy,
-                  fontSize: Dimensions.headingTextSize3,
-                  fontWeight: FontWeight.w500,
-                ),
-              ),
+              const ChatTextBoxWidget(text: Strings.whatsUpBuddy)
             ],
           ),
         ),
         CircleAvatar(
-            radius: Dimensions.radius * 0.95,
+            radius: Dimensions.radius * 0.90,
             backgroundImage: AssetImage(Assets.logos.man.path)),
       ],
     );
@@ -128,41 +122,51 @@ class ChatMobileScreenLayout extends StatelessWidget {
         Padding(
           padding:
               EdgeInsets.symmetric(vertical: Dimensions.marginSizeVertical),
-          child: CircleAvatar(
-              radius: Dimensions.radius * 3,
-              backgroundImage: AssetImage(Assets.logos.man.path)),
+          child: _logoWidget(),
         ),
         horizontalSpace(Dimensions.marginSizeHorizontal * 0.2),
-        Padding(
-          padding: EdgeInsets.all(Dimensions.paddingSize * 0.3),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              TitleHeading2Widget(
-                text: "10.51 PM",
-                fontSize: Dimensions.headingTextSize6,
-                fontWeight: FontWeight.normal,
-              ),
-              verticalSpace(Dimensions.heightSize * 0.2),
-              Container(
-                padding: EdgeInsets.symmetric(
-                    horizontal: Dimensions.marginSizeHorizontal * 0.7,
-                    vertical: Dimensions.heightSize * 0.7),
-                decoration: BoxDecoration(
-                  color: CustomColor.primaryLightColor,
-                  borderRadius: BorderRadius.only(
-                      bottomLeft: Radius.circular(Dimensions.radius),
-                      bottomRight: Radius.circular(Dimensions.radius),
-                      topRight: Radius.circular(Dimensions.radius)),
-                ),
-                child: TitleHeading1Widget(
-                  text: "Helloo",
-                  fontSize: Dimensions.headingTextSize3,
-                  fontWeight: FontWeight.w500,
-                  color: CustomColor.whiteColor,
-                ),
-              ),
-            ],
+        _textbox(),
+      ],
+    );
+  }
+
+  _textbox() {
+    return Padding(
+      padding: EdgeInsets.all(Dimensions.paddingSize * 0.3),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          TitleHeading2Widget(
+            text: "10.51 PM",
+            fontSize: Dimensions.headingTextSize6,
+            fontWeight: FontWeight.normal,
+          ),
+          verticalSpace(Dimensions.heightSize * 0.2),
+          const ChatTextBoxWidget(
+              textColor: CustomColor.whiteColor,
+              color: CustomColor.primaryLightColor,
+              text: "Helloo")
+        ],
+      ),
+    );
+  }
+
+  _logoWidget() {
+    return Stack(
+      children: [
+        ClipRect(
+          child: CustomImageWidget(
+              path: Assets.logos.man.path,
+              height: Dimensions.heightSize * 2.9,
+              width: Dimensions.heightSize * 3.2),
+        ),
+        Positioned(
+          top: 25,
+          left: 35,
+          child: CustomImageWidget(
+            path: Assets.icons.ellipse30,
+            height: Dimensions.heightSize * 0.7,
+            width: Dimensions.widthSize * 0.8,
           ),
         ),
       ],
@@ -185,23 +189,7 @@ class ChatMobileScreenLayout extends StatelessWidget {
                 fontWeight: FontWeight.normal,
               ),
               verticalSpace(Dimensions.heightSize * 0.2),
-              Container(
-                padding: EdgeInsets.symmetric(
-                    horizontal: Dimensions.marginSizeHorizontal * 0.7,
-                    vertical: Dimensions.heightSize * 0.7),
-                decoration: BoxDecoration(
-                  color: CustomColor.greyColor.withOpacity(0.5),
-                  borderRadius: const BorderRadius.only(
-                      bottomLeft: Radius.circular(10),
-                      bottomRight: Radius.circular(10),
-                      topRight: Radius.circular(8)),
-                ),
-                child: TitleHeading1Widget(
-                  text: "Hii",
-                  fontSize: Dimensions.headingTextSize3,
-                  fontWeight: FontWeight.w500,
-                ),
-              ),
+              const ChatTextBoxWidget(text: "Hii")
             ],
           ),
         ),
@@ -211,60 +199,64 @@ class ChatMobileScreenLayout extends StatelessWidget {
 
   _appBarWidget() {
     return AppBar(
-        backgroundColor: CustomColor.whiteColor,
-        leading: BackButtonWidget(onTap: () {
-          Get.back();
-        }),
-        actions: [_callButtonWidget()],
-        title: _logoAndTextWidget());
+      toolbarHeight: Dimensions.heightSize * 5.5,
+      backgroundColor: CustomColor.whiteColor,
+      leading: _backButton(),
+      title: _logoAndTextWidget(),
+      actions: [_callButtonWidget()],
+      systemOverlayStyle: const SystemUiOverlayStyle(
+        statusBarColor: CustomColor.primaryLightColor,
+        statusBarIconBrightness: Brightness.light,
+      ),
+    );
+  }
+
+  _backButton() {
+    return Padding(
+      padding: EdgeInsets.only(
+          left: Dimensions.paddingSize * 0.45,
+          top: Dimensions.paddingSize * 0.45,
+          bottom: Dimensions.paddingSize * 0.45),
+      child: BackButtonWidget(onTap: () {
+        Get.back();
+      }),
+    );
   }
 
   _logoAndTextWidget() {
     return GestureDetector(
-      onTap: () {},
+      onTap: () {
+        Get.toNamed(Routes.profileScreen);
+      },
       child: Row(
         children: [
-          Stack(
-            children: [
-              ClipRect(
-                child: CustomImageWidget(
-                    path: Assets.logos.man.path,
-                    height: Dimensions.heightSize * 4,
-                    width: Dimensions.heightSize * 4),
-              ),
-              Positioned(
-                top: 35,
-                left: 50,
-                child: CustomImageWidget(
-                  path: Assets.icons.ellipse30,
-                  height: Dimensions.heightSize * 0.8,
-                  width: Dimensions.widthSize * 0.9,
-                ),
-              ),
-            ],
-          ),
+          const ProfilePictureStatusWidget(),
           Padding(
             padding: EdgeInsets.symmetric(
-                horizontal: Dimensions.marginSizeHorizontal),
-            child: Column(
-              crossAxisAlignment: crossStart,
-              children: [
-                TitleHeading2Widget(
-                  text: Strings.lomongi,
-                  color: CustomColor.primaryDarkColor,
-                  fontSize: Dimensions.headingTextSize3,
-                ),
-                TitleHeading2Widget(
-                  text: Strings.businessAccount,
-                  color: CustomColor.greyColor,
-                  fontWeight: FontWeight.normal,
-                  fontSize: Dimensions.headingTextSize6,
-                ),
-              ],
-            ),
-          )
+                horizontal: Dimensions.marginSizeHorizontal * 0.4),
+            child: _titleAndSubTitleWidget(),
+          ),
         ],
       ),
+    );
+  }
+
+  _titleAndSubTitleWidget() {
+    return Column(
+      crossAxisAlignment: crossStart,
+      children: [
+        TitleHeading2Widget(
+          text: Strings.lomongi,
+          color: CustomColor.primaryDarkColor,
+          fontSize: Dimensions.headingTextSize3,
+        ),
+        TitleHeading2Widget(
+          text: Strings.businessAccount,
+          color: CustomColor.greyColor,
+          fontWeight: FontWeight.normal,
+          fontSize: Dimensions.headingTextSize6,
+        ),
+      ],
     );
   }
 

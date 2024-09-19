@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:xpropertyapp/custom_assets/assets.gen.dart';
-import 'package:xpropertyapp/views/utils/custom_color.dart';
-import 'package:xpropertyapp/views/utils/dimensions.dart';
-import 'package:xpropertyapp/widgets/common/appbar/back_button.dart';
-import 'package:xpropertyapp/widgets/common/others/custom_image_widget.dart';
+import '../../custom_assets/assets.gen.dart';
 import '../../language/language.dart';
+import '../../widgets/common/appbar/back_button.dart';
+import '../../widgets/common/others/custom_image_widget.dart';
 import '../../widgets/common/text_lebels/title_heading2_widget.dart';
+import '../utils/custom_color.dart';
+import '../utils/dimensions.dart';
 
 class NotificationsMobileScreenLayout extends StatelessWidget {
   const NotificationsMobileScreenLayout({super.key});
@@ -25,11 +25,13 @@ class NotificationsMobileScreenLayout extends StatelessWidget {
         return ListTile(
           leading: _logoWidget(),
           title: TitleHeading2Widget(
-            text: "Lomongi follow you",color: CustomColor.primaryLightColor,
+            text: "Lomongi follow you",
+            color: CustomColor.primaryLightColor,
             fontSize: Dimensions.headingTextSize4,
           ),
           subtitle: TitleHeading2Widget(
-            text: "11:28 AM 3/1/2022",color: CustomColor.secondaryLightColor,
+            text: "11:28 AM 3/1/2022",
+            color: CustomColor.secondaryLightColor,
             fontSize: Dimensions.headingTextSize6,
           ),
           trailing: CustomImageWidget(path: Assets.icons.iconVertical),

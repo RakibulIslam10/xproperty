@@ -1,21 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:xpropertyapp/routes/routes.dart';
-import 'package:xpropertyapp/views/utils/size.dart';
-import 'package:xpropertyapp/widgets/Custom_slider_widget.dart';
-import 'package:xpropertyapp/widgets/fgarden_filter_button_widget.dart';
 import '../../controller/filters_screen/button_color_controlller.dart';
 import '../../controller/filters_screen/slider_controller.dart';
 import '../../language/language.dart';
+import '../../routes/routes.dart';
+import '../../widgets/Custom_slider_widget.dart';
 import '../../widgets/common/appbar/back_button.dart';
 import '../../widgets/common/buttons/primary_button.dart';
 import '../../widgets/common/text_lebels/title_heading2_widget.dart';
 import '../../widgets/common/text_lebels/title_heading3_widget.dart';
+import '../../widgets/fgarden_filter_button_widget.dart';
 import '../../widgets/number_container_widget.dart';
 import '../../widgets/outline_button_widget.dart';
 import '../../widgets/street_outline_button.dart';
 import '../utils/custom_color.dart';
 import '../utils/dimensions.dart';
+import '../utils/size.dart';
 
 class FiltersMobileScreenLayout extends StatelessWidget {
   FiltersMobileScreenLayout({super.key});

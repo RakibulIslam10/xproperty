@@ -1,7 +1,6 @@
-import 'dart:ui';
 import 'package:flutter/cupertino.dart';
-import 'package:xpropertyapp/widgets/common/text_lebels/title_heading2_widget.dart';
-import 'package:xpropertyapp/widgets/common/text_lebels/title_heading4_widget.dart';
+import 'package:xproperty/widgets/common/text_lebels/title_heading2_widget.dart';
+import 'package:xproperty/widgets/common/text_lebels/title_heading4_widget.dart';
 import '../../views/utils/custom_color.dart';
 import '../../views/utils/dimensions.dart';
 import '../../views/utils/size.dart';
