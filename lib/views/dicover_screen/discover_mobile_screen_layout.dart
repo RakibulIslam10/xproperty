@@ -1,10 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import '../../custom_assets/assets.gen.dart';
-import '../../language/language.dart';
-import '../../routes/routes.dart';
-import '../../widgets/common/others/custom_image_widget.dart';
-import '../../widgets/common/title_sub_title_widget.dart';
 import '../../widgets/custom_app_bar_widget.dart';
 import '../../widgets/custom_circular_container_widget.dart';
 import '../../widgets/list_card_widget.dart';
