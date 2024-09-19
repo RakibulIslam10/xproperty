@@ -70,65 +70,6 @@ class DiscoverMobileScreenLayout extends StatelessWidget {
     );
   }
 
-  _logoWidget() {
-    return Padding(
-      padding: EdgeInsets.only(left: Dimensions.widthSize * 1.8),
-      child: CustomImageWidget(
-        path: Assets.logos.appLogo.path,
-        height: Dimensions.heightSize * 5,
-        width: Dimensions.widthSize * 5,
-      ),
-    );
-  }
-
-  _actionButton() {
-    return Row(
-      children: [
-        Padding(
-          padding: EdgeInsets.symmetric(
-              horizontal: Dimensions.marginSizeHorizontal * 0.4),
-          child: CustomImageWidget(
-            path: Assets.icons.iconMap,
-            height: Dimensions.iconSizeDefault * 1.2,
-          ),
-        ),
-        GestureDetector(
-          onTap: () {
-            Get.toNamed(Routes.notificationScreen);
-          },
-          child: Padding(
-            padding: EdgeInsets.symmetric(
-                horizontal: Dimensions.marginSizeHorizontal * 0.3),
-            child: CustomImageWidget(
-              path: Assets.icons.iconBell,
-              height: Dimensions.iconSizeDefault * 1.2,
-            ),
-          ),
-        ),
-        Padding(
-          padding: EdgeInsets.only(
-              left: Dimensions.marginSizeHorizontal * 0.3,
-              right: Dimensions.marginSizeHorizontal),
-          child: CustomImageWidget(
-            path: Assets.icons.iconMenu,
-            height: Dimensions.iconSizeDefault * 1,
-          ),
-        ),
-      ],
-    );
-  }
-
-  _appBarTitleSubTitleWidget() {
-    return TitleSubTitleWidget(
-      titleFontSize: Dimensions.headingTextSize3,
-      isCenterText: true,
-      title: Strings.appName,
-      subTitle: Strings.findYourNook,
-      subTitleFontSize: Dimensions.headingTextSize6,
-      titleColor: CustomColor.primaryLightColor.withOpacity(1),
-      subTitleColor: CustomColor.secondaryLightColor,
-    );
-  }
 
   _listCardWidget(Map<String, dynamic> myData) {
     return Padding(

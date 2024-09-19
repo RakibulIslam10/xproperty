@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import '../custom_assets/assets.gen.dart';
-import '../views/utils/custom_color.dart';
 import '../views/utils/dimensions.dart';
 import 'common/others/custom_image_widget.dart';
 

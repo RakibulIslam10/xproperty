@@ -12,9 +12,7 @@ import '../utils/dimensions.dart';
 import '../utils/size.dart';
 
 class FollowingMobileLayoutScreen extends StatelessWidget {
-  FollowingMobileLayoutScreen({super.key});
-
-  final _controller = FollowButtonController();
+  const FollowingMobileLayoutScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
