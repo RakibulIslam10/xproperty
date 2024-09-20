@@ -15,7 +15,7 @@ class CustomButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: Dimensions.heightSize * 2.5,
+      height: Dimensions.heightSize * 2,
       child: OutlinedButton(
         onPressed: onPressed,
         style: ElevatedButton.styleFrom(
@@ -24,13 +24,10 @@ class CustomButton extends StatelessWidget {
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(Dimensions.radius * 2),
           ),
-          padding: EdgeInsets.symmetric(
-              horizontal: Dimensions.marginSizeHorizontal,
-              vertical: Dimensions.marginSizeVertical * 0.4),
         ),
         child: Text(
           text,
-          style: TextStyle(fontSize: Dimensions.headingTextSize6),
+          style: TextStyle(fontSize: Dimensions.headingTextSize5,fontWeight: FontWeight.w500),
         ),
       ),
     );

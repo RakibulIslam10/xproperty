@@ -5,6 +5,7 @@ import '../../language/language.dart';
 import '../../widgets/common/appbar/back_button.dart';
 import '../../widgets/common/others/custom_image_widget.dart';
 import '../../widgets/common/text_lebels/title_heading2_widget.dart';
+import '../../widgets/custom_app_Bar.dart';
 import '../../widgets/follow_button_widget.dart';
 import '../utils/custom_color.dart';
 import '../utils/dimensions.dart';
@@ -16,29 +17,8 @@ class FollowingMobileLayoutScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: _appBarWidget(),
+      appBar: const CustomAppBar(title: Strings.following),
       body: _bodyWidget(),
-    );
-  }
-
-  _appBarWidget() {
-    return AppBar(
-      automaticallyImplyLeading: false,
-      backgroundColor: CustomColor.whiteColor,
-      title: Row(
-        mainAxisAlignment: mainStart,
-        children: [
-          BackButtonWidget(onTap: () {
-            Get.back();
-          }),
-          horizontalSpace(Dimensions.marginSizeHorizontal),
-          TitleHeading2Widget(
-            text: Strings.following,
-            fontSize: Dimensions.headingTextSize2 * 1.2,
-            color: CustomColor.primaryLightColor,
-          ),
-        ],
-      ),
     );
   }
 

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import '../views/utils/custom_color.dart';
 import '../views/utils/dimensions.dart';
 import 'common/others/custom_image_widget.dart';
@@ -11,14 +10,12 @@ class CustomDowerItemsListWidget extends StatelessWidget {
   final Color backgroundColor;
   final VoidCallback onTap;
 
-
   const CustomDowerItemsListWidget({
     super.key,
     required this.iconPath,
     required this.text,
     required this.backgroundColor,
     required this.onTap,
-
   });
 
   @override
@@ -30,9 +27,15 @@ class CustomDowerItemsListWidget extends StatelessWidget {
         padding:
             EdgeInsets.symmetric(horizontal: Dimensions.marginSizeHorizontal),
         child: ListTile(
+          minTileHeight: 50,
+          contentPadding:
+              EdgeInsets.symmetric(horizontal: Dimensions.paddingSize),
           onTap: onTap,
           focusColor: CustomColor.primaryLightColor,
-          leading: CustomImageWidget(path: iconPath),
+          leading: CustomImageWidget(
+            path: iconPath,
+            height: Dimensions.heightSize * 1.4,
+          ),
           title: TitleHeading3Widget(
             text: text,
             fontWeight: FontWeight.w500,

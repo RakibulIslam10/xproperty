@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_otp_text_field/flutter_otp_text_field.dart';
 import 'package:get/get.dart';
 import '../../../language/language.dart';
 import '../../../routes/routes.dart';
@@ -25,10 +26,10 @@ class EmailVerificationMobileScreenLayout extends StatelessWidget {
         Padding(
           padding: EdgeInsets.symmetric(
               horizontal: Dimensions.paddingSize,
-              vertical: Dimensions.paddingSize),
+              vertical: Dimensions.paddingSize * 4),
           child: Column(
             children: [
-              const MyInputFiled(label: Strings.skip),
+              _codeFieldWidget(),
               _buttonWidget(),
               _otpResendTextWidget()
             ],
@@ -36,6 +37,15 @@ class EmailVerificationMobileScreenLayout extends StatelessWidget {
         ),
         _circularContainers(),
       ],
+    );
+  }
+
+  _codeFieldWidget() {
+    return OtpTextField(
+      numberOfFields: 4,
+      onSubmit: (value) {},
+      enabledBorderColor: CustomColor.secondaryLightColor,
+      fillColor: CustomColor.secondaryLightColor,
     );
   }
 
@@ -83,13 +93,11 @@ class EmailVerificationMobileScreenLayout extends StatelessWidget {
             ),
           )),
       automaticallyImplyLeading: false,
-      backgroundColor: CustomColor.whiteColor,
+      backgroundColor: Colors.transparent,
       title: Row(
         mainAxisAlignment: mainStart,
         children: [
-          BackButtonWidget(onTap: () {
-            Get.back();
-          }),
+          const BackButtonWidget(),
           horizontalSpace(Dimensions.marginSizeHorizontal),
           const TitleHeading2Widget(
             text: Strings.emailVerification,

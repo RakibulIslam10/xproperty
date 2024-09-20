@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:xproperty/widgets/custom_app_Bar.dart';
+import 'package:xproperty/widgets/dialog_box.dart';
 import '../../custom_assets/assets.gen.dart';
 import '../../language/language.dart';
 import '../../widgets/common/appbar/back_button.dart';
@@ -14,7 +16,7 @@ class NotificationsMobileScreenLayout extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: _appBarWidget(),
+      appBar: const CustomAppBar(title: Strings.notification),
       body: _bodyWidget(),
     );
   }
@@ -34,7 +36,15 @@ class NotificationsMobileScreenLayout extends StatelessWidget {
             color: CustomColor.secondaryLightColor,
             fontSize: Dimensions.headingTextSize6,
           ),
-          trailing: CustomImageWidget(path: Assets.icons.iconVertical),
+          trailing: GestureDetector(
+              onTap: () {
+                showDialog(
+                  context: context,
+                  builder: (BuildContext context) =>
+                      const RemoveFromNotificationDialog(),
+                );
+              },
+              child: CustomImageWidget(path: Assets.icons.iconVertical)),
         );
       },
     );
@@ -42,22 +52,8 @@ class NotificationsMobileScreenLayout extends StatelessWidget {
 
   _logoWidget() {
     return CircleAvatar(
-      backgroundImage: AssetImage(Assets.logos.profilePicture.path),
+      backgroundImage: AssetImage(Assets.background.person.path),
       radius: Dimensions.radius * 2,
-    );
-  }
-
-  _appBarWidget() {
-    return AppBar(
-      backgroundColor: CustomColor.whiteColor,
-      leading: BackButtonWidget(onTap: () {
-        Get.back();
-      }),
-      title: TitleHeading2Widget(
-        text: Strings.notification,
-        fontSize: Dimensions.headingTextSize2 * 1.1,
-        color: CustomColor.primaryLightColor,
-      ),
     );
   }
 }

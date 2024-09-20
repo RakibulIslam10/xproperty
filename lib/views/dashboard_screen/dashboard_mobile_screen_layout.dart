@@ -24,7 +24,7 @@ class DashboardMobileScreenLayout extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: const CustomAppBar(),
+      appBar: const PrimaryAppBar(),
       endDrawer: MyDrawerMenu(),
       body: _bodyWidget(context),
     );
@@ -114,13 +114,11 @@ class DashboardMobileScreenLayout extends StatelessWidget {
 
   _gridViewCardWidget() {
     return SizedBox(
-      height: Dimensions.widthSize * 21,
+      height: Dimensions.heightSize * 16,
       child: GridView.builder(
         scrollDirection: Axis.horizontal,
         gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-          crossAxisCount: 1,
-          mainAxisExtent: 190,
-        ),
+            crossAxisCount: 1, mainAxisExtent: 165),
         itemCount: GridCustomDataList.productsDetails.length,
         itemBuilder: (context, index) {
           final myData = GridCustomDataList.productsDetails[index];
@@ -131,16 +129,19 @@ class DashboardMobileScreenLayout extends StatelessWidget {
   }
 
   _imageSliderWidget() {
-    return Stack(
-      alignment: Alignment.bottomCenter,
-      children: [
-        SizedBox(
-          height: Dimensions.heightSize * 13,
-          width: double.infinity,
-          child: _sliderImageList(),
-        ),
-        _pageIndicatorWidget(),
-      ],
+    return Padding(
+      padding: EdgeInsets.only(top: Dimensions.heightSize),
+      child: Stack(
+        alignment: Alignment.bottomCenter,
+        children: [
+          SizedBox(
+            height: Dimensions.heightSize * 13,
+            width: double.infinity,
+            child: _sliderImageList(),
+          ),
+          _pageIndicatorWidget(),
+        ],
+      ),
     );
   }
 
@@ -186,14 +187,14 @@ class DashboardMobileScreenLayout extends StatelessWidget {
       padding: EdgeInsets.only(bottom: Dimensions.heightSize * 1.4),
       child: SmoothPageIndicator(
         controller: _controller,
-        count: 4,
+        count: 6,
         effect: const ScaleEffect(
           activeDotColor: CustomColor.whiteColor,
           strokeWidth: 10,
           spacing: 16,
-          scale: 2,
-          dotHeight: 6,
-          dotWidth: 6,
+          scale: 1.8,
+          dotHeight: 5,
+          dotWidth: 5,
           dotColor: CustomColor.whiteColor,
         ),
       ),

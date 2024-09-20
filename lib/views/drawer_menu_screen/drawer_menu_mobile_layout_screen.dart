@@ -17,16 +17,18 @@ class MyDrawerMenu extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Drawer(
-      backgroundColor: CustomColor.whiteColor,
-      child: SingleChildScrollView(
-        child: Column(
-          crossAxisAlignment: crossCenter,
-          children: [
-            _logoWidget(),
-            _titleAndSubTitleWidget(),
-            _dowerItemsList(),
-          ],
+    return SafeArea(
+      child: Drawer(
+        backgroundColor: CustomColor.whiteColor,
+        child: SingleChildScrollView(
+          child: Column(
+            crossAxisAlignment: crossCenter,
+            children: [
+              _logoWidget(),
+              _titleAndSubTitleWidget(),
+              _dowerItemsList(),
+            ],
+          ),
         ),
       ),
     );
@@ -109,10 +111,10 @@ class MyDrawerMenu extends StatelessWidget {
   _logoWidget() {
     return Padding(
       padding: EdgeInsets.only(
-          top: Dimensions.heightSize * 3, bottom: Dimensions.heightSize),
+          top: Dimensions.heightSize * 2.5, bottom: Dimensions.heightSize),
       child: CircleAvatar(
         backgroundImage: AssetImage(Assets.background.personProfile.path),
-        radius: Dimensions.radius * 5.2,
+        radius: Dimensions.radius * 4.5,
       ),
     );
   }

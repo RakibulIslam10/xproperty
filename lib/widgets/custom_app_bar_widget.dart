@@ -9,19 +9,19 @@ import '../views/utils/dimensions.dart';
 import 'common/others/custom_image_widget.dart';
 import 'common/title_sub_title_widget.dart';
 
-class CustomAppBar extends StatefulWidget implements PreferredSizeWidget {
-  const CustomAppBar({
+class PrimaryAppBar extends StatefulWidget implements PreferredSizeWidget {
+  const PrimaryAppBar({
     super.key,
   });
 
   @override
-  State<CustomAppBar> createState() => _CustomAppBarState();
+  State<PrimaryAppBar> createState() => _PrimaryAppBarState();
 
   @override
   Size get preferredSize => Size.fromHeight(Dimensions.heightSize * 5);
 }
 
-class _CustomAppBarState extends State<CustomAppBar> {
+class _PrimaryAppBarState extends State<PrimaryAppBar> {
   @override
   Widget build(BuildContext context) {
     return Padding(

@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:xproperty/widgets/custom_app_Bar.dart';
 import '../../controller/filters_screen/button_color_controlller.dart';
 import '../../controller/filters_screen/slider_controller.dart';
 import '../../language/language.dart';
 import '../../routes/routes.dart';
 import '../../widgets/Custom_slider_widget.dart';
-import '../../widgets/common/appbar/back_button.dart';
 import '../../widgets/common/buttons/primary_button.dart';
 import '../../widgets/common/text_lebels/title_heading2_widget.dart';
 import '../../widgets/common/text_lebels/title_heading3_widget.dart';
@@ -26,7 +26,7 @@ class FiltersMobileScreenLayout extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: _appBarWidget(),
+      appBar: const CustomAppBar(title: Strings.filters),
       body: _bodyWidget(),
     );
   }
@@ -42,13 +42,30 @@ class FiltersMobileScreenLayout extends StatelessWidget {
             _outlineButtonList(),
             _priceRangeTextWidget(),
             CustomSliderWidget(controller: _sliderController),
-            const TitleHeading3Widget(text: Strings.bedrooms),
-            NumberedContainer(),
+            _bedroomsTextAndNumberedContainerWidget(),
             _gardenFilterButton(),
             _streetButtonWidget(),
             _buttonWidget(),
           ],
         ),
+      ),
+    );
+  }
+
+  _bedroomsTextAndNumberedContainerWidget() {
+    return Padding(
+      padding: EdgeInsets.only(
+        top: Dimensions.marginSizeVertical,
+      ),
+      child: Column(
+        crossAxisAlignment: crossStart,
+        children: [
+          Padding(
+            padding: EdgeInsets.only(bottom: Dimensions.paddingSize * 0.2),
+            child: const TitleHeading3Widget(text: Strings.bedrooms),
+          ),
+          NumberedContainer(),
+        ],
       ),
     );
   }
@@ -59,7 +76,7 @@ class FiltersMobileScreenLayout extends StatelessWidget {
         Padding(
           padding: EdgeInsets.only(
               right: Dimensions.marginSizeHorizontal * 0.5,
-              bottom: Dimensions.marginSizeVertical * 0.5),
+              bottom: Dimensions.marginSizeVertical),
           child: GardenFilterOutlineButtonWidget(
               index: 0,
               onPressed: () {
@@ -84,8 +101,8 @@ class FiltersMobileScreenLayout extends StatelessWidget {
         const TitleHeading3Widget(text: Strings.street),
         Padding(
           padding: EdgeInsets.only(
-              top: Dimensions.marginSizeVertical * 0.5,
-              bottom: Dimensions.marginSizeVertical * 1.5),
+              top: Dimensions.marginSizeVertical * 0.15,
+              bottom: Dimensions.marginSizeVertical * 1.25),
           child: Row(
             mainAxisAlignment: mainSpaceBet,
             children: [
@@ -141,27 +158,24 @@ class FiltersMobileScreenLayout extends StatelessWidget {
   }
 
   _buttonWidget() {
-    return Padding(
-      padding: EdgeInsets.only(top: Dimensions.paddingSize * 2),
-      child: PrimaryButton(
-        fontWeight: FontWeight.bold,
-        title: Strings.showProperties,
-        fontSize: Dimensions.headingTextSize2,
-        buttonTextColor: CustomColor.whiteColor,
-        buttonColor: CustomColor.primaryLightColor,
-        radius: Dimensions.radius * 25,
-        borderColor: Colors.transparent,
-        onPressed: () {
-          Get.toNamed(Routes.propertyScreen);
-        },
-      ),
+    return PrimaryButton(
+      fontWeight: FontWeight.bold,
+      title: Strings.showProperties,
+      fontSize: Dimensions.headingTextSize2,
+      buttonTextColor: CustomColor.whiteColor,
+      buttonColor: CustomColor.primaryLightColor,
+      radius: Dimensions.radius * 25,
+      borderColor: Colors.transparent,
+      onPressed: () {
+        Get.toNamed(Routes.propertyScreen);
+      },
     );
   }
 
   _priceRangeTextWidget() {
     return Padding(
       padding: EdgeInsets.only(
-          top: Dimensions.marginSizeVertical * 0.8,
+          top: Dimensions.marginSizeVertical,
           bottom: Dimensions.marginSizeVertical * 0.4),
       child: Row(
         mainAxisAlignment: mainSpaceBet,
@@ -184,7 +198,7 @@ class FiltersMobileScreenLayout extends StatelessWidget {
         children: [
           const TitleHeading3Widget(text: Strings.lookingFor),
           SizedBox(
-            height: Dimensions.heightSize * 3,
+            height: Dimensions.heightSize * 2.8,
             child: ListView.builder(
               shrinkWrap: true,
               scrollDirection: Axis.horizontal,
@@ -219,27 +233,6 @@ class FiltersMobileScreenLayout extends StatelessWidget {
               },
             ),
           )
-        ],
-      ),
-    );
-  }
-
-  _appBarWidget() {
-    return AppBar(
-      automaticallyImplyLeading: false,
-      backgroundColor: CustomColor.whiteColor,
-      title: Row(
-        mainAxisAlignment: mainStart,
-        children: [
-          BackButtonWidget(onTap: () {
-            Get.back();
-          }),
-          horizontalSpace(Dimensions.marginSizeHorizontal),
-          TitleHeading2Widget(
-            text: Strings.filters,
-            fontSize: Dimensions.headingTextSize2 * 1,
-            color: CustomColor.primaryLightColor,
-          ),
         ],
       ),
     );

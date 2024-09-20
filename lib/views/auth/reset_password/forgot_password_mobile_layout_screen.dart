@@ -110,13 +110,11 @@ class ForgotPasswordMobileLayoutScreen extends StatelessWidget {
             ),
           )),
       automaticallyImplyLeading: false,
-      backgroundColor: CustomColor.whiteColor,
+      backgroundColor: Colors.transparent,
       title: Row(
         mainAxisAlignment: mainStart,
         children: [
-          BackButtonWidget(onTap: () {
-            Get.back();
-          }),
+          const BackButtonWidget(),
           horizontalSpace(Dimensions.marginSizeHorizontal),
           const TitleHeading2Widget(
             text: Strings.forgotPassword2,

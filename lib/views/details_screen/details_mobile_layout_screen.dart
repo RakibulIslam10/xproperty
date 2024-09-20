@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import '../../custom_assets/assets.gen.dart';
 import '../../language/language.dart';
 import '../../routes/routes.dart';
+import '../../widgets/call_and_message_dual_button_widget.dart';
 import '../../widgets/common/others/custom_image_widget.dart';
 import '../../widgets/common/text_lebels/title_heading1_widget.dart';
 import '../../widgets/common/text_lebels/title_heading2_widget.dart';
@@ -13,15 +14,9 @@ import '../utils/custom_color.dart';
 import '../utils/dimensions.dart';
 import '../utils/size.dart';
 
-class DetailsMobileLayoutScreen extends StatefulWidget {
-  const DetailsMobileLayoutScreen({super.key});
+class DetailsMobileLayoutScreen extends StatelessWidget {
+  DetailsMobileLayoutScreen({super.key});
 
-  @override
-  State<DetailsMobileLayoutScreen> createState() =>
-      _DetailsMobileLayoutScreenState();
-}
-
-class _DetailsMobileLayoutScreenState extends State<DetailsMobileLayoutScreen> {
   final List<String> imageList = [
     Assets.background.house.path,
     Assets.background.house.path,
@@ -105,7 +100,7 @@ class _DetailsMobileLayoutScreenState extends State<DetailsMobileLayoutScreen> {
       crossAxisAlignment: crossStart,
       children: [
         Padding(
-          padding: EdgeInsets.only(top: Dimensions.marginSizeVertical * 0.4),
+          padding: EdgeInsets.only(top: Dimensions.marginSizeVertical * 0.5),
           child: TitleHeading2Widget(
             text: Strings.recommended,
             fontSize: Dimensions.headingTextSize2,
@@ -121,7 +116,8 @@ class _DetailsMobileLayoutScreenState extends State<DetailsMobileLayoutScreen> {
               return _listCardWidget(myData);
             },
           ),
-        )
+        ),
+        verticalSpace(Dimensions.marginSizeVertical * 0.5)
       ],
     );
   }
@@ -385,70 +381,8 @@ class _DetailsMobileLayoutScreenState extends State<DetailsMobileLayoutScreen> {
   }
 
   _buttonWidget() {
-    return Row(
-      mainAxisAlignment: mainCenter,
-      children: [
-        SizedBox(
-          height: Dimensions.heightSize * 3.5,
-          width: Dimensions.widthSize * 12,
-          child: ElevatedButton(
-            onPressed: () async {},
-            style: ElevatedButton.styleFrom(
-              backgroundColor: Colors.grey.withOpacity(0.1),
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(Dimensions.radius * 1.5),
-              ),
-            ),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: [
-                CustomImageWidget(
-                  path: Assets.icons.iconCall,
-                  color: CustomColor.primaryLightColor,
-                ),
-                const SizedBox(width: 8.0),
-                Text(Strings.call,
-                    style: TextStyle(
-                        fontWeight: FontWeight.w500,
-                        fontSize: Dimensions.headingTextSize3,
-                        color: CustomColor.primaryDarkColor)),
-              ],
-            ),
-          ),
-        ),
-        horizontalSpace(Dimensions.marginSizeHorizontal),
-        SizedBox(
-          height: Dimensions.heightSize * 3.5,
-          width: Dimensions.widthSize * 15,
-          child: ElevatedButton(
-            onPressed: () async {
-              Get.toNamed(Routes.chatScreen);
-            },
-            style: ElevatedButton.styleFrom(
-              backgroundColor: Colors.grey.withOpacity(0.1),
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(Dimensions.radius * 1.5),
-              ),
-            ),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: [
-                CustomImageWidget(
-                  path: Assets.icons.iconMail,
-                  color: CustomColor.primaryLightColor,
-                ),
-                const SizedBox(width: 8.0),
-                Text(Strings.message,
-                    style: TextStyle(
-                        fontWeight: FontWeight.w500,
-                        fontSize: Dimensions.headingTextSize3,
-                        color: CustomColor.primaryDarkColor)),
-              ],
-            ),
-          ),
-        )
-      ],
-    );
+    return CallAndMessageDualButtonWidget(
+        onCallPressed: () {}, onMessagePressed: () {});
   }
 
   _listCardWidget(Map<String, dynamic> myData) {

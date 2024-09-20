@@ -63,9 +63,11 @@ class ConfirmMobileScreenLayout extends StatelessWidget {
 
   _titleSubTitleWidget() {
     return TitleSubTitleWidget(
+      subTitleFontSize: Dimensions.headingTextSize4,
       isCenterText: true,
       title: Strings.congratulation,
-      subTitle: Strings.yourAccountHasBeenSuccessfullyVerified,
+      titleFontSize: Dimensions.headingTextSize1,
+      subTitle: Strings.yourPasswordHasBeenSuccessfullyChanged,
       subTitleColor: CustomColor.primaryLightColor.withOpacity(0.70),
       titleColor: CustomColor.primaryLightColor.withOpacity(0.90),
     );
@@ -75,7 +77,7 @@ class ConfirmMobileScreenLayout extends StatelessWidget {
     return Padding(
       padding: EdgeInsets.only(top: Dimensions.paddingSize * 3),
       child: CustomImageWidget(
-        path: Assets.background.congratulations.path,
+        path: Assets.background.congratulation2Png.path,
         width: Dimensions.widthSize * 36,
         height: Dimensions.heightSize * 20,
       ),

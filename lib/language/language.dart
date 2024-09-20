@@ -10,6 +10,10 @@ class Strings {
       "Find Your Nook, In Your Favorite Place.";
   static const String signIn = "Sign In";
   static const String submit = "Submit Now";
+  static const String addressHouseNo = "Address, House No";
+  static const String chooseProvince = "Choose Province";
+  static const String chooseCity = "Choose City";
+  static const String state = "State";
   static const String filters = "Filters";
   static const String agents = "Agents";
   static const String addfor = "ADD FOR";
@@ -53,6 +57,8 @@ class Strings {
       "Your account has been successfully verified";
 
   static const String latestProject = "Latest Project";
+  static const String yourPasswordHasBeenSuccessfullyChanged =
+      "Your password has been successfully changed";
   static const String seeAll = "See All";
   static const String homeForSale = "HOME FOR SALE";
   static const String stationHamptonGA = "Station, Hampton, GA 23423";
@@ -92,6 +98,7 @@ class Strings {
   static const String properties = "Properties";
   static const String propertiesType = "PROPERTY TYPE";
   static const String selectedImage = "SELECT IMAGE";
+  static const String address = "ADDRESS";
 
   static const String addProperty = "Add Property";
   static const String aboutUs = "About Us";
@@ -119,7 +126,8 @@ class Strings {
 
   static const String inquiryForm = "Inquiry Form";
   static const String contactInformation = "Contact Information";
-  static const String address = "Address";
+  static const String address2 = "Address";
+  static const String sqFeet = "SqFeet";
   static const String phoneNumber = "Phone Number";
   static const String websiteUrl = "Website URL";
   static const String userAddress = "000 Susan Apartment, new York, USA";

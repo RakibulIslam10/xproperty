@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:xproperty/widgets/custom_app_Bar.dart';
 import '../../custom_assets/assets.gen.dart';
 import '../../language/language.dart';
 import '../../widgets/common/appbar/back_button.dart';
@@ -16,29 +17,8 @@ class FollowersMobileLayoutScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: _appBarWidget(),
+      appBar: const CustomAppBar(title: Strings.followers),
       body: _bodyWidget(),
-    );
-  }
-
-  _appBarWidget() {
-    return AppBar(
-      automaticallyImplyLeading: false,
-      backgroundColor: CustomColor.whiteColor,
-      title: Row(
-        mainAxisAlignment: mainStart,
-        children: [
-          BackButtonWidget(onTap: () {
-            Get.back();
-          }),
-          horizontalSpace(Dimensions.marginSizeHorizontal),
-          TitleHeading2Widget(
-            text: Strings.followers,
-            fontSize: Dimensions.headingTextSize2 * 1.2,
-            color: CustomColor.primaryLightColor,
-          ),
-        ],
-      ),
     );
   }
 

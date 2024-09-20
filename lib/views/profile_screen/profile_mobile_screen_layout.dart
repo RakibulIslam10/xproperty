@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:xproperty/widgets/call_and_message_dual_button_widget.dart';
 import '../../custom_assets/assets.gen.dart';
 import '../../language/language.dart';
 import '../../routes/routes.dart';
@@ -19,7 +20,7 @@ class ProfileMobileScreenLayout extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: const CustomAppBar(),
+      appBar: const PrimaryAppBar(),
       endDrawer: MyDrawerMenu(),
       body: _bodyWidget(),
     );
@@ -40,7 +41,7 @@ class ProfileMobileScreenLayout extends StatelessWidget {
 
   _listCardWidget() {
     return Padding(
-      padding: EdgeInsets.all(Dimensions.paddingSize * 0.5),
+      padding: EdgeInsets.symmetric(horizontal: Dimensions.paddingSize * 0.4),
       child: ListView.builder(
         primary: false,
         shrinkWrap: true,
@@ -70,7 +71,7 @@ class ProfileMobileScreenLayout extends StatelessWidget {
       padding: EdgeInsets.only(
           top: Dimensions.heightSize * 3, bottom: Dimensions.heightSize),
       child: CircleAvatar(
-        backgroundImage: AssetImage(Assets.logos.profilePicture.path),
+        backgroundImage: AssetImage(Assets.background.personProfile.path),
         radius: Dimensions.radius * 6,
       ),
     );
@@ -157,72 +158,8 @@ class ProfileMobileScreenLayout extends StatelessWidget {
   }
 
   _buttonWidget() {
-    return Row(
-      mainAxisAlignment: mainCenter,
-      children: [
-        SizedBox(
-          height: Dimensions.heightSize * 3.5,
-          width: Dimensions.widthSize * 12,
-          child: ElevatedButton(
-            onPressed: () {
-              Get.toNamed(Routes.audioCallScreen);
-            },
-            style: ElevatedButton.styleFrom(
-              backgroundColor: Colors.grey.withOpacity(0.1),
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(Dimensions.radius * 1.5),
-              ),
-            ),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: [
-                CustomImageWidget(
-                  path: Assets.icons.iconCall,
-                  color: CustomColor.primaryLightColor,
-                ),
-                const SizedBox(width: 8.0),
-                Text(Strings.call,
-                    style: TextStyle(
-                        fontWeight: FontWeight.w500,
-                        fontSize: Dimensions.headingTextSize3,
-                        color: CustomColor.primaryDarkColor)),
-              ],
-            ),
-          ),
-        ),
-        horizontalSpace(Dimensions.marginSizeHorizontal),
-        SizedBox(
-          height: Dimensions.heightSize * 3.5,
-          width: Dimensions.widthSize * 15,
-          child: ElevatedButton(
-            onPressed: () async {
-              Get.toNamed(Routes.chatScreen);
-            },
-            style: ElevatedButton.styleFrom(
-              backgroundColor: Colors.grey.withOpacity(0.1),
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(Dimensions.radius * 1.5),
-              ),
-            ),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: [
-                CustomImageWidget(
-                  path: Assets.icons.iconMail,
-                  color: CustomColor.primaryLightColor,
-                ),
-                const SizedBox(width: 8.0),
-                Text(Strings.message,
-                    style: TextStyle(
-                        fontWeight: FontWeight.w500,
-                        fontSize: Dimensions.headingTextSize3,
-                        color: CustomColor.primaryDarkColor)),
-              ],
-            ),
-          ),
-        )
-      ],
-    );
+    return CallAndMessageDualButtonWidget(
+        onCallPressed: () {}, onMessagePressed: () {});
   }
 
   _listCardItems(Map<String, dynamic> myData) {

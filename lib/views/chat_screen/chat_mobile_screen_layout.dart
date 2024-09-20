@@ -217,9 +217,7 @@ class ChatMobileScreenLayout extends StatelessWidget {
           left: Dimensions.paddingSize * 0.45,
           top: Dimensions.paddingSize * 0.45,
           bottom: Dimensions.paddingSize * 0.45),
-      child: BackButtonWidget(onTap: () {
-        Get.back();
-      }),
+      child: const BackButtonWidget(),
     );
   }
 

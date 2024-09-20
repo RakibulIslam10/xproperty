@@ -187,6 +187,9 @@ class $AssetsIconsGen {
   /// File path: assets/icons/close-eye.svg
   String get closeEye => 'assets/icons/close-eye.svg';
 
+  /// File path: assets/icons/dropdown.svg
+  String get dropdown => 'assets/icons/dropdown.svg';
+
   /// File path: assets/icons/end-call.svg
   String get endCall => 'assets/icons/end-call.svg';
 
@@ -256,6 +259,7 @@ class $AssetsIconsGen {
         bath,
         buildin,
         closeEye,
+        dropdown,
         endCall,
         facebook,
         globe,

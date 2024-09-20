@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:xproperty/widgets/custom_app_Bar.dart';
 import '../../language/language.dart';
 import '../../routes/routes.dart';
 import '../../widgets/common/appbar/back_button.dart';
@@ -16,7 +17,7 @@ class PropertiesMobileLayoutScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: _appBarWidget(),
+      appBar: const CustomAppBar(title: Strings.properties),
       body: _bodyWidget(),
     );
   }
@@ -26,7 +27,8 @@ class PropertiesMobileLayoutScreen extends StatelessWidget {
       children: [
         _circularContainers(),
         Padding(
-          padding: EdgeInsets.all(Dimensions.paddingSize * 0.5),
+          padding:
+              EdgeInsets.symmetric(horizontal: Dimensions.paddingSize * 0.5),
           child: ListView.builder(
             itemCount: ListCustomDataList.productsDetails2.length,
             itemBuilder: (context, index) {
@@ -36,20 +38,6 @@ class PropertiesMobileLayoutScreen extends StatelessWidget {
           ),
         ),
       ],
-    );
-  }
-
-  _appBarWidget() {
-    return AppBar(
-      backgroundColor: CustomColor.whiteColor,
-      leading: BackButtonWidget(onTap: () {
-        Get.back();
-      }),
-      title: TitleHeading2Widget(
-        text: Strings.properties,
-        fontSize: Dimensions.headingTextSize2 * 1.1,
-        color: CustomColor.primaryLightColor,
-      ),
     );
   }
 
@@ -81,24 +69,19 @@ class PropertiesMobileLayoutScreen extends StatelessWidget {
   }
 
   _listCardWidget(Map<String, dynamic> myData) {
-    return Padding(
-      padding: EdgeInsets.symmetric(
-        vertical: Dimensions.heightSize * 0.1,
-      ),
-      child: GestureDetector(
-        onTap: () {
-          Get.toNamed(Routes.newsScreen);
-        },
-        child: Card(
-          color: CustomColor.whiteColor,
-          elevation: 4,
-          child: ListCardItems(
-            title: myData['title'],
-            imageUrl: myData["imageUrl"],
-            subTitle: myData["subTitle"],
-            title2: myData["title2"],
-            subTitle2: myData["subTitle2"],
-          ),
+    return GestureDetector(
+      onTap: () {
+        Get.toNamed(Routes.newsScreen);
+      },
+      child: Card(
+        color: CustomColor.whiteColor,
+        elevation: 4,
+        child: ListCardItems(
+          title: myData['title'],
+          imageUrl: myData["imageUrl"],
+          subTitle: myData["subTitle"],
+          title2: myData["title2"],
+          subTitle2: myData["subTitle2"],
         ),
       ),
     );

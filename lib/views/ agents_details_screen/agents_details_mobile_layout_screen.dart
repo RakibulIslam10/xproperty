@@ -184,7 +184,7 @@ class AgentsDetailsMobileLayoutScreen extends StatelessWidget {
         ),
         horizontalSpace(Dimensions.marginSizeHorizontal),
         const TitleSubTitleWidget(
-            title: Strings.address,
+            title: Strings.address2,
             titleColor: CustomColor.primaryLightColor,
             subTitleColor: CustomColor.secondaryLightColor,
             subTitle: Strings.userAddress),
@@ -299,9 +299,7 @@ class AgentsDetailsMobileLayoutScreen extends StatelessWidget {
   _appBarWidget() {
     return AppBar(
       backgroundColor: CustomColor.whiteColor,
-      leading: BackButtonWidget(onTap: () {
-        Get.back();
-      }),
+      leading:  const BackButtonWidget(),
       title: TitleHeading2Widget(
         text: Strings.agentsDetails,
         fontSize: Dimensions.headingTextSize2 * 1.1,

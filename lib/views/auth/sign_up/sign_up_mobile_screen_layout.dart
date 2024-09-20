@@ -142,7 +142,7 @@ class SignUpMobileScreenLayout extends StatelessWidget {
   _logoWidget() {
     return Padding(
       padding: EdgeInsets.only(
-          top: Dimensions.paddingSize, bottom: Dimensions.paddingSize),
+          top: Dimensions.paddingSize * 0.2, bottom: Dimensions.paddingSize),
       child: Row(
         mainAxisAlignment: mainCenter,
         children: [
@@ -175,14 +175,13 @@ class SignUpMobileScreenLayout extends StatelessWidget {
 
   _appBarWidget() {
     return AppBar(
+
       automaticallyImplyLeading: false,
-      backgroundColor: CustomColor.whiteColor,
+      backgroundColor: Colors.transparent,
       title: Row(
         mainAxisAlignment: mainStart,
         children: [
-          BackButtonWidget(onTap: () {
-            Get.back();
-          }),
+          const BackButtonWidget(),
           horizontalSpace(Dimensions.marginSizeHorizontal),
           const TitleHeading2Widget(
             text: Strings.signUp2,

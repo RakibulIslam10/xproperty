@@ -36,12 +36,14 @@ class SignInMobileScreenLayout extends StatelessWidget {
           padding: EdgeInsets.symmetric(
             horizontal: Dimensions.paddingSize,
           ),
-          child: Column(
-            children: [
-              _logoWidget(),
-              _textFieldWidget(),
-              _threeButtonWidget(),
-            ],
+          child: SingleChildScrollView(
+            child: Column(
+              children: [
+                _logoWidget(),
+                _textFieldWidget(),
+                _threeButtonWidget(),
+              ],
+            ),
           ),
         ),
         _circularContainers(),
@@ -136,7 +138,7 @@ class SignInMobileScreenLayout extends StatelessWidget {
         Positioned(
             top: 5,
             bottom: 5,
-            left: 5,
+            left: 2,
             child: CircleAvatar(
               backgroundColor: CustomColor.whiteColor,
               radius: Dimensions.iconSizeLarge,
@@ -168,7 +170,7 @@ class SignInMobileScreenLayout extends StatelessWidget {
         Positioned(
             top: 5,
             bottom: 5,
-            left: 5,
+            left: 2,
             child: CircleAvatar(
               backgroundColor: CustomColor.whiteColor,
               radius: Dimensions.iconSizeLarge,
@@ -207,10 +209,10 @@ class SignInMobileScreenLayout extends StatelessWidget {
     );
   }
 
-   _signInButton() {
+  _signInButton() {
     return Padding(
       padding: EdgeInsets.only(
-          top: Dimensions.marginSizeVertical,
+          top: Dimensions.marginSizeVertical * 1.6,
           bottom: Dimensions.marginSizeVertical * 0.5),
       child: PrimaryButton(
         fontWeight: FontWeight.bold,
@@ -232,7 +234,8 @@ class SignInMobileScreenLayout extends StatelessWidget {
       crossAxisAlignment: crossEnd,
       children: [
         const MyInputFiled(label: Strings.email),
-        const MyInputFiled(label: Strings.password),
+        const MyInputFiled(
+            suffixIcon: Icons.visibility_off, label: Strings.password),
         GestureDetector(
           onTap: () {
             Get.toNamed(Routes.forgotPasswordScreen);
@@ -283,13 +286,11 @@ class SignInMobileScreenLayout extends StatelessWidget {
   _appBarWidget() {
     return AppBar(
       automaticallyImplyLeading: false,
-      backgroundColor: CustomColor.whiteColor,
+      backgroundColor: Colors.transparent,
       title: Row(
         mainAxisAlignment: mainStart,
         children: [
-          BackButtonWidget(onTap: () {
-            Get.back();
-          }),
+          const BackButtonWidget(),
           horizontalSpace(Dimensions.marginSizeHorizontal),
           const TitleHeading2Widget(
             text: Strings.signIn2,

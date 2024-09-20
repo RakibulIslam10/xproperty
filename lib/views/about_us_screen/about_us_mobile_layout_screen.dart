@@ -30,9 +30,7 @@ class AboutUsMobileLayoutScreen extends StatelessWidget {
       title: Row(
         mainAxisAlignment: mainStart,
         children: [
-          BackButtonWidget(onTap: () {
-            Get.back();
-          }),
+          const BackButtonWidget(),
           horizontalSpace(Dimensions.marginSizeHorizontal),
           TitleHeading2Widget(
             text: Strings.aboutUs,

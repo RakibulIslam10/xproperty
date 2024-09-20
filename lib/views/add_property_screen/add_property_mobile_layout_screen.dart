@@ -1,13 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:xproperty/custom_assets/assets.gen.dart';
+import 'package:xproperty/widgets/common/others/custom_image_widget.dart';
+import 'package:xproperty/widgets/custom_app_Bar.dart';
 import '../../controller/add_property/dropdown_controller.dart';
+import '../../controller/dropdown/dropdown_controller.dart';
 import '../../controller/filters_screen/button_color_controlller.dart';
 import '../../controller/filters_screen/slider_controller.dart';
 import '../../language/language.dart';
 import '../../routes/routes.dart';
 import '../../widgets/Custom_slider_widget.dart';
 import '../../widgets/add_button_container.dart';
-import '../../widgets/common/appbar/back_button.dart';
 import '../../widgets/common/buttons/primary_button.dart';
 import '../../widgets/common/text_lebels/title_heading2_widget.dart';
 import '../../widgets/common/text_lebels/title_heading3_widget.dart';
@@ -28,11 +31,12 @@ class AddPropertyMobileLayoutScreen extends StatelessWidget {
   final _controller = Get.put(ButtonColorController());
   final _sliderController = Get.put(SliderController());
   final dropdownController = Get.put(DropdownController());
+  final ddController = Get.put(DropdownController2());
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: _appBarWidget(),
+      appBar: const CustomAppBar(title: Strings.addProperty),
       body: _bodyWidget(),
     );
   }
@@ -40,8 +44,7 @@ class AddPropertyMobileLayoutScreen extends StatelessWidget {
   _bodyWidget() {
     return Padding(
       padding: EdgeInsets.symmetric(
-        vertical: Dimensions.paddingSize * 0.5,
-        horizontal: Dimensions.paddingSize * 0.8,
+        horizontal: Dimensions.paddingSize * 0.9,
       ),
       child: SingleChildScrollView(
         child: Column(
@@ -90,7 +93,7 @@ class AddPropertyMobileLayoutScreen extends StatelessWidget {
           const TitleHeading3Widget(text: Strings.propertiesType),
           verticalSpace(Dimensions.marginSizeVertical * 0.3),
           SizedBox(
-            height: Dimensions.heightSize * 2.8,
+            height: Dimensions.heightSize * 2.6,
             child: ListView(
               scrollDirection: Axis.horizontal,
               children: [
@@ -130,6 +133,7 @@ class AddPropertyMobileLayoutScreen extends StatelessWidget {
 
   _contactInfoField() {
     return Column(
+      crossAxisAlignment: crossStart,
       children: [
         Padding(
           padding: EdgeInsets.only(top: Dimensions.marginSizeVertical * 0.5),
@@ -138,9 +142,13 @@ class AddPropertyMobileLayoutScreen extends StatelessWidget {
         Padding(
           padding: EdgeInsets.symmetric(
               vertical: Dimensions.marginSizeVertical * 0.4),
-          child: const CustomTextField(hintText: "Email"),
+          child: const CustomTextField(
+            hintText: Strings.email,
+          ),
         ),
-        const CustomTextField(hintText: "Phone Number"),
+        const CustomTextField(
+          hintText: Strings.phoneNumber,
+        ),
       ],
     );
   }
@@ -149,34 +157,71 @@ class AddPropertyMobileLayoutScreen extends StatelessWidget {
     return Column(
       crossAxisAlignment: crossStart,
       children: [
+        _addressDropDownSectionHeader(),
         Padding(
-          padding: EdgeInsets.only(top: Dimensions.marginSizeVertical * 0.5),
-          child: const TitleHeading3Widget(text: Strings.address),
+          padding: EdgeInsets.only(bottom: Dimensions.marginSizeVertical * 0.2),
+          child: const CustomTextField(
+            hintText: Strings.addressHouseNo,
+          ),
         ),
-        const CustomTextField(
-          hintText: "Address, House No",
-        ),
+
         SearchDropdownButton(
           items: dropdownController.genderItems,
-          hintText: 'Choose Province',
+          hintText: Strings.chooseProvince,
           onChanged: (value) {},
         ),
         SearchDropdownButton(
           items: dropdownController.genderItems,
-          hintText: 'Choose City',
+          hintText: Strings.chooseCity,
           onChanged: (value) {},
         ),
         SearchDropdownButton(
           items: dropdownController.genderItems,
-          hintText: 'State',
+          hintText: Strings.state,
           onChanged: (value) {},
         ),
         SearchDropdownButton(
           items: dropdownController.genderItems,
-          hintText: 'Street',
+          hintText: Strings.street,
           onChanged: (value) {},
         ),
       ],
+    );
+  }
+
+  _addressDropDownSectionHeader() {
+    return Row(
+      mainAxisAlignment: mainSpaceBet,
+      children: [
+        const TitleHeading3Widget(text: Strings.address2),
+        TitleHeading3Widget(
+          text: Strings.sqFeet,
+          fontSize: Dimensions.headingTextSize6,
+          color: CustomColor.primaryLightColor,
+        ),
+        _dropdownButtonWidget()
+      ],
+    );
+  }
+
+  _dropdownButtonWidget() {
+    return DropdownButton(
+      icon: CustomImageWidget(
+        path: Assets.icons.dropdown,
+        height: Dimensions.heightSize * 0.3,
+      ),
+      items: ddController.sqFeetList.map((String country) {
+        return DropdownMenuItem<String>(
+          value: country,
+          child: Text(country),
+        );
+      }).toList(),
+      onChanged: (String? newValue) {
+        if (newValue != null) {
+          ddController.setCountry(newValue);
+        }
+      },
+      underline: Container(),
     );
   }
 
@@ -189,21 +234,6 @@ class AddPropertyMobileLayoutScreen extends StatelessWidget {
         AddButtonContainer(),
         AddButtonContainer(),
       ],
-    );
-  }
-
-  _appBarWidget() {
-    return AppBar(
-      scrolledUnderElevation: 0,
-      backgroundColor: CustomColor.whiteColor,
-      leading: BackButtonWidget(onTap: () {
-        Get.back();
-      }),
-      title: TitleHeading2Widget(
-        text: Strings.addProperty,
-        fontSize: Dimensions.headingTextSize2 * 1.1,
-        color: CustomColor.primaryLightColor,
-      ),
     );
   }
 
@@ -222,6 +252,26 @@ class AddPropertyMobileLayoutScreen extends StatelessWidget {
           Get.toNamed(Routes.dashboardScreen);
         },
       ),
+    );
+  }
+
+  _dropDownButton(BuildContext context) {
+    return DropdownButton(
+      icon: Padding(
+          padding: EdgeInsets.only(right: Dimensions.paddingSize),
+          child: CustomImageWidget(path: Assets.icons.closeEye)),
+      items: ddController.sqFeetList.map((String country) {
+        return DropdownMenuItem<String>(
+          value: country,
+          child: Text(country),
+        );
+      }).toList(),
+      onChanged: (String? newvalue) {
+        if (newvalue != null) {
+          ddController.setCountry(newvalue);
+        }
+      },
+      underline: Container(),
     );
   }
 
@@ -273,7 +323,6 @@ class AddPropertyMobileLayoutScreen extends StatelessWidget {
       children: [
         const CustomInquiryFormWidget(hintText: "Title"),
         _messageBoxWidget(),
-        verticalSpace(Dimensions.heightSize),
       ],
     );
   }
@@ -287,20 +336,20 @@ class AddPropertyMobileLayoutScreen extends StatelessWidget {
 
   _sellAndRentButtonWidget() {
     return Padding(
-      padding: EdgeInsets.only(bottom: Dimensions.marginSizeVertical),
+      padding: EdgeInsets.only(bottom: Dimensions.marginSizeVertical * 0.6),
       child: Row(
         mainAxisAlignment: mainSpaceBet,
         children: [
           const TitleHeading3Widget(text: Strings.addfor),
           SizedBox(
-            height: Dimensions.heightSize * 3.5,
+            height: Dimensions.heightSize * 2.8,
             child: ListView.builder(
               shrinkWrap: true,
               scrollDirection: Axis.horizontal,
               itemCount: 2,
               itemBuilder: (context, index) {
                 return Container(
-                    width: Dimensions.widthSize * 8,
+                    width: Dimensions.widthSize * 6.5,
                     decoration: const BoxDecoration(
                       color: CustomColor.secondaryLightColor,
                     ),

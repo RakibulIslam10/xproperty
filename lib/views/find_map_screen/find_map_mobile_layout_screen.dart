@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:xproperty/widgets/common/appbar/back_button.dart';
 import '../../custom_assets/assets.gen.dart';
 import '../../language/language.dart';
 import '../../routes/routes.dart';
@@ -29,15 +30,22 @@ class FindMapMobileLayoutScreen extends StatelessWidget {
       backgroundImg: AssetsRes.mmap,
       content: Padding(
         padding: EdgeInsets.only(
-          left: Dimensions.paddingSize * 0.6,
-          right: Dimensions.paddingSize * 0.6,
-          top: Dimensions.paddingSize * 2.5,
-          bottom: Dimensions.paddingSize,
-        ),
+            top: Dimensions.paddingSize * 3, bottom: Dimensions.paddingSize),
         child: Column(
           mainAxisAlignment: mainSpaceBet,
           children: [
-            _searchField(),
+            Padding(
+              padding: EdgeInsets.symmetric(horizontal: Dimensions.paddingSize * 0.6),
+              child: Row(
+                children: [
+                  const BackButtonWidget(),
+                  horizontalSpace(Dimensions.marginSizeHorizontal),
+                  Expanded(
+                    child: _searchField(),
+                  ),
+                ],
+              ),
+            ),
             _recommendedListWidget(),
           ],
         ),

@@ -119,9 +119,7 @@ class TermsAndPoliciesMobileLayoutScreen extends StatelessWidget {
   _appBarWidget() {
     return AppBar(
       backgroundColor: CustomColor.whiteColor,
-      leading: BackButtonWidget(onTap: () {
-        Get.back();
-      }),
+      leading: const BackButtonWidget(),
       title: TitleHeading2Widget(
         text: Strings.termsAndPolicies,
         fontSize: Dimensions.headingTextSize2 * 1.1,

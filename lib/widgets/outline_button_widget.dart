@@ -42,6 +42,7 @@ class OutlineButtonWidget extends StatelessWidget {
                 width: Dimensions.widthSize * 0.22),
           ),
           child: Text(
+
             title,
             style: TextStyle(fontSize: Dimensions.headingTextSize5),
           ),

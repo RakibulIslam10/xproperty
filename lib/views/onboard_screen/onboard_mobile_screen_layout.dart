@@ -55,11 +55,11 @@ class OnboardMobileScreenLayout extends StatelessWidget {
 
   _appBarWidget() {
     return AppBar(
-      backgroundColor: CustomColor.whiteColor,
+      backgroundColor: Colors.transparent,
       title: Padding(
         padding: EdgeInsets.only(
-            left: Dimensions.paddingSize * 0.45,
-            right: Dimensions.paddingSize * 0.45),
+            left: Dimensions.paddingSize * 0.25,
+            right: Dimensions.paddingSize * 0.5),
         child: Row(
           mainAxisAlignment: mainSpaceBet,
           children: [
