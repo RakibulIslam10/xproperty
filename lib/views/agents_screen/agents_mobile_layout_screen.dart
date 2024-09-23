@@ -4,9 +4,7 @@ import 'package:xproperty/widgets/custom_app_Bar.dart';
 import '../../custom_assets/assets.gen.dart';
 import '../../language/language.dart';
 import '../../routes/routes.dart';
-import '../../widgets/common/appbar/back_button.dart';
 import '../../widgets/common/text_lebels/title_heading2_widget.dart';
-import '../utils/custom_color.dart';
 import '../utils/dimensions.dart';
 
 class AgentsMobileLayoutScreen extends StatelessWidget {

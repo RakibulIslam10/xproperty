@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:get/get.dart';
-import 'package:xproperty/widgets/common/text_lebels/title_heading1_widget.dart';
 import '../views/utils/custom_color.dart';
 import '../views/utils/dimensions.dart';
 import 'common/appbar/back_button.dart';
