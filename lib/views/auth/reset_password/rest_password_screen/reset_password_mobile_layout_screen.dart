@@ -41,10 +41,10 @@ class ResetPasswordMobileLayoutScreen extends StatelessWidget {
   _passwordFieldWidget() {
     return Column(
       children: [
-        const MyInputFiled(
+         MyInputFiled(
             suffixIcon: Icons.visibility_off, label: Strings.newPassword),
         verticalSpace(Dimensions.marginSizeVertical * 0.5),
-        const MyInputFiled(
+         MyInputFiled(
           label: Strings.confirmPassword,
           suffixIcon: Icons.visibility_off,
         ),

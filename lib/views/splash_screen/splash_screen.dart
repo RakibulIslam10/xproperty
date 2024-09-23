@@ -28,19 +28,16 @@ class SplashScreen extends StatelessWidget {
   }
 
   _titleSubTitleWidget() {
-    return Padding(
-      padding: EdgeInsets.only(top: Dimensions.paddingSize * 0.65),
-      child: TitleSubTitleWidget(
-        isCenterText: true,
-        titleFontSize: Dimensions.headingTextSize1 * 1.33,
-        subTitleFontSize: Dimensions.headingTextSize2,
-        fontWeight: FontWeight.w500,
-        subTitleFonWeight: FontWeight.bold,
-        title: Strings.appName,
-        subTitle: Strings.findYourNook,
-        titleColor: CustomColor.primaryLightColor,
-        subTitleColor: CustomColor.secondaryLightColor.withOpacity(0.65),
-      ),
+    return TitleSubTitleWidget(
+      isCenterText: true,
+      titleFontSize: Dimensions.headingTextSize1 * 1.33,
+      subTitleFontSize: Dimensions.headingTextSize2,
+      fontWeight: FontWeight.w500,
+      subTitleFonWeight: FontWeight.bold,
+      title: Strings.appName,
+      subTitle: Strings.findYourNook,
+      titleColor: CustomColor.primaryLightColor,
+      subTitleColor: CustomColor.secondaryLightColor.withOpacity(0.65),
     );
   }
 

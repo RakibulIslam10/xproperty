@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
+import 'package:xproperty/widgets/common/text_lebels/title_heading1_widget.dart';
 import '../views/utils/custom_color.dart';
 import '../views/utils/dimensions.dart';
 import 'common/appbar/back_button.dart';
@@ -8,6 +9,7 @@ import 'common/text_lebels/title_heading2_widget.dart';
 
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   final String title;
+  final String? actionText;
   final double? appbarSize;
   final Color? statusBarColor;
   final Brightness? statusBarIconBrightness;
@@ -18,11 +20,21 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
     this.appbarSize,
     this.statusBarColor,
     this.statusBarIconBrightness,
+    this.actionText,
   });
 
   @override
   Widget build(BuildContext context) {
     return AppBar(
+      actions: [
+        Padding(
+          padding: EdgeInsets.only(right: Dimensions.paddingSize),
+          child: TitleHeading2Widget(
+              text: actionText ?? "",
+              color: CustomColor.primaryLightColor,
+              fontSize: Dimensions.headingTextSize3),
+        ),
+      ],
       automaticallyImplyLeading: false,
       scrolledUnderElevation: 0,
       backgroundColor: Colors.transparent,

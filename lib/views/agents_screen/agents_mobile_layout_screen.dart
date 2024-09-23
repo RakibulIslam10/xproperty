@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:xproperty/widgets/custom_app_Bar.dart';
 import '../../custom_assets/assets.gen.dart';
 import '../../language/language.dart';
 import '../../routes/routes.dart';
@@ -14,7 +15,7 @@ class AgentsMobileLayoutScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: _appBarWidget(),
+      appBar: const CustomAppBar(title: Strings.agents),
       body: _bodyWidget(),
     );
   }
@@ -32,7 +33,8 @@ class AgentsMobileLayoutScreen extends StatelessWidget {
             fontSize: Dimensions.headingTextSize4,
           ),
           subtitle: TitleHeading2Widget(
-            text: Strings.userNumber,
+            text: Strings.agentNumber,
+            fontWeight: FontWeight.normal,
             fontSize: Dimensions.headingTextSize6,
           ),
         );
@@ -40,44 +42,10 @@ class AgentsMobileLayoutScreen extends StatelessWidget {
     );
   }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
   _logoWidget() {
     return CircleAvatar(
-      backgroundImage: AssetImage(Assets.logos.profilePicture.path),
+      backgroundImage: AssetImage(Assets.background.personProfile.path),
       radius: Dimensions.radius * 2,
-    );
-  }
-
-  _appBarWidget() {
-    return AppBar(
-      backgroundColor: CustomColor.whiteColor,
-      leading:  const BackButtonWidget(),
-      title: TitleHeading2Widget(
-        text: Strings.agents,
-        fontSize: Dimensions.headingTextSize2 * 1.1,
-        color: CustomColor.primaryLightColor,
-      ),
     );
   }
 }

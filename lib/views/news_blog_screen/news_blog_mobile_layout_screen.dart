@@ -65,20 +65,17 @@ class NewsBlogMobileLayoutScreen extends StatelessWidget {
       padding: EdgeInsets.symmetric(
         vertical: Dimensions.heightSize * 0.1,
       ),
-      child: GestureDetector(
-        onTap: () {
+      child: Card(
+        color: CustomColor.whiteColor,
+        elevation: 4,
+        child: ListCardItems(onTap: (){
           Get.toNamed(Routes.newsScreen);
         },
-        child: Card(
-          color: CustomColor.whiteColor,
-          elevation: 4,
-          child: ListCardItems(
-            title: myData['title'],
-            imageUrl: myData["imageUrl"],
-            subTitle: myData["subTitle"],
-            title2: myData["title2"],
-            subTitle2: myData["subTitle2"],
-          ),
+          title: myData['title'],
+          imageUrl: myData["imageUrl"],
+          subTitle: myData["subTitle"],
+          title2: myData["title2"],
+          subTitle2: myData["subTitle2"],
         ),
       ),
     );

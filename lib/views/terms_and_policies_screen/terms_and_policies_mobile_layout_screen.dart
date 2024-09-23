@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
+import 'package:xproperty/widgets/custom_app_Bar.dart';
 import '../../language/language.dart';
 import '../../widgets/common/appbar/back_button.dart';
 import '../../widgets/common/others/custom_image_widget.dart';
@@ -18,7 +18,7 @@ class TermsAndPoliciesMobileLayoutScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: _appBarWidget(),
+      appBar: const CustomAppBar(title: Strings.termsAndPolicies),
       body: _bodyWidget(),
     );
   }
@@ -40,31 +40,21 @@ class TermsAndPoliciesMobileLayoutScreen extends StatelessWidget {
     );
   }
 
-
-
-
-
-
-
-
-
-
-
-
-
   _logoDescriptionWidget() {
     return Column(
       children: [
         CustomImageWidget(
           path: AssetsRes.appLogo,
-          height: Dimensions.heightSize * 10,
+          height: Dimensions.heightSize * 9.5,
           width: double.infinity,
         ),
         TitleSubTitleWidget(
           isCenterText: true,
-          subTitleFontSize: Dimensions.headingTextSize2,
+          titleFontSize: Dimensions.headingTextSize3,
+          subTitleFontSize: Dimensions.headingTextSize6,
           title: Strings.appName,
           subTitle: Strings.findYourNook,
+          subTitleFonWeight: FontWeight.bold,
           titleColor: CustomColor.primaryLightColor.withOpacity(0.90),
           subTitleColor: CustomColor.secondaryLightColor,
         ),

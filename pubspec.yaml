@@ -41,6 +41,7 @@ dependencies:
   smooth_page_indicator: any
   dropdown_button2: any
   flutter_otp_text_field: any
+  country_code_picker: ^3.0.0
 
 
 

@@ -1,9 +1,11 @@
+import 'package:country_code_picker/country_code_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:xproperty/custom_assets/assets.gen.dart';
 import 'package:xproperty/widgets/common/others/custom_image_widget.dart';
 import 'package:xproperty/widgets/custom_app_Bar.dart';
 import '../../controller/add_property/dropdown_controller.dart';
+import '../../controller/add_property/poneNumberController.dart';
 import '../../controller/dropdown/dropdown_controller.dart';
 import '../../controller/filters_screen/button_color_controlller.dart';
 import '../../controller/filters_screen/slider_controller.dart';
@@ -15,7 +17,6 @@ import '../../widgets/common/buttons/primary_button.dart';
 import '../../widgets/common/text_lebels/title_heading2_widget.dart';
 import '../../widgets/common/text_lebels/title_heading3_widget.dart';
 import '../../widgets/custom_inquiry_form_widget.dart';
-import '../../widgets/custom_textfield.dart';
 import '../../widgets/fgarden_filter_button_widget.dart';
 import '../../widgets/message_box_inquiry_form_widget.dart';
 import '../../widgets/number_container_widget.dart';
@@ -32,6 +33,7 @@ class AddPropertyMobileLayoutScreen extends StatelessWidget {
   final _sliderController = Get.put(SliderController());
   final dropdownController = Get.put(DropdownController());
   final ddController = Get.put(DropdownController2());
+  final PhoneNumberController controller = Get.put(PhoneNumberController());
 
   @override
   Widget build(BuildContext context) {
@@ -142,13 +144,33 @@ class AddPropertyMobileLayoutScreen extends StatelessWidget {
         Padding(
           padding: EdgeInsets.symmetric(
               vertical: Dimensions.marginSizeVertical * 0.4),
-          child: const CustomTextField(
-            hintText: Strings.email,
-          ),
+          child: const CustomInquiryFormWidget(hintText: Strings.email),
         ),
-        const CustomTextField(
-          hintText: Strings.phoneNumber,
-        ),
+        Row(
+          children: [
+            Container(
+              alignment: Alignment.center,
+              decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(Dimensions.radius * 2.4),
+                  border: Border.all(
+                      width: 2, color: CustomColor.primaryLightColor)),
+              child: CountryCodePicker(
+                padding: const EdgeInsets.symmetric(vertical: 0),
+                showFlag: false,
+                onChanged: (CountryCode countryCode) {
+                  controller.setCountryCode(countryCode.toString());
+                },
+                initialSelection: 'US',
+                textStyle:
+                    const TextStyle(color: CustomColor.secondaryLightColor),
+              ),
+            ),
+            horizontalSpace(Dimensions.marginSizeHorizontal * 0.5),
+            const Expanded(
+              child: CustomInquiryFormWidget(hintText: Strings.phoneNumber),
+            ),
+          ],
+        )
       ],
     );
   }
@@ -160,11 +182,9 @@ class AddPropertyMobileLayoutScreen extends StatelessWidget {
         _addressDropDownSectionHeader(),
         Padding(
           padding: EdgeInsets.only(bottom: Dimensions.marginSizeVertical * 0.2),
-          child: const CustomTextField(
-            hintText: Strings.addressHouseNo,
-          ),
+          child:
+              const CustomInquiryFormWidget(hintText: Strings.addressHouseNo),
         ),
-
         SearchDropdownButton(
           items: dropdownController.genderItems,
           hintText: Strings.chooseProvince,
@@ -239,7 +259,8 @@ class AddPropertyMobileLayoutScreen extends StatelessWidget {
 
   _buttonWidget() {
     return Padding(
-      padding: EdgeInsets.only(top: Dimensions.paddingSize * 2),
+      padding: EdgeInsets.only(
+          top: Dimensions.paddingSize, bottom: Dimensions.paddingSize),
       child: PrimaryButton(
         fontWeight: FontWeight.bold,
         title: Strings.submit,
@@ -252,26 +273,6 @@ class AddPropertyMobileLayoutScreen extends StatelessWidget {
           Get.toNamed(Routes.dashboardScreen);
         },
       ),
-    );
-  }
-
-  _dropDownButton(BuildContext context) {
-    return DropdownButton(
-      icon: Padding(
-          padding: EdgeInsets.only(right: Dimensions.paddingSize),
-          child: CustomImageWidget(path: Assets.icons.closeEye)),
-      items: ddController.sqFeetList.map((String country) {
-        return DropdownMenuItem<String>(
-          value: country,
-          child: Text(country),
-        );
-      }).toList(),
-      onChanged: (String? newvalue) {
-        if (newvalue != null) {
-          ddController.setCountry(newvalue);
-        }
-      },
-      underline: Container(),
     );
   }
 

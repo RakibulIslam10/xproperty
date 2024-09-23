@@ -1,24 +1,31 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
+import '../../../controller/sing_in_form/sing_in_form_controller.dart';
 import '../../../views/utils/custom_color.dart';
 import '../../../views/utils/dimensions.dart';
+
 class MyInputFiled extends StatelessWidget {
   final String? label;
-  final String? hintext;
+  final String? hintText;
   final TextInputType keyboardType;
   final bool isRequired;
   final String? initialValue;
   final IconData? suffixIcon;
+  final FormFieldValidator<String>? validator;
 
-  const MyInputFiled({
+  MyInputFiled({
     super.key,
     this.label,
     this.keyboardType = TextInputType.text,
     this.isRequired = false,
     this.initialValue,
-    this.hintext,
+    this.hintText,
     this.suffixIcon,
+    this.validator,
   });
+
+  SingInfFormController controller = Get.put(SingInfFormController());
 
   @override
   Widget build(BuildContext context) {
@@ -29,7 +36,7 @@ class MyInputFiled extends StatelessWidget {
         keyboardType: keyboardType,
         initialValue: initialValue,
         decoration: InputDecoration(
-          hintText: hintext,
+          hintText: hintText,
           labelText: label,
           labelStyle: TextStyle(
               fontSize: Dimensions.headingTextSize4,
@@ -49,18 +56,22 @@ class MyInputFiled extends StatelessWidget {
           ),
           suffixIcon: suffixIcon != null
               ? Icon(
-                  suffixIcon,
-                  color:
-                      CustomColor.secondaryLightColor, // Adjust color as needed
-                )
+            suffixIcon,
+            color:
+            CustomColor.secondaryLightColor, // Adjust color as needed
+          )
               : null,
         ),
         validator: (value) {
           if (isRequired && value!.isEmpty) {
             return 'This field is required';
           }
-          // Add more validation logic here if needed
-          return null;
+
+          if (validator != null) {
+            return validator!(value);
+          }
+
+          return controller.validateEmail(value);
         },
       ),
     );

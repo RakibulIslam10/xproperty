@@ -125,7 +125,7 @@ class SignUpMobileScreenLayout extends StatelessWidget {
   }
 
   _textFieldWidget() {
-    return const Column(
+    return  Column(
       children: [
         MyInputFiled(label: Strings.username),
         MyInputFiled(

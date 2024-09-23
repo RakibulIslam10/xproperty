@@ -30,7 +30,7 @@ class OutlineButtonWidget extends StatelessWidget {
           onPressed: onPressed,
           style: OutlinedButton.styleFrom(
             padding: EdgeInsets.symmetric(
-                horizontal: Dimensions.marginSizeHorizontal * 0.8),
+                horizontal: Dimensions.marginSizeHorizontal * 0.65),
             backgroundColor: _controller.selectedIndex.value == index
                 ? CustomColor.primaryLightColor
                 : CustomColor.whiteColor,

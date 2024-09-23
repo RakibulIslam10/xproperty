@@ -41,13 +41,33 @@ class SignInMobileScreenLayout extends StatelessWidget {
               children: [
                 _logoWidget(),
                 _textFieldWidget(),
-                _threeButtonWidget(),
+                _singInButton(),
+                _twoButtonWidget(),
               ],
             ),
           ),
         ),
         _circularContainers(),
       ],
+    );
+  }
+
+  Padding _singInButton() {
+    return Padding(
+      padding: EdgeInsets.only(
+          top: Dimensions.marginSizeVertical * 1.6,
+          bottom: Dimensions.marginSizeVertical * 0.5),
+      child: PrimaryButton(
+          fontWeight: FontWeight.bold,
+          title: Strings.signIn,
+          fontSize: Dimensions.headingTextSize2,
+          buttonTextColor: CustomColor.whiteColor,
+          buttonColor: CustomColor.primaryLightColor,
+          radius: Dimensions.radius * 22,
+          borderColor: Colors.transparent,
+          onPressed: () {
+            Get.toNamed(Routes.navigationScreen);
+          }),
     );
   }
 
@@ -107,10 +127,9 @@ class SignInMobileScreenLayout extends StatelessWidget {
     );
   }
 
-  _threeButtonWidget() {
+  _twoButtonWidget() {
     return Column(
       children: [
-        _signInButton(),
         _textWidget(),
         verticalSpace(Dimensions.marginSizeVertical * 1.5),
         _googleSignInButton(),
@@ -209,33 +228,14 @@ class SignInMobileScreenLayout extends StatelessWidget {
     );
   }
 
-  _signInButton() {
-    return Padding(
-      padding: EdgeInsets.only(
-          top: Dimensions.marginSizeVertical * 1.6,
-          bottom: Dimensions.marginSizeVertical * 0.5),
-      child: PrimaryButton(
-        fontWeight: FontWeight.bold,
-        title: Strings.signIn,
-        fontSize: Dimensions.headingTextSize2,
-        buttonTextColor: CustomColor.whiteColor,
-        buttonColor: CustomColor.primaryLightColor,
-        radius: Dimensions.radius * 22,
-        borderColor: Colors.transparent,
-        onPressed: () {
-          Get.toNamed(Routes.navigationScreen);
-        },
-      ),
-    );
-  }
-
   _textFieldWidget() {
     return Column(
       crossAxisAlignment: crossEnd,
       children: [
-        const MyInputFiled(label: Strings.email),
-        const MyInputFiled(
-            suffixIcon: Icons.visibility_off, label: Strings.password),
+        MyInputFiled(
+          label: Strings.email,
+        ),
+        MyInputFiled(suffixIcon: Icons.visibility_off, label: Strings.password),
         GestureDetector(
           onTap: () {
             Get.toNamed(Routes.forgotPasswordScreen);

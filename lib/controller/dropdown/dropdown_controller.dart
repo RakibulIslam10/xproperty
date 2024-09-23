@@ -22,3 +22,4 @@ class DropdownController2 extends GetxController {
     selectedCountry = newCountry;
   }
 }
+

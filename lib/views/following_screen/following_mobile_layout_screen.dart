@@ -1,15 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import '../../custom_assets/assets.gen.dart';
 import '../../language/language.dart';
-import '../../widgets/common/appbar/back_button.dart';
 import '../../widgets/common/others/custom_image_widget.dart';
 import '../../widgets/common/text_lebels/title_heading2_widget.dart';
 import '../../widgets/custom_app_Bar.dart';
 import '../../widgets/follow_button_widget.dart';
-import '../utils/custom_color.dart';
 import '../utils/dimensions.dart';
-import '../utils/size.dart';
 
 class FollowingMobileLayoutScreen extends StatelessWidget {
   const FollowingMobileLayoutScreen({super.key});
@@ -34,7 +30,7 @@ class FollowingMobileLayoutScreen extends StatelessWidget {
                 text: Strings.alexaConton,
                 fontSize: Dimensions.headingTextSize4,
               ),
-              trailing: CustomButton(onPressed: () {}, text: Strings.follow)),
+              trailing: CustomButton(onPressed: () {}, text: Strings.unfollow)),
         );
       },
     );

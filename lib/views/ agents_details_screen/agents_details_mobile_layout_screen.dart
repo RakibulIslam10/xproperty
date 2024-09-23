@@ -1,12 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:xproperty/widgets/contact_info_widget.dart';
 import '../../custom_assets/assets.gen.dart';
 import '../../language/language.dart';
 import '../../routes/routes.dart';
+import '../../widgets/call_and_message_dual_button_widget.dart';
 import '../../widgets/common/appbar/back_button.dart';
 import '../../widgets/common/others/custom_image_widget.dart';
 import '../../widgets/common/text_lebels/title_heading2_widget.dart';
 import '../../widgets/common/title_sub_title_widget.dart';
+import '../../widgets/custom_app_Bar.dart';
 import '../../widgets/list_card_widget.dart';
 import '../../widgets/listing_data.dart';
 import '../utils/custom_color.dart';
@@ -19,7 +22,7 @@ class AgentsDetailsMobileLayoutScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: _appBarWidget(),
+      appBar: const CustomAppBar(title: Strings.agentsDetails),
       body: Center(
         child: SingleChildScrollView(
           child: _bodyWidget(),
@@ -40,20 +43,6 @@ class AgentsDetailsMobileLayoutScreen extends StatelessWidget {
       ],
     );
   }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
   _dividerWidget() {
     return Divider(
@@ -80,7 +69,6 @@ class AgentsDetailsMobileLayoutScreen extends StatelessWidget {
       ),
     );
   }
-
 
   _propertiesListWidget() {
     return SizedBox(
@@ -124,86 +112,32 @@ class AgentsDetailsMobileLayoutScreen extends StatelessWidget {
     );
   }
 
-  _websiteUrl() {
-    return Row(
-      children: [
-        CustomImageWidget(
-          path: Assets.icons.globe,
-          height: Dimensions.heightSize * 2,
-        ),
-        horizontalSpace(Dimensions.marginSizeHorizontal),
-        const TitleSubTitleWidget(
-            title: Strings.websiteUrl,
-            titleColor: CustomColor.primaryLightColor,
-            subTitleColor: CustomColor.secondaryLightColor,
-            subTitle: Strings.userWebUrl),
-      ],
-    );
-  }
-
-  _emailWidget() {
-    return Row(
-      children: [
-        CustomImageWidget(
-          path: Assets.icons.iconMail,
-          height: Dimensions.heightSize * 1.5,
-        ),
-        horizontalSpace(Dimensions.marginSizeHorizontal),
-        const TitleSubTitleWidget(
-            title: Strings.email,
-            titleColor: CustomColor.primaryLightColor,
-            subTitleColor: CustomColor.secondaryLightColor,
-            subTitle: Strings.userEmail)
-      ],
-    );
-  }
-
-  _phoneNumberWidget() {
-    return Row(
-      children: [
-        CustomImageWidget(
-          path: Assets.icons.phone,
-          height: Dimensions.heightSize * 2,
-        ),
-        horizontalSpace(Dimensions.marginSizeHorizontal),
-        const TitleSubTitleWidget(
-            title: Strings.phoneNumber,
-            titleColor: CustomColor.primaryLightColor,
-            subTitleColor: CustomColor.secondaryLightColor,
-            subTitle: Strings.userNumber),
-      ],
-    );
-  }
-
-  _locationAddressWidget() {
-    return Row(
-      children: [
-        CustomImageWidget(
-          path: Assets.icons.iconLocation,
-          height: Dimensions.heightSize * 2.2,
-        ),
-        horizontalSpace(Dimensions.marginSizeHorizontal),
-        const TitleSubTitleWidget(
-            title: Strings.address2,
-            titleColor: CustomColor.primaryLightColor,
-            subTitleColor: CustomColor.secondaryLightColor,
-            subTitle: Strings.userAddress),
-      ],
-    );
-  }
-
   _contactInformationWidget() {
     return Padding(
       padding: EdgeInsets.all(Dimensions.paddingSize),
       child: Column(
         children: [
-          _locationAddressWidget(),
-          verticalSpace(Dimensions.marginSizeVertical * 0.5),
-          _phoneNumberWidget(),
-          verticalSpace(Dimensions.marginSizeVertical * 0.5),
-          _emailWidget(),
-          verticalSpace(Dimensions.marginSizeVertical * 0.5),
-          _websiteUrl(),
+          ContactInfoWidget(
+              title: Strings.address,
+              subTitle: Strings.userAddress,
+              iconPath: Assets.icons.iconLocation),
+          ContactInfoWidget(
+            title: Strings.phoneNumber,
+            subTitle: Strings.userNumber,
+            iconPath: Assets.icons.iconCall,
+            iconSize: Dimensions.heightSize * 1.8,
+            color: CustomColor.primaryLightColor,
+          ),
+          ContactInfoWidget(
+            title: Strings.email,
+            subTitle: Strings.userEmail,
+            iconPath: Assets.icons.iconMail,
+            iconSize: Dimensions.heightSize * 1.4,
+          ),
+          ContactInfoWidget(
+              title: Strings.websiteUrl,
+              subTitle: Strings.websiteUrl,
+              iconPath: Assets.icons.globe),
         ],
       ),
     );
@@ -211,101 +145,31 @@ class AgentsDetailsMobileLayoutScreen extends StatelessWidget {
 
   _tabBarTextWidget() {
     return TabBar(
+        labelColor: CustomColor.primaryLightColor,
+        unselectedLabelColor: CustomColor.secondaryLightColor,
         onTap: (value) {},
         indicatorSize: TabBarIndicatorSize.tab,
         indicatorColor: CustomColor.primaryLightColor,
         dividerColor: Colors.transparent,
         tabs: [
-          TitleHeading2Widget(
-            text: Strings.properties,
-            color: CustomColor.secondaryLightColor,
-            fontSize: Dimensions.headingTextSize3,
+          Text(
+            Strings.properties,
+            style: TextStyle(
+                fontSize: Dimensions.headingTextSize3,
+                fontWeight: FontWeight.bold),
           ),
-          TitleHeading2Widget(
-            text: Strings.contactInformation,
-            color: CustomColor.primaryLightColor,
-            fontSize: Dimensions.headingTextSize3,
-          )
+          Text(
+            Strings.contactInformation,
+            style: TextStyle(
+                fontSize: Dimensions.headingTextSize3,
+                fontWeight: FontWeight.bold),
+          ),
         ]);
   }
 
   _buttonWidget() {
-    return Row(
-      mainAxisAlignment: mainCenter,
-      children: [
-        SizedBox(
-          height: Dimensions.heightSize * 3.5,
-          width: Dimensions.widthSize * 12,
-          child: ElevatedButton(
-            onPressed: () async {},
-            style: ElevatedButton.styleFrom(
-              backgroundColor: Colors.grey.withOpacity(0.1),
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(Dimensions.radius * 1.5),
-              ),
-            ),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: [
-                CustomImageWidget(
-                  path: Assets.icons.iconCall,
-                  color: CustomColor.primaryLightColor,
-                ),
-                const SizedBox(width: 8.0),
-                Text(Strings.call,
-                    style: TextStyle(
-                        fontWeight: FontWeight.w500,
-                        fontSize: Dimensions.headingTextSize3,
-                        color: CustomColor.primaryDarkColor)),
-              ],
-            ),
-          ),
-        ),
-        horizontalSpace(Dimensions.marginSizeHorizontal),
-        SizedBox(
-          height: Dimensions.heightSize * 3.5,
-          width: Dimensions.widthSize * 15,
-          child: ElevatedButton(
-            onPressed: () async {
-              Get.toNamed(Routes.chatScreen);
-            },
-            style: ElevatedButton.styleFrom(
-              backgroundColor: Colors.grey.withOpacity(0.1),
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(Dimensions.radius * 1.5),
-              ),
-            ),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: [
-                CustomImageWidget(
-                  path: Assets.icons.iconMail,
-                  color: CustomColor.primaryLightColor,
-                ),
-                const SizedBox(width: 8.0),
-                Text(Strings.message,
-                    style: TextStyle(
-                        fontWeight: FontWeight.w500,
-                        fontSize: Dimensions.headingTextSize3,
-                        color: CustomColor.primaryDarkColor)),
-              ],
-            ),
-          ),
-        )
-      ],
-    );
-  }
-
-  _appBarWidget() {
-    return AppBar(
-      backgroundColor: CustomColor.whiteColor,
-      leading:  const BackButtonWidget(),
-      title: TitleHeading2Widget(
-        text: Strings.agentsDetails,
-        fontSize: Dimensions.headingTextSize2 * 1.1,
-        color: CustomColor.primaryLightColor,
-      ),
-    );
+    return CallAndMessageDualButtonWidget(
+        onCallPressed: () {}, onMessagePressed: () {});
   }
 
   _titleAndSubTitleWidget() {

@@ -94,6 +94,7 @@ class Strings {
   static const String followers = "Followers";
   static const String alexaCone = "Alexa Cone";
   static const String follow = "FOLLOW";
+  static const String unfollow = "UNFOLLOW";
   static const String following = "Following";
   static const String properties = "Properties";
   static const String propertiesType = "PROPERTY TYPE";
@@ -132,6 +133,7 @@ class Strings {
   static const String websiteUrl = "Website URL";
   static const String userAddress = "000 Susan Apartment, new York, USA";
   static const String userNumber = "0185468552 | 455456456+555";
+  static const String agentNumber = "+(1) 55248761";
   static const String userEmail = "admin@gmail.com";
   static const String userWebUrl = "www.admin.com";
 }

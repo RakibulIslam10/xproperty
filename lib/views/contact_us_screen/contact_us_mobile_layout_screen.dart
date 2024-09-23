@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
+import 'package:xproperty/widgets/custom_app_Bar.dart';
 import '../../custom_assets/assets.gen.dart';
 import '../../language/language.dart';
-import '../../widgets/common/appbar/back_button.dart';
 import '../../widgets/common/buttons/primary_button.dart';
 import '../../widgets/common/others/custom_image_widget.dart';
 import '../../widgets/common/text_lebels/title_heading2_widget.dart';
 import '../../widgets/common/title_sub_title_widget.dart';
+import '../../widgets/contact_info_widget.dart';
 import '../../widgets/custom_inquiry_form_widget.dart';
 import '../../widgets/message_box_inquiry_form_widget.dart';
 import '../res/assets_res.dart';
@@ -20,7 +20,7 @@ class ContactUsMobileLayoutScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: _appBarWidget(),
+      appBar: const CustomAppBar(title: Strings.contactUs),
       body: _bodyWidget(),
     );
   }
@@ -43,7 +43,36 @@ class ContactUsMobileLayoutScreen extends StatelessWidget {
 
 
 
-
+  _contactInformationWidget() {
+    return Padding(
+      padding: EdgeInsets.all(Dimensions.paddingSize),
+      child: Column(
+        children: [
+          ContactInfoWidget(
+              title: Strings.address,
+              subTitle: Strings.userAddress,
+              iconPath: Assets.icons.iconLocation),
+          ContactInfoWidget(
+            title: Strings.phoneNumber,
+            subTitle: Strings.userNumber,
+            iconPath: Assets.icons.iconCall,
+            iconSize: Dimensions.heightSize * 1.8,
+            color: CustomColor.primaryLightColor,
+          ),
+          ContactInfoWidget(
+            title: Strings.email,
+            subTitle: Strings.userEmail,
+            iconPath: Assets.icons.iconMail,
+            iconSize: Dimensions.heightSize * 1.4,
+          ),
+          ContactInfoWidget(
+              title: Strings.websiteUrl,
+              subTitle: Strings.websiteUrl,
+              iconPath: Assets.icons.globe),
+        ],
+      ),
+    );
+  }
 
 
 
@@ -74,20 +103,24 @@ class ContactUsMobileLayoutScreen extends StatelessWidget {
 
   _tabBarTextWidget() {
     return TabBar(
+      labelColor: CustomColor.primaryLightColor,
+      unselectedLabelColor: CustomColor.secondaryLightColor,
         indicatorSize: TabBarIndicatorSize.tab,
         indicatorColor: CustomColor.primaryLightColor,
         dividerColor: Colors.transparent,
         tabs: [
-          TitleHeading2Widget(
-            text: Strings.inquiryForm,
-            color: CustomColor.secondaryLightColor,
-            fontSize: Dimensions.headingTextSize3,
+          Text(
+            Strings.inquiryForm,
+            style: TextStyle(
+                fontSize: Dimensions.headingTextSize3,
+                fontWeight: FontWeight.bold),
           ),
-          TitleHeading2Widget(
-            text: Strings.contactInformation,
-            color: CustomColor.primaryLightColor,
-            fontSize: Dimensions.headingTextSize3,
-          )
+          Text(
+            Strings.contactInformation,
+            style: TextStyle(
+                fontSize: Dimensions.headingTextSize3,
+                fontWeight: FontWeight.bold),
+          ),
         ]);
   }
 
@@ -131,90 +164,14 @@ class ContactUsMobileLayoutScreen extends StatelessWidget {
     );
   }
 
-  _contactInformationWidget() {
-    return Padding(
-      padding: EdgeInsets.all(Dimensions.paddingSize),
-      child: Column(
-        children: [
-          _locationAddressWidget(),
-          verticalSpace(Dimensions.marginSizeVertical * 0.5),
-          _phoneNumberWidget(),
-          verticalSpace(Dimensions.marginSizeVertical * 0.5),
-          _emailWidget(),
-          verticalSpace(Dimensions.marginSizeVertical * 0.5),
-          _websiteUrl(),
-        ],
-      ),
-    );
-  }
 
-  _websiteUrl() {
-    return Row(
-      children: [
-        CustomImageWidget(
-          path: Assets.icons.globe,
-          height: Dimensions.heightSize * 2,
-        ),
-        horizontalSpace(Dimensions.marginSizeHorizontal),
-        const TitleSubTitleWidget(
-            title: Strings.websiteUrl,
-            titleColor: CustomColor.primaryLightColor,
-            subTitleColor: CustomColor.secondaryLightColor,
-            subTitle: Strings.userWebUrl),
-      ],
-    );
-  }
 
-  _emailWidget() {
-    return Row(
-      children: [
-        CustomImageWidget(
-          path: Assets.icons.iconMail,
-          height: Dimensions.heightSize * 1.5,
-        ),
-        horizontalSpace(Dimensions.marginSizeHorizontal),
-        const TitleSubTitleWidget(
-            title: Strings.email,
-            titleColor: CustomColor.primaryLightColor,
-            subTitleColor: CustomColor.secondaryLightColor,
-            subTitle: Strings.userEmail)
-      ],
-    );
-  }
 
-  _phoneNumberWidget() {
-    return Row(
-      children: [
-        CustomImageWidget(
-          path: Assets.icons.phone,
-          height: Dimensions.heightSize * 2,
-        ),
-        horizontalSpace(Dimensions.marginSizeHorizontal),
-        const TitleSubTitleWidget(
-            title: Strings.phoneNumber,
-            titleColor: CustomColor.primaryLightColor,
-            subTitleColor: CustomColor.secondaryLightColor,
-            subTitle: Strings.userNumber),
-      ],
-    );
-  }
 
-  _locationAddressWidget() {
-    return Row(
-      children: [
-        CustomImageWidget(
-          path: Assets.icons.iconLocation,
-          height: Dimensions.heightSize * 2.2,
-        ),
-        horizontalSpace(Dimensions.marginSizeHorizontal),
-        const TitleSubTitleWidget(
-            title: Strings.address2,
-            titleColor: CustomColor.primaryLightColor,
-            subTitleColor: CustomColor.secondaryLightColor,
-            subTitle: Strings.userAddress),
-      ],
-    );
-  }
+
+
+
+
 
   _logoAndTitleWidget() {
     return Padding(
@@ -229,25 +186,15 @@ class ContactUsMobileLayoutScreen extends StatelessWidget {
           ),
           TitleSubTitleWidget(
             isCenterText: true,
-            subTitleFontSize: Dimensions.headingTextSize2,
+            subTitleFontSize: Dimensions.headingTextSize5,
             title: Strings.appName,
+          subTitleFonWeight: FontWeight.bold,
+            titleFontSize: Dimensions.headingTextSize4,
             subTitle: Strings.findYourNook,
             titleColor: CustomColor.primaryLightColor.withOpacity(0.90),
-            subTitleColor: CustomColor.secondaryLightColor,
+            subTitleColor: CustomColor.secondaryLightColor.withOpacity(0.50),
           ),
         ],
-      ),
-    );
-  }
-
-  _appBarWidget() {
-    return AppBar(
-      backgroundColor: CustomColor.whiteColor,
-      leading: const BackButtonWidget(),
-      title: TitleHeading2Widget(
-        text: Strings.contactUs,
-        fontSize: Dimensions.headingTextSize2 * 1.1,
-        color: CustomColor.primaryLightColor,
       ),
     );
   }

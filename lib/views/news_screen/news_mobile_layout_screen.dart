@@ -33,7 +33,9 @@ class NewsMobileLayoutScreen extends StatelessWidget {
             ),
           ],
         ),
-        const TitleHeading4Widget(text: Strings.description)
+        Padding(
+            padding: EdgeInsets.symmetric(horizontal: Dimensions.paddingSize),
+            child: const TitleHeading4Widget(text: Strings.description))
       ],
     );
   }

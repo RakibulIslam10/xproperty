@@ -63,16 +63,18 @@ class OnboardMobileScreenLayout extends StatelessWidget {
         child: Row(
           mainAxisAlignment: mainSpaceBet,
           children: [
-            BackButtonWidget(onTap: () {
-              final currentPageIndex = pageController.page?.toInt() ?? 0;
-              if (currentPageIndex > 0) {
-                pageController.animateToPage(
-                  currentPageIndex - 1,
-                  duration: const Duration(milliseconds: 300),
-                  curve: Curves.easeIn,
-                );
-              }
-            }),
+            BackButtonWidget(
+              onTap: () {
+                final currentPageIndex = pageController.page?.toInt() ?? 0;
+                if (currentPageIndex > 0) {
+                  pageController.animateToPage(
+                    currentPageIndex - 1,
+                    duration: const Duration(milliseconds: 300),
+                    curve: Curves.easeIn,
+                  );
+                }
+              },
+            ),
             GestureDetector(
               onTap: () {
                 _onboardingController.skipToWelcomeScreen();
@@ -84,9 +86,7 @@ class OnboardMobileScreenLayout extends StatelessWidget {
             ),
             if (_onboardingController.items.length == 1)
               IconButton(
-                onPressed: () {
-                  // Implement your home button action here
-                },
+                onPressed: () {},
                 icon: const Icon(Icons.home),
               ),
           ],

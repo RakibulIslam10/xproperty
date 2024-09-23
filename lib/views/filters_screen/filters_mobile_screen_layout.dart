@@ -26,14 +26,17 @@ class FiltersMobileScreenLayout extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: const CustomAppBar(title: Strings.filters),
+      appBar: const CustomAppBar(
+        title: Strings.filters,
+        actionText: Strings.reset,
+      ),
       body: _bodyWidget(),
     );
   }
 
   _bodyWidget() {
     return Padding(
-      padding: EdgeInsets.all(Dimensions.paddingSize * 0.6),
+      padding: EdgeInsets.symmetric(horizontal: Dimensions.paddingSize),
       child: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -102,7 +105,7 @@ class FiltersMobileScreenLayout extends StatelessWidget {
         Padding(
           padding: EdgeInsets.only(
               top: Dimensions.marginSizeVertical * 0.15,
-              bottom: Dimensions.marginSizeVertical * 1.25),
+              bottom: Dimensions.marginSizeVertical * 2),
           child: Row(
             mainAxisAlignment: mainSpaceBet,
             children: [

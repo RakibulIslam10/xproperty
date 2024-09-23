@@ -15,6 +15,7 @@ class ListCardItems extends StatelessWidget {
   final String imageUrl;
   final String subTitle;
   final String subTitle2;
+  final VoidCallback? onTap;
 
   const ListCardItems({
     super.key,
@@ -23,14 +24,13 @@ class ListCardItems extends StatelessWidget {
     required this.imageUrl,
     required this.subTitle,
     required this.subTitle2,
+    this.onTap,
   });
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () {
-        Get.toNamed(Routes.detailsScreen);
-      },
+      onTap: onTap ?? () => Get.toNamed(Routes.detailsScreen),
       child: Row(
         children: [
           CustomImageWidget(

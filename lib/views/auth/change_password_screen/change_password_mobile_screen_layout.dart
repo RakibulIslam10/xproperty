@@ -42,14 +42,14 @@ class ChangePasswordMobileScreenLayout extends StatelessWidget {
   _passwordFieldWidget() {
     return Column(
       children: [
-        const MyInputFiled(
+         MyInputFiled(
             suffixIcon: Icons.visibility_off, label: Strings.oldPassword),
         verticalSpace(Dimensions.marginSizeVertical * 0.5),
-        const MyInputFiled(
+         MyInputFiled(
           label: Strings.newPassword,
           suffixIcon: Icons.visibility_off,
         ),
-        const MyInputFiled(
+         MyInputFiled(
           label: Strings.confirmNewPassword,
           suffixIcon: Icons.visibility_off,
         ),

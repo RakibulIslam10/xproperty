@@ -19,6 +19,7 @@ class CustomButton extends StatelessWidget {
       child: OutlinedButton(
         onPressed: onPressed,
         style: ElevatedButton.styleFrom(
+          padding: EdgeInsets.symmetric(horizontal: Dimensions.paddingSize * 0.5),
           side: const BorderSide(color: CustomColor.primaryLightColor),
           foregroundColor: CustomColor.primaryLightColor,
           shape: RoundedRectangleBorder(
