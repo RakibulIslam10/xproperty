@@ -118,7 +118,10 @@ class DashboardMobileScreenLayout extends StatelessWidget {
       child: GridView.builder(
         scrollDirection: Axis.horizontal,
         gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-            crossAxisCount: 1, mainAxisExtent: 165),
+            crossAxisCount: 1,
+            mainAxisExtent: 165,
+          mainAxisSpacing: 10
+        ),
         itemCount: GridCustomDataList.productsDetails.length,
         itemBuilder: (context, index) {
           final myData = GridCustomDataList.productsDetails[index];

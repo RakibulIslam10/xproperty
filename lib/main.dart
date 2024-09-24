@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'package:get_storage/get_storage.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:xproperty/routes/routes.dart';
-import 'package:xproperty/views/utils/theme.dart';
 import 'language/language.dart';
+import 'views/utils/custom_color.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -32,9 +32,13 @@ class MyApp extends StatelessWidget {
       builder: (_, child) => GetMaterialApp(
         title: Strings.appName,
         debugShowCheckedModeBanner: false,
-        // theme: Themes.light,
-        // darkTheme: Themes.dark,
-        // themeMode: Themes().theme,
+        theme: ThemeData.light().copyWith(
+          scaffoldBackgroundColor: CustomColor.whiteColor,
+          brightness: Brightness.light,
+          textTheme: ThemeData.light().textTheme.apply(
+            fontFamily: GoogleFonts.josefinSans().fontFamily,
+          ),
+        ),
         navigatorKey: Get.key,
         initialRoute: Routes.splashScreen,
         getPages: Routes.list,
