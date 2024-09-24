@@ -78,9 +78,7 @@ class PrimaryButton extends StatelessWidget {
               fontSize: fontSize,
               fontWeight: fontWeight ?? FontWeight.w600,
               color: buttonTextColor ??
-                  (Get.isDarkMode
-                      ? CustomColor.primaryLightTextColor
-                      : CustomColor.primaryDarkTextColor),
+                  ( CustomColor.primaryDarkTextColor),
             ),
           )),
     );

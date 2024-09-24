@@ -33,12 +33,7 @@ class TitleHeading3Widget extends StatelessWidget {
           padding: padding,
           child: Text(
             text,
-            style: Get.isDarkMode
-                ? CustomStyle.darkHeading3TextStyle.copyWith(
-                fontSize: fontSize,
-                fontWeight: fontWeight,
-                color: color)
-                : CustomStyle.lightHeading3TextStyle.copyWith(
+            style: CustomStyle.lightHeading3TextStyle.copyWith(
                 fontSize: fontSize,
                 fontWeight: fontWeight,
                 color: color),
