@@ -28,6 +28,7 @@ class ResetPasswordMobileLayoutScreen extends StatelessWidget {
           padding: EdgeInsets.all(Dimensions.paddingSize),
           child: Column(
             children: [
+              verticalSpace(Dimensions.marginSizeVertical * 2.5),
               _passwordFieldWidget(),
               _resetPasswordButtonWidget(),
             ],
@@ -41,10 +42,10 @@ class ResetPasswordMobileLayoutScreen extends StatelessWidget {
   _passwordFieldWidget() {
     return Column(
       children: [
-         MyInputFiled(
+        MyInputFiled(
             suffixIcon: Icons.visibility_off, label: Strings.newPassword),
         verticalSpace(Dimensions.marginSizeVertical * 0.5),
-         MyInputFiled(
+        MyInputFiled(
           label: Strings.confirmPassword,
           suffixIcon: Icons.visibility_off,
         ),
@@ -110,23 +111,30 @@ class ResetPasswordMobileLayoutScreen extends StatelessWidget {
 
   _appBarWidget() {
     return AppBar(
-      bottom: PreferredSize(
-          preferredSize: Size.fromHeight(Dimensions.heightSize * 0.6),
-          child: TitleHeading2Widget(
-            text: Strings.yourIdentityHasBeenVerified,
-            fontSize: Dimensions.headingTextSize5,
-            fontWeight: FontWeight.w500,
-            color: CustomColor.primaryLightColor.withOpacity(0.80),
-          )),
+      toolbarHeight: Dimensions.heightSize * 5,
       automaticallyImplyLeading: false,
-      backgroundColor: CustomColor.whiteColor,
-      title: Padding(
-        padding: EdgeInsets.symmetric(horizontal: Dimensions.paddingSize * 0.5),
-        child: const TitleHeading2Widget(
-          text: Strings.resetPassword,
-          color: CustomColor.primaryLightColor,
-        ),
+      backgroundColor: Colors.transparent,
+      title: Row(
+        mainAxisAlignment: mainStart,
+        children: [
+          horizontalSpace(Dimensions.marginSizeHorizontal),
+          const TitleHeading2Widget(
+            text: Strings.resetPassword2,
+            color: CustomColor.primaryLightColor,
+          ),
+        ],
       ),
+      bottom: PreferredSize(
+          preferredSize: Size.fromHeight(Dimensions.heightSize * 0.0),
+          child: Padding(
+            padding: EdgeInsets.symmetric(horizontal: Dimensions.paddingSize),
+            child: TitleHeading2Widget(
+              text: Strings.yourIdentityHasBeenVerified,
+              fontSize: Dimensions.headingTextSize5,
+              fontWeight: FontWeight.w500,
+              color: CustomColor.primaryLightColor.withOpacity(0.80),
+            ),
+          )),
     );
   }
 }

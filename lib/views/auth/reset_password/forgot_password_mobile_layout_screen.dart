@@ -29,8 +29,8 @@ class ForgotPasswordMobileLayoutScreen extends StatelessWidget {
           padding: EdgeInsets.symmetric(horizontal: Dimensions.paddingSize),
           child: Column(
             children: [
-              verticalSpace(Dimensions.marginSizeVertical * 4),
-               MyInputFiled(label: Strings.email),
+              verticalSpace(Dimensions.marginSizeVertical * 2.5),
+              MyInputFiled(label: Strings.email),
               _sendButtonWidget(),
             ],
           ),
@@ -98,17 +98,7 @@ class ForgotPasswordMobileLayoutScreen extends StatelessWidget {
 
   _appBarWidget() {
     return AppBar(
-      bottom: PreferredSize(
-          preferredSize: Size.fromHeight(Dimensions.heightSize * 2),
-          child: Padding(
-            padding: EdgeInsets.symmetric(horizontal: Dimensions.paddingSize),
-            child: TitleHeading2Widget(
-              text: Strings.pleaseEnterYourEmailText,
-              fontSize: Dimensions.headingTextSize5,
-              fontWeight: FontWeight.w500,
-              color: CustomColor.primaryLightColor.withOpacity(0.80),
-            ),
-          )),
+      toolbarHeight: Dimensions.heightSize * 7,
       automaticallyImplyLeading: false,
       backgroundColor: Colors.transparent,
       title: Row(
@@ -122,6 +112,17 @@ class ForgotPasswordMobileLayoutScreen extends StatelessWidget {
           ),
         ],
       ),
+      bottom: PreferredSize(
+          preferredSize: Size.fromHeight(Dimensions.heightSize * 0.0),
+          child: Padding(
+            padding: EdgeInsets.symmetric(horizontal: Dimensions.paddingSize),
+            child: TitleHeading2Widget(
+              text: Strings.pleaseEnterYourEmailText,
+              fontSize: Dimensions.headingTextSize5,
+              fontWeight: FontWeight.w500,
+              color: CustomColor.primaryLightColor.withOpacity(0.80),
+            ),
+          )),
     );
   }
 }

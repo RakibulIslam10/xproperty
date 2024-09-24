@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:xproperty/widgets/custom_app_Bar.dart';
+import 'package:xproperty/widgets/custom_app_bar.dart';
 import '../../language/language.dart';
 import '../../widgets/common/others/custom_image_widget.dart';
 import '../../widgets/common/text_lebels/title_heading4_widget.dart';
@@ -16,7 +16,9 @@ class TermsAndPoliciesMobileLayoutScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: const CustomAppBar(title: Strings.termsAndPolicies),
+      appBar: const CustomAppBar(
+          statusBarColor: CustomColor.primaryLightColor,
+          title: Strings.termsAndPolicies),
       body: _bodyWidget(),
     );
   }

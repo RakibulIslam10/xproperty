@@ -15,9 +15,9 @@ class BackButtonWidget extends StatelessWidget {
       onTap: onTap ?? () => Get.back(),
       child: Padding(
         padding: EdgeInsets.only(
-          left: Dimensions.paddingSize * 0.6,
-          top: Dimensions.paddingSize * 0.6,
-          bottom: Dimensions.paddingSize * 0.6,
+          left: Dimensions.paddingSize * 0.65,
+          top: Dimensions.paddingSize * 0.65,
+          bottom: Dimensions.paddingSize * 0.65,
         ),
         child: CustomImageWidget(
           path: Assets.icons.arrowLeft,

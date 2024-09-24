@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:xproperty/widgets/custom_app_Bar.dart';
+import 'package:xproperty/widgets/custom_app_bar.dart';
 import '../../controller/filters_screen/button_color_controlller.dart';
 import '../../controller/filters_screen/slider_controller.dart';
 import '../../language/language.dart';
@@ -27,6 +27,7 @@ class FiltersMobileScreenLayout extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: const CustomAppBar(
+        statusBarColor: CustomColor.primaryLightColor,
         title: Strings.filters,
         actionText: Strings.reset,
       ),

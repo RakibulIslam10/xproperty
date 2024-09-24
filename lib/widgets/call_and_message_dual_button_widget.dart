@@ -44,7 +44,7 @@ class CallAndMessageDualButtonWidget extends StatelessWidget {
     return ElevatedButton(
       onPressed: onPressed,
       style: ElevatedButton.styleFrom(
-        backgroundColor: CustomColor.greyColor.withOpacity(0.20),
+        backgroundColor: CustomColor.greyColor.withOpacity(0.1),
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(Dimensions.radius * 2),
         ),

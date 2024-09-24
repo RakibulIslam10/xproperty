@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
+import 'package:xproperty/widgets/custom_app_bar.dart';
 import '../../controller/onboard/onboading_controller.dart';
 import '../../custom_assets/assets.gen.dart';
 import '../../language/language.dart';
@@ -55,6 +56,7 @@ class OnboardMobileScreenLayout extends StatelessWidget {
 
   _appBarWidget() {
     return AppBar(
+      toolbarHeight: Dimensions.heightSize * 6,
       backgroundColor: Colors.transparent,
       title: Padding(
         padding: EdgeInsets.only(
@@ -104,7 +106,6 @@ class OnboardMobileScreenLayout extends StatelessWidget {
           width: double.infinity,
         ),
         TitleHeading2Widget(
-
           text: _onboardingController.items[index].title,
           fontSize: Dimensions.headingTextSize2,
           color: CustomColor.primaryLightColor,

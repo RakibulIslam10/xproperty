@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:xproperty/widgets/custom_app_Bar.dart';
+import 'package:xproperty/widgets/custom_app_bar.dart';
 import '../../language/language.dart';
 import '../../routes/routes.dart';
 import '../../widgets/common/appbar/back_button.dart';
@@ -17,7 +17,9 @@ class PropertiesMobileLayoutScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: const CustomAppBar(title: Strings.properties),
+      appBar: const CustomAppBar(
+          statusBarColor: CustomColor.primaryLightColor,
+          title: Strings.properties),
       body: _bodyWidget(),
     );
   }

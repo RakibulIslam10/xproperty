@@ -36,8 +36,8 @@ class MyApp extends StatelessWidget {
           scaffoldBackgroundColor: CustomColor.whiteColor,
           brightness: Brightness.light,
           textTheme: ThemeData.light().textTheme.apply(
-            fontFamily: GoogleFonts.josefinSans().fontFamily,
-          ),
+                fontFamily: GoogleFonts.josefinSans().fontFamily,
+              ),
         ),
         navigatorKey: Get.key,
         initialRoute: Routes.splashScreen,
@@ -45,7 +45,8 @@ class MyApp extends StatelessWidget {
         builder: (context, widget) {
           ScreenUtil.init(context);
           return MediaQuery(
-            data: MediaQuery.of(context).copyWith(textScaler: const TextScaler.linear(1.0)),
+            data: MediaQuery.of(context)
+                .copyWith(textScaler: const TextScaler.linear(1.0)),
             child: widget!,
           );
         },

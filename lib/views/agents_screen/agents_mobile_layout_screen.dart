@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:xproperty/widgets/custom_app_Bar.dart';
+import 'package:xproperty/widgets/custom_app_bar.dart';
 import '../../custom_assets/assets.gen.dart';
 import '../../language/language.dart';
 import '../../routes/routes.dart';
 import '../../widgets/common/text_lebels/title_heading2_widget.dart';
+import '../utils/custom_color.dart';
 import '../utils/dimensions.dart';
 
 class AgentsMobileLayoutScreen extends StatelessWidget {
@@ -13,7 +14,9 @@ class AgentsMobileLayoutScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: const CustomAppBar(title: Strings.agents),
+      appBar: const CustomAppBar(
+          statusBarColor: CustomColor.primaryLightColor,
+          title: Strings.agents),
       body: _bodyWidget(),
     );
   }

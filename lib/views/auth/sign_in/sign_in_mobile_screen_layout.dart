@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:xproperty/widgets/custom_app_Bar.dart';
+import 'package:xproperty/widgets/custom_app_bar.dart';
 import '../../../custom_assets/assets.gen.dart';
 import '../../../language/language.dart';
 import '../../../routes/routes.dart';
-import '../../../widgets/common/appbar/back_button.dart';
 import '../../../widgets/common/buttons/primary_button.dart';
 import '../../../widgets/common/inputs/my_input_filed.dart';
 import '../../../widgets/common/others/custom_image_widget.dart';
@@ -19,15 +18,16 @@ import '../../utils/dimensions.dart';
 import '../../utils/size.dart';
 
 class SignInMobileScreenLayout extends StatelessWidget {
-  const SignInMobileScreenLayout({super.key});
+  SignInMobileScreenLayout({super.key});
+
+  final GlobalKey<FormState> formKey = GlobalKey<FormState>();
+  final TextEditingController _emailController = TextEditingController();
+  final TextEditingController _passwordController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-
-      appBar: CustomAppBar(
-
-          title: Strings.signIn),
+      appBar: const CustomAppBar(title: Strings.signIn2),
       body: _bodyWidget(),
       bottomNavigationBar: _bottomNavBarWidget(),
     );
@@ -44,7 +44,7 @@ class SignInMobileScreenLayout extends StatelessWidget {
             child: Column(
               children: [
                 _logoWidget(),
-                _textFieldWidget(),
+                _inputFormFieldWidget(),
                 _singInButton(),
                 _twoButtonWidget(),
               ],
@@ -56,7 +56,59 @@ class SignInMobileScreenLayout extends StatelessWidget {
     );
   }
 
-  Padding _singInButton() {
+  _inputFormFieldWidget() {
+    return Form(
+      key: formKey,
+      child: Column(
+        crossAxisAlignment: crossEnd,
+        children: [
+          MyInputFiled(
+            controller: _emailController,
+            validator: (value) {
+              if (value == null) {
+                return Strings.emailIsRequired;
+              }
+              final emailRegExp = RegExp(
+                  r"^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?\.[a-zA-Z][a-zA-Z0-9]{1,}$");
+              if (!emailRegExp.hasMatch(value)) {
+                return Strings
+                    .invalidEmail; // Provide a user-friendly error message
+              }
+              return null;
+            },
+            label: Strings.email,
+          ),
+          MyInputFiled(
+            controller: _passwordController,
+            validator: (value) {
+              if (value == null || value.isEmpty) {
+                return Strings.passwordRequired;
+              }
+              if (value.length < 6) {
+                return Strings
+                    .passwordTooShort; // Provide a user-friendly error message for passwords less than 6 characters
+              }
+              return null;
+            },
+            label: Strings.password,
+          ),
+          GestureDetector(
+            onTap: () {
+              Get.toNamed(Routes.forgotPasswordScreen);
+            },
+            child: TitleHeading2Widget(
+              text: Strings.forgotPassword,
+              fontSize: Dimensions.headingTextSize5,
+              color: CustomColor.primaryLightColor,
+              fontWeight: FontWeight.w500,
+            ),
+          )
+        ],
+      ),
+    );
+  }
+
+  _singInButton() {
     return Padding(
       padding: EdgeInsets.only(
           top: Dimensions.marginSizeVertical * 1.6,
@@ -70,7 +122,9 @@ class SignInMobileScreenLayout extends StatelessWidget {
           radius: Dimensions.radius * 22,
           borderColor: Colors.transparent,
           onPressed: () {
-            Get.toNamed(Routes.navigationScreen);
+            if (formKey.currentState!.validate()) {
+              Get.toNamed(Routes.navigationScreen);
+            }
           }),
     );
   }
@@ -81,7 +135,7 @@ class SignInMobileScreenLayout extends StatelessWidget {
         Transform.scale(
           scale: 1.2, // Adjust the scale factor as needed
           child: CustomPaint(
-            size: const Size(360, 101.831),
+            size: const Size(360, 95.831),
             painter: RPSCustomPainter(),
           ),
         ),
@@ -232,33 +286,10 @@ class SignInMobileScreenLayout extends StatelessWidget {
     );
   }
 
-  _textFieldWidget() {
-    return Column(
-      crossAxisAlignment: crossEnd,
-      children: [
-        MyInputFiled(
-          label: Strings.email,
-        ),
-        MyInputFiled(suffixIcon: Icons.visibility_off, label: Strings.password),
-        GestureDetector(
-          onTap: () {
-            Get.toNamed(Routes.forgotPasswordScreen);
-          },
-          child: TitleHeading2Widget(
-            fontWeight: FontWeight.w400,
-            text: Strings.forgotPassword,
-            fontSize: Dimensions.headingTextSize4,
-            color: CustomColor.primaryLightColor,
-          ),
-        )
-      ],
-    );
-  }
-
   _logoWidget() {
     return Padding(
       padding: EdgeInsets.only(
-          bottom: Dimensions.paddingSize, top: Dimensions.paddingSize),
+          bottom: Dimensions.paddingSize, top: Dimensions.paddingSize * 0.5),
       child: Row(
         mainAxisAlignment: mainCenter,
         children: [
@@ -282,23 +313,6 @@ class SignInMobileScreenLayout extends StatelessWidget {
               )
             ],
           )
-        ],
-      ),
-    );
-  }
-
-  _appBarWidget() {
-    return AppBar(
-      automaticallyImplyLeading: false,
-      title: Row(
-        mainAxisAlignment: mainStart,
-        children: [
-          const BackButtonWidget(),
-          horizontalSpace(Dimensions.marginSizeHorizontal),
-          const TitleHeading2Widget(
-            text: Strings.signIn2,
-            color: CustomColor.primaryLightColor,
-          ),
         ],
       ),
     );

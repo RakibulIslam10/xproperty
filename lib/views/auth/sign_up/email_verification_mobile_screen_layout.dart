@@ -5,7 +5,6 @@ import '../../../language/language.dart';
 import '../../../routes/routes.dart';
 import '../../../widgets/common/appbar/back_button.dart';
 import '../../../widgets/common/buttons/primary_button.dart';
-import '../../../widgets/common/inputs/my_input_filed.dart';
 import '../../../widgets/common/text_lebels/title_heading2_widget.dart';
 import '../../../widgets/custom_circular_container_widget.dart';
 import '../../utils/custom_color.dart';
@@ -81,6 +80,7 @@ class EmailVerificationMobileScreenLayout extends StatelessWidget {
 
   _appBarWidget() {
     return AppBar(
+      toolbarHeight: Dimensions.heightSize * 5,
       bottom: PreferredSize(
           preferredSize: Size.fromHeight(Dimensions.heightSize * 0.4),
           child: Padding(

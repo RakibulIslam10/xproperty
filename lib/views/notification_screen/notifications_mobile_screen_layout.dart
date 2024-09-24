@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:xproperty/widgets/custom_app_Bar.dart';
+import 'package:xproperty/widgets/custom_app_bar.dart';
 import 'package:xproperty/widgets/dialog_box.dart';
 import '../../custom_assets/assets.gen.dart';
 import '../../language/language.dart';
@@ -14,7 +14,9 @@ class NotificationsMobileScreenLayout extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: const CustomAppBar(title: Strings.notification),
+      appBar: const CustomAppBar(
+          statusBarColor: CustomColor.primaryLightColor,
+          title: Strings.notification),
       body: _bodyWidget(),
     );
   }

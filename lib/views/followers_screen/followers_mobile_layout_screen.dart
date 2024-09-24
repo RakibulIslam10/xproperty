@@ -1,15 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:xproperty/widgets/custom_app_Bar.dart';
+import 'package:xproperty/views/utils/custom_color.dart';
+import 'package:xproperty/widgets/custom_app_bar.dart';
 import '../../custom_assets/assets.gen.dart';
 import '../../language/language.dart';
-import '../../widgets/common/appbar/back_button.dart';
 import '../../widgets/common/others/custom_image_widget.dart';
 import '../../widgets/common/text_lebels/title_heading2_widget.dart';
 import '../../widgets/follow_button_widget.dart';
-import '../utils/custom_color.dart';
 import '../utils/dimensions.dart';
-import '../utils/size.dart';
 
 class FollowersMobileLayoutScreen extends StatelessWidget {
   const FollowersMobileLayoutScreen({super.key});
@@ -17,7 +14,9 @@ class FollowersMobileLayoutScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: const CustomAppBar(title: Strings.followers),
+      appBar:  const CustomAppBar(
+          statusBarColor: CustomColor.primaryLightColor,
+          title: Strings.followers),
       body: _bodyWidget(),
     );
   }

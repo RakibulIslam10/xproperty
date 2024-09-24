@@ -1,5 +1,8 @@
+import 'package:country_code_picker/country_code_picker.dart';
 import 'package:flutter/material.dart';
-import 'package:xproperty/widgets/custom_app_Bar.dart';
+import 'package:get/get.dart';
+import 'package:xproperty/widgets/custom_app_bar.dart';
+import '../../controller/add_property/poneNumberController.dart';
 import '../../custom_assets/assets.gen.dart';
 import '../../language/language.dart';
 import '../../widgets/common/buttons/primary_button.dart';
@@ -15,7 +18,8 @@ import '../utils/dimensions.dart';
 import '../utils/size.dart';
 
 class ContactUsMobileLayoutScreen extends StatelessWidget {
-  const ContactUsMobileLayoutScreen({super.key});
+   ContactUsMobileLayoutScreen({super.key});
+  final PhoneNumberController controller = Get.put(PhoneNumberController());
 
   @override
   Widget build(BuildContext context) {
@@ -135,6 +139,31 @@ class ContactUsMobileLayoutScreen extends StatelessWidget {
           const CustomInquiryFormWidget(hintText: "Name"),
           const CustomInquiryFormWidget(
             hintText: Strings.email,
+          ),
+          Row(
+            children: [
+              Container(
+                alignment: Alignment.center,
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(Dimensions.radius * 2.4),
+                    border: Border.all(
+                        width: 2, color: CustomColor.primaryLightColor)),
+                child: CountryCodePicker(
+                  padding: const EdgeInsets.symmetric(vertical: 0),
+                  showFlag: false,
+                  onChanged: (CountryCode countryCode) {
+                    controller.setCountryCode(countryCode.toString());
+                  },
+                  initialSelection: 'US',
+                  textStyle:
+                  const TextStyle(color: CustomColor.secondaryLightColor),
+                ),
+              ),
+              horizontalSpace(Dimensions.marginSizeHorizontal * 0.5),
+              const Expanded(
+                child: CustomInquiryFormWidget(hintText: Strings.phoneNumber),
+              ),
+            ],
           ),
           _messageBoxWidget(),
           verticalSpace(Dimensions.heightSize),

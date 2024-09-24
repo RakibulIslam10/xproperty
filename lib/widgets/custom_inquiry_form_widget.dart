@@ -14,8 +14,8 @@ class CustomInquiryFormWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.symmetric(
-        vertical: Dimensions.marginSizeVertical * 0.25,
+      padding: EdgeInsets.only(
+        bottom: Dimensions.marginSizeVertical * 0.25,
       ),
       child: TextFormField(
         maxLines: maxline,

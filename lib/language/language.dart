@@ -16,6 +16,10 @@ class Strings {
   static const String state = "State";
   static const String filters = "Filters";
   static const String agents = "Agents";
+  static const String emailIsRequired = "Email Required";
+  static const String passwordRequired = "Password Required";
+  static const String passwordTooShort = "Password TooShort";
+  static const String invalidEmail = "InvalidEmail";
   static const String addfor = "ADD FOR";
   static const String contactInfo = "CONTACT INFO";
   static const String agentsDetails = "Agents Details";
@@ -98,6 +102,8 @@ class Strings {
   static const String following = "Following";
   static const String properties = "Properties";
   static const String propertiesType = "PROPERTY TYPE";
+  static const String area = "AREA";
+  static const String price = "PRICE";
   static const String selectedImage = "SELECT IMAGE";
   static const String address = "ADDRESS";
 

@@ -1,15 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:xproperty/widgets/custom_app_Bar.dart';
 import '../../language/language.dart';
 import '../../routes/routes.dart';
-import '../../widgets/common/appbar/back_button.dart';
-import '../../widgets/common/text_lebels/title_heading2_widget.dart';
 import '../../widgets/custom_circular_container_widget.dart';
 import '../../widgets/list_card_widget.dart';
 import '../../widgets/listing_data.dart';
 import '../utils/custom_color.dart';
 import '../utils/dimensions.dart';
-import '../utils/size.dart';
 
 class NewsBlogMobileLayoutScreen extends StatelessWidget {
   const NewsBlogMobileLayoutScreen({super.key});
@@ -17,27 +15,10 @@ class NewsBlogMobileLayoutScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: _appBarWidget(),
+      appBar: const CustomAppBar(
+          statusBarColor: CustomColor.primaryLightColor,
+          title: Strings.newsANdBlog),
       body: _bodyWidget(),
-    );
-  }
-
-  _appBarWidget() {
-    return AppBar(
-      automaticallyImplyLeading: false,
-      backgroundColor: CustomColor.whiteColor,
-      title: Row(
-        mainAxisAlignment: mainStart,
-        children: [
-          const BackButtonWidget(),
-          horizontalSpace(Dimensions.marginSizeHorizontal),
-          TitleHeading2Widget(
-            text: Strings.newsANdBlog,
-            fontSize: Dimensions.headingTextSize2 * 1.2,
-            color: CustomColor.primaryLightColor,
-          ),
-        ],
-      ),
     );
   }
 
@@ -68,9 +49,10 @@ class NewsBlogMobileLayoutScreen extends StatelessWidget {
       child: Card(
         color: CustomColor.whiteColor,
         elevation: 4,
-        child: ListCardItems(onTap: (){
-          Get.toNamed(Routes.newsScreen);
-        },
+        child: ListCardItems(
+          onTap: () {
+            Get.toNamed(Routes.newsScreen);
+          },
           title: myData['title'],
           imageUrl: myData["imageUrl"],
           subTitle: myData["subTitle"],

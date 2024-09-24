@@ -31,6 +31,7 @@ class OtpVerificationMobileLayoutScreen extends StatelessWidget {
               vertical: Dimensions.paddingSize),
           child: Column(
             children: [
+              verticalSpace(Dimensions.marginSizeVertical * 2.5),
               otpTextFieldWidget(),
               _buttonWidget(),
               _otpResendTextWidget(),
@@ -44,14 +45,7 @@ class OtpVerificationMobileLayoutScreen extends StatelessWidget {
 
   _appBarWidget() {
     return AppBar(
-      bottom: PreferredSize(
-          preferredSize: Size.fromHeight(Dimensions.heightSize * 0.6),
-          child: TitleHeading2Widget(
-            text: Strings.enterTheCOdeSentTo,
-            fontSize: Dimensions.headingTextSize5,
-            fontWeight: FontWeight.w500,
-            color: CustomColor.primaryLightColor.withOpacity(0.80),
-          )),
+      toolbarHeight: Dimensions.heightSize * 5,
       automaticallyImplyLeading: false,
       backgroundColor: Colors.transparent,
       title: Row(
@@ -65,6 +59,17 @@ class OtpVerificationMobileLayoutScreen extends StatelessWidget {
           ),
         ],
       ),
+      bottom: PreferredSize(
+          preferredSize: Size.fromHeight(Dimensions.heightSize * 0.0),
+          child: Padding(
+            padding: EdgeInsets.symmetric(horizontal: Dimensions.paddingSize),
+            child: TitleHeading2Widget(
+              text: Strings.enterTheCOdeSentTo,
+              fontSize: Dimensions.headingTextSize5,
+              fontWeight: FontWeight.w500,
+              color: CustomColor.primaryLightColor.withOpacity(0.80),
+            ),
+          )),
     );
   }
 

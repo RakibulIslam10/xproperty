@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:xproperty/widgets/custom_app_Bar.dart';
 import '../../../language/language.dart';
 import '../../../routes/routes.dart';
 import '../../../widgets/common/appbar/back_button.dart';
@@ -22,7 +23,7 @@ class SignUpMobileScreenLayout extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: _appBarWidget(),
+      appBar: const CustomAppBar(title: Strings.signUp2),
       body: _bodyWidget(),
       bottomNavigationBar: _bottomNabBarWidget(),
     );
@@ -37,7 +38,7 @@ class SignUpMobileScreenLayout extends StatelessWidget {
             child: Column(
               children: [
                 _logoWidget(),
-                _textFieldWidget(),
+                // _textFieldWidget(),
                 _privacyPolicyTextWidget(),
                 verticalSpace(Dimensions.heightSize * 3.5),
                 _buttonWidget(),
@@ -124,20 +125,20 @@ class SignUpMobileScreenLayout extends StatelessWidget {
     );
   }
 
-  _textFieldWidget() {
-    return  Column(
-      children: [
-        MyInputFiled(label: Strings.username),
-        MyInputFiled(
-          label: Strings.email,
-        ),
-        MyInputFiled(
-          label: Strings.password,
-          suffixIcon: Icons.visibility_off,
-        ),
-      ],
-    );
-  }
+  // _textFieldWidget() {
+  //   return  Column(
+  //     children: [
+  //       MyInputField(label: Strings.username),
+  //       MyInputField(
+  //         label: Strings.email,
+  //       ),
+  //       MyInputField(
+  //         label: Strings.password,
+  //         suffixIcon: Icons.visibility_off,
+  //       ),
+  //     ],
+  //   );
+  // }
 
   _logoWidget() {
     return Padding(
@@ -173,24 +174,7 @@ class SignUpMobileScreenLayout extends StatelessWidget {
     );
   }
 
-  _appBarWidget() {
-    return AppBar(
 
-      automaticallyImplyLeading: false,
-      backgroundColor: Colors.transparent,
-      title: Row(
-        mainAxisAlignment: mainStart,
-        children: [
-          const BackButtonWidget(),
-          horizontalSpace(Dimensions.marginSizeHorizontal),
-          const TitleHeading2Widget(
-            text: Strings.signUp2,
-            color: CustomColor.primaryLightColor,
-          ),
-        ],
-      ),
-    );
-  }
 
   _circularContainers() {
     return const Stack(

@@ -1,29 +1,46 @@
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
+import '../../language/language.dart';
 import '../../routes/routes.dart';
 
-class SingInfFormController extends GetxController {
+class SignInFormController extends GetxController {
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
 
-  String? validateEmail(String? value) {
+  final TextEditingController emailController = TextEditingController();
+  final TextEditingController passwordController = TextEditingController();
+  setValidator() {
+    return  (String? value) {
+      if (value!.isEmpty) {
+        return Strings.pleaseFillOutTheField;
+      } else {
+        return null;
+      }
+    };
+  }
 
-    if (value == null || value.isEmpty) {
-      return 'Email is required';
-    } else if (!GetUtils.isEmail(value)) {
-      return 'Please enter a valid email address';
+  // String? validateEmail(String? email) {
+  //   if (email!.isEmpty) {
+  //     return 'Please enter your email';
+  //   }
+  //   if (!RegExp(r"^\S+@\S+\.\S+$").hasMatch(email)) {
+  //     return 'Invalid email format';
+  //   }
+  //   return null;
+  // }
+
+  String? validatePassword(String? value) {
+    if (value!.isEmpty) {
+      return "Password cannot be empty";
     }
+
     return null;
   }
 
-  void submitForm() {
+  void signIn() {
     if (formKey.currentState!.validate()) {
+      print('Sign-in with email: ${emailController.text}');
+      print('Sign-in with password: ${passwordController.text}');
       Get.toNamed(Routes.navigationScreen);
-    } else {
-      Get.snackbar(
-        'Error',
-        'Please fix the errors in the form.',
-        snackPosition: SnackPosition.BOTTOM,
-      );
     }
   }
 }

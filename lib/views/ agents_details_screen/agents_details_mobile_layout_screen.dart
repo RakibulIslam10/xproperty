@@ -6,7 +6,7 @@ import '../../language/language.dart';
 import '../../routes/routes.dart';
 import '../../widgets/call_and_message_dual_button_widget.dart';
 import '../../widgets/common/title_sub_title_widget.dart';
-import '../../widgets/custom_app_Bar.dart';
+import '../../widgets/custom_app_bar.dart';
 import '../../widgets/list_card_widget.dart';
 import '../../widgets/listing_data.dart';
 import '../utils/custom_color.dart';
@@ -19,7 +19,9 @@ class AgentsDetailsMobileLayoutScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: const CustomAppBar(title: Strings.agentsDetails),
+      appBar: const CustomAppBar(
+          statusBarColor: CustomColor.primaryLightColor,
+          title: Strings.agentsDetails),
       body: Center(
         child: SingleChildScrollView(
           child: _bodyWidget(),

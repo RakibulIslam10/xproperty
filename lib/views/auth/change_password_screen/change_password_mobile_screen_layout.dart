@@ -29,7 +29,7 @@ class ChangePasswordMobileScreenLayout extends StatelessWidget {
           padding: EdgeInsets.all(Dimensions.paddingSize),
           child: Column(
             children: [
-              _passwordFieldWidget(),
+              // _passwordFieldWidget(),
               _changePasswordScreen(),
             ],
           ),
@@ -42,14 +42,14 @@ class ChangePasswordMobileScreenLayout extends StatelessWidget {
   _passwordFieldWidget() {
     return Column(
       children: [
-         MyInputFiled(
+        MyInputFiled(
             suffixIcon: Icons.visibility_off, label: Strings.oldPassword),
         verticalSpace(Dimensions.marginSizeVertical * 0.5),
-         MyInputFiled(
+        MyInputFiled(
           label: Strings.newPassword,
           suffixIcon: Icons.visibility_off,
         ),
-         MyInputFiled(
+        MyInputFiled(
           label: Strings.confirmNewPassword,
           suffixIcon: Icons.visibility_off,
         ),
@@ -97,7 +97,7 @@ class ChangePasswordMobileScreenLayout extends StatelessWidget {
   _changePasswordScreen() {
     return Padding(
       padding:
-          EdgeInsets.symmetric(vertical: Dimensions.marginSizeVertical * 2),
+          EdgeInsets.symmetric(vertical: Dimensions.marginSizeVertical * 4),
       child: PrimaryButton(
         fontWeight: FontWeight.bold,
         title: Strings.changePassword,
@@ -115,6 +115,7 @@ class ChangePasswordMobileScreenLayout extends StatelessWidget {
 
   _appBarWidget() {
     return AppBar(
+      toolbarHeight: Dimensions.heightSize * 5,
       automaticallyImplyLeading: false,
       backgroundColor: Colors.transparent,
       title: Row(

@@ -214,9 +214,9 @@ class ChatMobileScreenLayout extends StatelessWidget {
   _backButton() {
     return Padding(
       padding: EdgeInsets.only(
-          left: Dimensions.paddingSize * 0.45,
-          top: Dimensions.paddingSize * 0.45,
-          bottom: Dimensions.paddingSize * 0.45),
+          left: Dimensions.paddingSize * 0.50,
+          top: Dimensions.paddingSize * 0.50,
+          bottom: Dimensions.paddingSize * 0.50),
       child: const BackButtonWidget(),
     );
   }
