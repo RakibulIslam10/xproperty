@@ -17,7 +17,7 @@ class CustomColor {
 
   static const Color cardLightTextColor = Color(0xFFD9D9D9);
 
-  static const Color whiteColor = Color(0xFFffffff);
+  static const Color whiteColor = Color(0xFFFFFFFF);
   static const Color secondaryWhiteColor = Color(0xFFD3D3D3);
   static const Color redColor = Color(0xFFEE0303);
   static const Color orangeColor = Color(0xFFFF9E45);

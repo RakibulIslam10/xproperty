@@ -42,6 +42,8 @@ dependencies:
   dropdown_button2: any
   flutter_otp_text_field: any
   country_code_picker: ^3.0.0
+  get_storage: any
+  google_fonts: ^6.2.1
 
 
 

@@ -34,10 +34,10 @@ class TitleSubTitleWidget extends StatelessWidget {
       mainAxisAlignment: isCenterText ? mainCenter : mainCenter,
       children: [
         TitleHeading2Widget(
-          fontSize: titleFontSize ?? Dimensions.headingTextSize2,
+          fontSize: titleFontSize,
           text: title,
-          color: titleColor ?? CustomColor.primaryLightTextColor,
-          fontWeight: fontWeight ?? FontWeight.w600,
+          color: titleColor,
+          fontWeight: fontWeight,
           textAlign: isCenterText ? TextAlign.center : TextAlign.start,
         ),
         Visibility(

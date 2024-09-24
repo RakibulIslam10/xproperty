@@ -2,9 +2,12 @@ import 'package:flutter/cupertino.dart';
 import '../../views/utils/custom_color.dart';
 import '../common/others/custom_image_widget.dart';
 
- class BackgroundWidget extends StatelessWidget {
+class BackgroundWidget extends StatelessWidget {
   const BackgroundWidget(
-      {super.key, required this.content, this.backgroundImg, this.containerOpacity});
+      {super.key,
+      required this.content,
+      this.backgroundImg,
+      this.containerOpacity});
 
   final Widget content;
   final backgroundImg;

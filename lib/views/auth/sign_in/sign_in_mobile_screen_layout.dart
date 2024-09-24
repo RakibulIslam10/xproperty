@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:xproperty/widgets/custom_app_Bar.dart';
 import '../../../custom_assets/assets.gen.dart';
 import '../../../language/language.dart';
 import '../../../routes/routes.dart';
@@ -23,7 +24,10 @@ class SignInMobileScreenLayout extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: _appBarWidget(),
+
+      appBar: CustomAppBar(
+
+          title: Strings.signIn),
       body: _bodyWidget(),
       bottomNavigationBar: _bottomNavBarWidget(),
     );
@@ -286,7 +290,6 @@ class SignInMobileScreenLayout extends StatelessWidget {
   _appBarWidget() {
     return AppBar(
       automaticallyImplyLeading: false,
-      backgroundColor: Colors.transparent,
       title: Row(
         mainAxisAlignment: mainStart,
         children: [

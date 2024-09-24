@@ -27,6 +27,17 @@ class SplashScreen extends StatelessWidget {
     );
   }
 
+
+
+
+
+
+
+
+
+
+
+
   _titleSubTitleWidget() {
     return TitleSubTitleWidget(
       isCenterText: true,
@@ -37,7 +48,7 @@ class SplashScreen extends StatelessWidget {
       title: Strings.appName,
       subTitle: Strings.findYourNook,
       titleColor: CustomColor.primaryLightColor,
-      subTitleColor: CustomColor.secondaryLightColor.withOpacity(0.65),
+      subTitleColor: CustomColor.secondaryLightColor.withOpacity(0.60),
     );
   }
 

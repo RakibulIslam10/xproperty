@@ -104,6 +104,7 @@ class OnboardMobileScreenLayout extends StatelessWidget {
           width: double.infinity,
         ),
         TitleHeading2Widget(
+
           text: _onboardingController.items[index].title,
           fontSize: Dimensions.headingTextSize2,
           color: CustomColor.primaryLightColor,

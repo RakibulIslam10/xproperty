@@ -52,7 +52,7 @@ class PrimaryButton extends StatelessWidget {
         : _buildButton(context);
   }
 
-  Widget _buildButton(BuildContext context) {
+   _buildButton(BuildContext context) {
     return SizedBox(
       height:  Dimensions.heightSize *4,
       width: double.infinity,

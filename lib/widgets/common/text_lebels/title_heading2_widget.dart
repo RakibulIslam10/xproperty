@@ -48,6 +48,7 @@ class TitleHeading2Widget extends StatelessWidget {
         textAlign: textAlign,
         overflow: textOverflow,
         maxLines: maxLines,
+
       ),
     );
   }

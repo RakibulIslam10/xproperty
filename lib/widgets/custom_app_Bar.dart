@@ -49,7 +49,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
         color: CustomColor.primaryLightColor,
       ),
       systemOverlayStyle: SystemUiOverlayStyle(
-        statusBarColor: statusBarColor ?? CustomColor.primaryLightColor,
+        statusBarColor: statusBarColor ?? CustomColor.whiteColor,
         statusBarIconBrightness: statusBarIconBrightness ?? Brightness.light,
       ),
     );

@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:xproperty/widgets/custom_app_Bar.dart';
 import '../../language/language.dart';
-import '../../widgets/common/appbar/back_button.dart';
 import '../../widgets/common/others/custom_image_widget.dart';
-import '../../widgets/common/text_lebels/title_heading2_widget.dart';
 import '../../widgets/common/text_lebels/title_heading4_widget.dart';
 import '../../widgets/common/title_sub_title_widget.dart';
 import '../../widgets/custom_circular_container_widget.dart';
@@ -105,6 +103,4 @@ class TermsAndPoliciesMobileLayoutScreen extends StatelessWidget {
       ],
     );
   }
-
-
 }

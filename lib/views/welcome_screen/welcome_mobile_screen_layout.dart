@@ -44,13 +44,13 @@ class WelcomeHomeMobileScreenLayout extends StatelessWidget {
     return Column(
       children: [
         PrimaryButton(
-          height: Dimensions.heightSize * 5,
           fontWeight: FontWeight.bold,
           title: Strings.signIn,
           fontSize: Dimensions.headingTextSize2,
           buttonTextColor: CustomColor.primaryDarkColor,
-          buttonColor: CustomColor.whiteColor.withOpacity(0.5),
+          buttonColor: CustomColor.whiteColor.withOpacity(0.50),
           radius: Dimensions.radius * 22,
+          borderColor: Colors.transparent,
           onPressed: () {
             Get.toNamed(Routes.signInScreen);
           },
