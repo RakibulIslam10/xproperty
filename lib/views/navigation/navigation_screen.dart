@@ -24,54 +24,64 @@ class BottomNavScreen extends StatelessWidget {
 
   _bottomNavWidget() {
     return Obx(
-      () => BottomNavigationBar(
-        backgroundColor: CustomColor.whiteColor,
-        selectedItemColor: CustomColor.primaryLightColor,
-        type: BottomNavigationBarType.fixed,
-        unselectedItemColor: CustomColor.greyColor,
-        unselectedLabelStyle:
-            const TextStyle(fontWeight: FontWeight.bold, color: Colors.grey),
-        selectedLabelStyle: const TextStyle(fontWeight: FontWeight.bold),
-        onTap: _navBarController.changeIndex,
-        currentIndex: _navBarController.currentIndex.value,
-        items: [
-          BottomNavigationBarItem(
-            icon: CustomImageWidget(
-              path: Assets.icons.ionicIosHome,
-              color: _navBarController.currentIndex.value == 0
-                  ? CustomColor.primaryLightColor
-                  : CustomColor.greyColor,
-            ),
-            label: Strings.home,
+      () => Container(
+        decoration: BoxDecoration(boxShadow: [
+          BoxShadow(
+            color: Colors.black.withOpacity(0.5),
+            blurRadius: 2.0,
+            offset: const Offset(0.0, -0.0),
           ),
-          BottomNavigationBarItem(
-            icon: CustomImageWidget(
-              path: Assets.icons.buildin,
-              color: _navBarController.currentIndex.value == 1
-                  ? CustomColor.primaryLightColor
-                  : CustomColor.greyColor, // Call getIconColor with index 1
+        ]),
+        child: BottomNavigationBar(
+          elevation: 20,
+          backgroundColor: CustomColor.whiteColor,
+          selectedItemColor: CustomColor.primaryLightColor,
+          type: BottomNavigationBarType.fixed,
+          unselectedItemColor: CustomColor.greyColor,
+          unselectedLabelStyle:
+              const TextStyle(fontWeight: FontWeight.bold, color: Colors.grey),
+          selectedLabelStyle: const TextStyle(fontWeight: FontWeight.bold),
+          onTap: _navBarController.changeIndex,
+          currentIndex: _navBarController.currentIndex.value,
+          items: [
+            BottomNavigationBarItem(
+              icon: CustomImageWidget(
+                path: Assets.icons.ionicIosHome,
+                color: _navBarController.currentIndex.value == 0
+                    ? CustomColor.primaryLightColor
+                    : CustomColor.greyColor,
+              ),
+              label: Strings.home,
             ),
-            label: Strings.discover,
-          ),
-          BottomNavigationBarItem(
-            icon: CustomImageWidget(
-              path: Assets.icons.iconChat,
-              color: _navBarController.currentIndex.value == 2
-                  ? CustomColor.primaryLightColor
-                  : CustomColor.greyColor,
+            BottomNavigationBarItem(
+              icon: CustomImageWidget(
+                path: Assets.icons.buildin,
+                color: _navBarController.currentIndex.value == 1
+                    ? CustomColor.primaryLightColor
+                    : CustomColor.greyColor, // Call getIconColor with index 1
+              ),
+              label: Strings.discover,
             ),
-            label: Strings.inbox,
-          ),
-          BottomNavigationBarItem(
-            icon: CustomImageWidget(
-              path: Assets.icons.iconProfile,
-              color: _navBarController.currentIndex.value == 3
-                  ? CustomColor.primaryLightColor
-                  : CustomColor.greyColor,
+            BottomNavigationBarItem(
+              icon: CustomImageWidget(
+                path: Assets.icons.iconChat,
+                color: _navBarController.currentIndex.value == 2
+                    ? CustomColor.primaryLightColor
+                    : CustomColor.greyColor,
+              ),
+              label: Strings.inbox,
             ),
-            label: Strings.profile,
-          ),
-        ],
+            BottomNavigationBarItem(
+              icon: CustomImageWidget(
+                path: Assets.icons.iconProfile,
+                color: _navBarController.currentIndex.value == 3
+                    ? CustomColor.primaryLightColor
+                    : CustomColor.greyColor,
+              ),
+              label: Strings.profile,
+            ),
+          ],
+        ),
       ),
     );
   }
