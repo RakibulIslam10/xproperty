@@ -14,15 +14,14 @@ class NewsMobileLayoutScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
-        body: _bodyWidget(),
-      ),
+    return Scaffold(
+      body: _bodyWidget(),
     );
   }
 
   _bodyWidget() {
     return Column(
+      mainAxisAlignment: mainStart,
       children: [
         Stack(
           children: [
@@ -61,13 +60,13 @@ class NewsMobileLayoutScreen extends StatelessWidget {
         padding: EdgeInsets.only(bottom: Dimensions.heightSize),
         child: ClipRRect(
           borderRadius: BorderRadius.only(
-            bottomLeft: Radius.circular(Dimensions.radius * 1.5),
-            bottomRight: Radius.circular(Dimensions.radius * 1.5),
+            bottomLeft: Radius.circular(Dimensions.radius * 2),
+            bottomRight: Radius.circular(Dimensions.radius * 2),
           ),
           child: CustomImageWidget(
             path: Assets.background.house.path,
             color: Colors.black.withOpacity(0.20),
-            height: Dimensions.heightSize * 17,
+            height: Dimensions.heightSize * 17.5,
             width: double.infinity,
           ),
         ));

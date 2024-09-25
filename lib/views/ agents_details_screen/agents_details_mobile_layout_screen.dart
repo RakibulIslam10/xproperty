@@ -22,24 +22,22 @@ class AgentsDetailsMobileLayoutScreen extends StatelessWidget {
       appBar: const CustomAppBar(
           statusBarColor: CustomColor.primaryLightColor,
           title: Strings.agentsDetails),
-      body: Center(
-        child: SingleChildScrollView(
-          child: _bodyWidget(),
-        ),
-      ),
+      body: _bodyWidget(),
     );
   }
 
   _bodyWidget() {
-    return Column(
-      children: [
-        _logoWidget(),
-        _titleAndSubTitleWidget(),
-        _buttonWidget(),
-        _dividerWidget(),
-        verticalSpace(Dimensions.heightSize * 0.5),
-        _tapBarViewWidget()
-      ],
+    return SingleChildScrollView(
+      child: Column(
+        children: [
+          _logoWidget(),
+          _titleAndSubTitleWidget(),
+          _buttonWidget(),
+          _dividerWidget(),
+          verticalSpace(Dimensions.heightSize * 0.5),
+          _tapBarViewWidget()
+        ],
+      ),
     );
   }
 
@@ -73,17 +71,18 @@ class AgentsDetailsMobileLayoutScreen extends StatelessWidget {
     return SizedBox(
       height: Dimensions.heightSize * 2,
       child: Padding(
-        padding: EdgeInsets.symmetric(
-            vertical: Dimensions.marginSizeVertical * 0.6,
-            horizontal: Dimensions.marginSizeVertical * 0.5),
-        child: ListView.builder(
-          itemCount: ListCustomDataList.productsDetails2.length,
-          itemBuilder: (context, index) {
-            final myData = ListCustomDataList.productsDetails2[index];
-            return _listCardWidget(myData);
-          },
-        ),
-      ),
+          padding: EdgeInsets.symmetric(
+              vertical: Dimensions.marginSizeVertical * 0.6,
+              horizontal: Dimensions.marginSizeVertical * 0.5),
+          child: ListView.builder(
+            shrinkWrap: true,
+            primary: false,
+            itemCount: ListCustomDataList.productsDetails2.length,
+            itemBuilder: (context, index) {
+              final myData = ListCustomDataList.productsDetails2[index];
+              return _listCardWidget(myData);
+            },
+          )),
     );
   }
 
@@ -186,7 +185,7 @@ class AgentsDetailsMobileLayoutScreen extends StatelessWidget {
   _logoWidget() {
     return Padding(
       padding: EdgeInsets.only(
-          top: Dimensions.heightSize * 3, bottom: Dimensions.heightSize),
+          top: Dimensions.heightSize, bottom: Dimensions.heightSize),
       child: CircleAvatar(
         backgroundImage: AssetImage(Assets.background.personProfile.path),
         radius: Dimensions.radius * 6,

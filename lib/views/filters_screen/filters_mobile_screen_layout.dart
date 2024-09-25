@@ -75,26 +75,26 @@ class FiltersMobileScreenLayout extends StatelessWidget {
   }
 
   _gardenFilterButton() {
-    return Row(
-      children: [
-        Padding(
-          padding: EdgeInsets.only(
-              right: Dimensions.marginSizeHorizontal * 0.5,
-              bottom: Dimensions.marginSizeVertical),
-          child: GardenFilterOutlineButtonWidget(
+    return Padding(
+      padding:  EdgeInsets.only(bottom: Dimensions.paddingSize ),
+      child: Row(
+        children: [
+          GardenFilterOutlineButtonWidget(
               index: 0,
               onPressed: () {
                 _controller.gardenFilterOutlineButtonOnchange(0);
               },
               title: Strings.withGarden),
-        ),
-        GardenFilterOutlineButtonWidget(
-            index: 1,
-            onPressed: () {
-              _controller.gardenFilterOutlineButtonOnchange(1);
-            },
-            title: Strings.withoutGarden),
-      ],
+          horizontalSpace(Dimensions.marginSizeHorizontal * 0.5),
+          GardenFilterOutlineButtonWidget(
+              index: 1,
+              onPressed: () {
+                _controller.gardenFilterOutlineButtonOnchange(0);
+              },
+              title: Strings.withoutGarden),
+
+        ],
+      ),
     );
   }
 

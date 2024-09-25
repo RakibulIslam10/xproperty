@@ -19,7 +19,8 @@ class Strings {
   static const String emailIsRequired = "Email Required";
   static const String passwordRequired = "Password Required";
   static const String passwordTooShort = "Password TooShort";
-  static const String invalidEmail = "InvalidEmail";
+  static const String pleaseMakeStrongPassword = "Please Make A Strong Password";
+  static const String pleaseEnterAValidEmail = "Please Enter a valid Email";
   static const String addfor = "ADD FOR";
   static const String contactInfo = "CONTACT INFO";
   static const String agentsDetails = "Agents Details";

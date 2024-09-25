@@ -30,7 +30,7 @@ class ForgotPasswordMobileLayoutScreen extends StatelessWidget {
           child: Column(
             children: [
               verticalSpace(Dimensions.marginSizeVertical * 2.5),
-              MyInputFiled(label: Strings.email),
+              const MyInputFiled(label: Strings.email),
               _sendButtonWidget(),
             ],
           ),

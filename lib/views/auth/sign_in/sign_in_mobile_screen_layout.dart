@@ -65,14 +65,13 @@ class SignInMobileScreenLayout extends StatelessWidget {
           MyInputFiled(
             controller: _emailController,
             validator: (value) {
-              if (value == null) {
+              if (value == null || value.isEmpty) {
                 return Strings.emailIsRequired;
               }
               final emailRegExp = RegExp(
                   r"^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?\.[a-zA-Z][a-zA-Z0-9]{1,}$");
               if (!emailRegExp.hasMatch(value)) {
-                return Strings
-                    .invalidEmail; // Provide a user-friendly error message
+                return Strings.pleaseEnterAValidEmail;
               }
               return null;
             },
@@ -84,10 +83,28 @@ class SignInMobileScreenLayout extends StatelessWidget {
               if (value == null || value.isEmpty) {
                 return Strings.passwordRequired;
               }
+
               if (value.length < 6) {
-                return Strings
-                    .passwordTooShort; // Provide a user-friendly error message for passwords less than 6 characters
+                return Strings.passwordTooShort;
               }
+
+              final hasUppercase = RegExp(r'[A-Z]').hasMatch(value);
+              final hasLowercase = RegExp(r'[a-z]').hasMatch(value);
+              final hasDigits = RegExp(r'[0-9]').hasMatch(value);
+              final hasSpecialChars =
+                  RegExp(r'[!@#$%^&*()_+{}\[\]:;<>?./|-]').hasMatch(value);
+
+              if (!hasUppercase ||
+                  !hasLowercase ||
+                  !hasDigits ||
+                  !hasSpecialChars) {
+                return Strings.pleaseMakeStrongPassword;
+              }
+
+              // Additional checks (optional)
+              // - Avoid common patterns (e.g., "password123")
+              // - Check for dictionary words
+
               return null;
             },
             label: Strings.password,

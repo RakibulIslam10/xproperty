@@ -8,7 +8,6 @@ import '../views/utils/size.dart';
 import 'common/others/custom_image_widget.dart';
 import 'common/text_lebels/title_heading3_widget.dart';
 import 'common/title_sub_title_widget.dart';
-
 class ListCardItems extends StatelessWidget {
   final String title;
   final String title2;

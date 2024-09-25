@@ -13,7 +13,6 @@ class MyInputFiled extends StatelessWidget {
   final FormFieldValidator? validator;
   final TextEditingController? controller;
 
-
   const MyInputFiled({
     super.key,
     this.label,
@@ -22,7 +21,8 @@ class MyInputFiled extends StatelessWidget {
     this.initialValue,
     this.hintText,
     this.suffixIcon,
-    this.validator, this.controller,
+    this.validator,
+    this.controller,
   });
 
   @override
@@ -31,10 +31,13 @@ class MyInputFiled extends StatelessWidget {
       padding: EdgeInsets.only(bottom: Dimensions.paddingSize * 0.5),
       child: TextFormField(
         validator: validator,
-        style: const TextStyle(color: CustomColor.primaryLightColor),
+        style: const TextStyle(
+          color: CustomColor.primaryLightColor,
+          fontWeight: FontWeight.bold,
+        ),
         keyboardType: keyboardType,
         initialValue: initialValue,
-        controller:controller,
+        controller: controller,
         decoration: InputDecoration(
           hintText: hintText,
           labelText: label,

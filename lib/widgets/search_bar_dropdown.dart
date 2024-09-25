@@ -18,21 +18,36 @@ class MySearchBarDropdownWidget extends StatelessWidget {
     return Padding(
       padding: EdgeInsets.only(bottom: Dimensions.paddingSize * 0.4),
       child: DropdownButtonFormField(
+
+        style: const TextStyle(color: CustomColor.primaryLightColor),
         icon: CustomImageWidget(
           path: Assets.icons.dropdown,
           height: Dimensions.heightSize * 0.3,
         ),
         decoration: InputDecoration(
-            contentPadding:
-                EdgeInsets.symmetric(horizontal: Dimensions.paddingSize),
-            hintText: hintText,
-            hintStyle: TextStyle(
-                color: CustomColor.secondaryLightColor.withOpacity(0.90)),
-            enabledBorder: OutlineInputBorder(
-                borderSide:
-                    const BorderSide(color: CustomColor.primaryLightColor,width: 1.5),
-                borderRadius: BorderRadius.circular(Dimensions.radius * 2.4))),
-        items: _controller.menuList
+          contentPadding: EdgeInsets.symmetric(horizontal: Dimensions.paddingSize),
+          labelStyle: TextStyle(
+              color: CustomColor.secondaryLightColor.withOpacity(0.90)),
+          label: Text(hintText),
+          enabledBorder: OutlineInputBorder(
+            borderSide: const BorderSide(
+                color: CustomColor.primaryLightColor, width: 1.5),
+            borderRadius: BorderRadius.circular(Dimensions.radius * 2.4),
+          ),
+          focusedBorder: OutlineInputBorder(
+              borderSide: const BorderSide(
+                  color: CustomColor.primaryLightColor, width: 1.5),
+              borderRadius: BorderRadius.circular(Dimensions.radius * 2.4)),
+          disabledBorder: OutlineInputBorder(
+              borderSide: const BorderSide(
+                  color: CustomColor.primaryLightColor, width: 1.5),
+              borderRadius: BorderRadius.circular(Dimensions.radius * 2.4)),
+          border: OutlineInputBorder(
+              borderSide: const BorderSide(
+                  color: CustomColor.primaryLightColor, width: 1.5),
+              borderRadius: BorderRadius.circular(Dimensions.radius * 2.4))
+        ),
+        items: _controller.addressList
             .map(
               (e) => DropdownMenuItem(
                 value: e,
@@ -40,9 +55,7 @@ class MySearchBarDropdownWidget extends StatelessWidget {
               ),
             )
             .toList(),
-        onChanged: (value) {
-          _controller.updateInitialValue(value!);
-        },
+        onChanged: (value) {},
       ),
     );
   }

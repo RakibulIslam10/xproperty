@@ -3,7 +3,6 @@ import 'package:get/get.dart';
 import 'package:xproperty/widgets/custom_app_Bar.dart';
 import '../../../language/language.dart';
 import '../../../routes/routes.dart';
-import '../../../widgets/common/appbar/back_button.dart';
 import '../../../widgets/common/buttons/primary_button.dart';
 import '../../../widgets/common/inputs/my_input_filed.dart';
 import '../../../widgets/common/others/custom_image_widget.dart';
@@ -38,7 +37,18 @@ class SignUpMobileScreenLayout extends StatelessWidget {
             child: Column(
               children: [
                 _logoWidget(),
-                // _textFieldWidget(),
+             const Column(children: [
+               MyInputFiled(
+                 label: Strings.username,
+               ),
+               MyInputFiled(
+                 label: Strings.email,
+               ),
+               MyInputFiled(
+                 label: Strings.password,
+                 suffixIcon: Icons.visibility_off,
+               ),
+             ],),
                 _privacyPolicyTextWidget(),
                 verticalSpace(Dimensions.heightSize * 3.5),
                 _buttonWidget(),
@@ -173,8 +183,6 @@ class SignUpMobileScreenLayout extends StatelessWidget {
       ),
     );
   }
-
-
 
   _circularContainers() {
     return const Stack(

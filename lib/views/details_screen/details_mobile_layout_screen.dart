@@ -169,6 +169,17 @@ class DetailsMobileLayoutScreen extends StatelessWidget {
           ),
           Padding(
             padding:
+                EdgeInsets.symmetric(vertical: Dimensions.heightSize * 0.3),
+            child: Row(
+              children: [
+                CustomImageWidget(path: Assets.icons.iconOkCheck),
+                horizontalSpace(Dimensions.widthSize),
+                const Text(Strings.startingPrice),
+              ],
+            ),
+          ),
+          Padding(
+            padding:
                 EdgeInsets.symmetric(vertical: Dimensions.heightSize * 0.5),
             child: Row(
               children: [
@@ -228,7 +239,7 @@ class DetailsMobileLayoutScreen extends StatelessWidget {
         crossAxisAlignment: crossStart,
         children: [
           TitleHeading2Widget(
-            text: Strings.homeForSale,
+            text: Strings.price,
             fontSize: Dimensions.headingTextSize3,
           ),
           TitleHeading1Widget(

@@ -2,9 +2,8 @@ import 'package:country_code_picker/country_code_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:xproperty/widgets/custom_app_bar.dart';
-import 'package:xproperty/widgets/my_dropdown.dart';
+import 'package:xproperty/widgets/section_header_dropdown_widget.dart';
 import 'package:xproperty/widgets/search_bar_dropdown.dart';
-import '../../controller/add_property/dropdown_controller.dart';
 import '../../controller/add_property/poneNumberController.dart';
 import '../../controller/dropdown/dropdown_controller.dart';
 import '../../controller/filters_screen/button_color_controlller.dart';
@@ -30,7 +29,6 @@ class AddPropertyMobileLayoutScreen extends StatelessWidget {
 
   final _controller = Get.put(ButtonColorController());
   final _sliderController = Get.put(SliderController());
-  final dropdownController = Get.put(DropdownController());
   final ddController = Get.put(DropdownController2());
   final PhoneNumberController controller = Get.put(PhoneNumberController());
 
@@ -55,9 +53,9 @@ class AddPropertyMobileLayoutScreen extends StatelessWidget {
           children: [
             _sellAndRentButtonWidget(),
             _titleAndDescriptionFormWidget(),
-            _dropdownMenuSectionHeader(),
+            PriceSectionHeaderDropDownWidget(title: Strings.price),
             const CustomInquiryFormWidget(hintText: "Area"),
-            _usdDropdownWidget(),
+            PriceSectionHeaderDropDownWidget(title: Strings.price),
             const CustomInquiryFormWidget(hintText: "0.00"),
             _propertyTypeTextAndButtonWidget(),
             _priceRangeTextWidget(),
@@ -72,36 +70,6 @@ class AddPropertyMobileLayoutScreen extends StatelessWidget {
           ],
         ),
       ),
-    );
-  }
-
-  _usdDropdownWidget() {
-    return Row(
-      mainAxisAlignment: mainSpaceBet,
-      children: const [
-        TitleHeading3Widget(text: Strings.price),
-        MyDropdownWidget(
-          options: ["Usd", "Usdt", "USD"],
-          // Wrap the initial selection in Text
-        ),
-      ],
-    );
-  }
-
-  _dropdownMenuSectionHeader() {
-    return Row(
-      mainAxisAlignment: mainSpaceBet,
-      children: const [
-        TitleHeading3Widget(text: Strings.area),
-        MyDropdownWidget(
-          options: [
-            "300-500 square feet",
-            "500-700 square feet",
-            "2000+ square feet"
-          ],
-          // Wrap the initial selection in Text
-        ),
-      ],
     );
   }
 
@@ -182,20 +150,25 @@ class AddPropertyMobileLayoutScreen extends StatelessWidget {
         Row(
           children: [
             Container(
+              height: Dimensions.heightSize * 3.5,
               alignment: Alignment.center,
               decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(Dimensions.radius * 2.4),
+                  borderRadius: BorderRadius.circular(Dimensions.radius * 2.5),
                   border: Border.all(
-                      width: 2, color: CustomColor.primaryLightColor)),
-              child: CountryCodePicker(
-                padding: const EdgeInsets.symmetric(vertical: 0),
-                showFlag: false,
-                onChanged: (CountryCode countryCode) {
-                  controller.setCountryCode(countryCode.toString());
-                },
-                initialSelection: 'US',
-                textStyle:
-                    const TextStyle(color: CustomColor.secondaryLightColor),
+                      width: 1.5, color: CustomColor.primaryLightColor)),
+              child: Row(
+                children: [
+                  CountryCodePicker(
+                    padding: const EdgeInsets.symmetric(vertical: 0),
+                    showFlag: false,
+                    onChanged: (CountryCode countryCode) {
+                      controller.setCountryCode(countryCode.toString());
+                    },
+                    initialSelection: 'US',
+                    textStyle:
+                        const TextStyle(color: CustomColor.secondaryLightColor),
+                  ),
+                ],
               ),
             ),
             horizontalSpace(Dimensions.marginSizeHorizontal * 0.5),
@@ -212,33 +185,26 @@ class AddPropertyMobileLayoutScreen extends StatelessWidget {
     return Column(
       crossAxisAlignment: crossStart,
       children: [
-        _addressDropDownSectionHeader(),
+        PriceSectionHeaderDropDownWidget(title: Strings.address),
         Padding(
           padding: EdgeInsets.only(bottom: Dimensions.marginSizeVertical * 0.2),
           child:
               const CustomInquiryFormWidget(hintText: Strings.addressHouseNo),
         ),
-        MySearchBarDropdownWidget(hintText: Strings.addressHouseNo,),
-        MySearchBarDropdownWidget(hintText: Strings.addressHouseNo,),
-        MySearchBarDropdownWidget(hintText: Strings.addressHouseNo,),
-        MySearchBarDropdownWidget(hintText: Strings.addressHouseNo,),
-        MySearchBarDropdownWidget(hintText: Strings.addressHouseNo,),
-      ],
-    );
-  }
-
-  _addressDropDownSectionHeader() {
-    return Row(
-      mainAxisAlignment: mainSpaceBet,
-      children: const [
-        TitleHeading3Widget(text: Strings.address),
-        MyDropdownWidget(
-          options: [
-            "USA",
-            "UK",
-            "Canada",
-          ],
-          // Wrap the initial selection in Text
+        MySearchBarDropdownWidget(
+          hintText: Strings.chooseProvince,
+        ),
+        MySearchBarDropdownWidget(
+          hintText: Strings.chooseProvince,
+        ),
+        MySearchBarDropdownWidget(
+          hintText: Strings.chooseCity,
+        ),
+        MySearchBarDropdownWidget(
+          hintText: Strings.state,
+        ),
+        MySearchBarDropdownWidget(
+          hintText: Strings.street,
         ),
       ],
     );
@@ -363,10 +329,12 @@ class AddPropertyMobileLayoutScreen extends StatelessWidget {
                         child: Container(
                           alignment: Alignment.center,
                           decoration: BoxDecoration(
-                            borderRadius: BorderRadius.horizontal(
-                              left: Radius.circular(Dimensions.radius * (index == 0 ? .5: 0)),
-                              right: Radius.circular(Dimensions.radius * (index == 1 ? .5: 0)),
-                            ),
+                              borderRadius: BorderRadius.horizontal(
+                                left: Radius.circular(
+                                    Dimensions.radius * (index == 0 ? .5 : 0)),
+                                right: Radius.circular(
+                                    Dimensions.radius * (index == 1 ? .5 : 0)),
+                              ),
                               color: _controller.myIndex.value == index
                                   ? CustomColor.primaryLightColor
                                   : Colors.transparent),

@@ -29,7 +29,7 @@ class ChangePasswordMobileScreenLayout extends StatelessWidget {
           padding: EdgeInsets.all(Dimensions.paddingSize),
           child: Column(
             children: [
-              // _passwordFieldWidget(),
+              _passwordFieldWidget(),
               _changePasswordScreen(),
             ],
           ),
@@ -42,14 +42,14 @@ class ChangePasswordMobileScreenLayout extends StatelessWidget {
   _passwordFieldWidget() {
     return Column(
       children: [
-        MyInputFiled(
+        const MyInputFiled(
             suffixIcon: Icons.visibility_off, label: Strings.oldPassword),
         verticalSpace(Dimensions.marginSizeVertical * 0.5),
-        MyInputFiled(
+        const MyInputFiled(
           label: Strings.newPassword,
           suffixIcon: Icons.visibility_off,
         ),
-        MyInputFiled(
+        const MyInputFiled(
           label: Strings.confirmNewPassword,
           suffixIcon: Icons.visibility_off,
         ),

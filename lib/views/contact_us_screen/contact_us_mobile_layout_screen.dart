@@ -136,27 +136,33 @@ class ContactUsMobileLayoutScreen extends StatelessWidget {
         children: [
           TitleHeading2Widget(
               text: Strings.inquiryForm, fontSize: Dimensions.headingTextSize4),
+          verticalSpace(Dimensions.marginSizeVertical * 0.5),
           const CustomInquiryFormWidget(hintText: "Name"),
           const CustomInquiryFormWidget(
-            hintText: Strings.email,
+            hintText: Strings.email
           ),
           Row(
             children: [
               Container(
+                height: Dimensions.heightSize * 3.5,
                 alignment: Alignment.center,
                 decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(Dimensions.radius * 2.4),
+                    borderRadius: BorderRadius.circular(Dimensions.radius * 2.5),
                     border: Border.all(
-                        width: 2, color: CustomColor.primaryLightColor)),
-                child: CountryCodePicker(
-                  padding: const EdgeInsets.symmetric(vertical: 0),
-                  showFlag: false,
-                  onChanged: (CountryCode countryCode) {
-                    controller.setCountryCode(countryCode.toString());
-                  },
-                  initialSelection: 'US',
-                  textStyle:
-                  const TextStyle(color: CustomColor.secondaryLightColor),
+                        width: 1.5, color: CustomColor.primaryLightColor)),
+                child: Row(
+                  children: [
+                    CountryCodePicker(
+                      padding: const EdgeInsets.symmetric(vertical: 0),
+                      showFlag: false,
+                      onChanged: (CountryCode countryCode) {
+                        controller.setCountryCode(countryCode.toString());
+                      },
+                      initialSelection: 'US',
+                      textStyle:
+                      const TextStyle(color: CustomColor.secondaryLightColor),
+                    ),
+                  ],
                 ),
               ),
               horizontalSpace(Dimensions.marginSizeHorizontal * 0.5),
