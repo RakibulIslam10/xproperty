@@ -76,7 +76,7 @@ class FiltersMobileScreenLayout extends StatelessWidget {
 
   _gardenFilterButton() {
     return Padding(
-      padding:  EdgeInsets.only(bottom: Dimensions.paddingSize ),
+      padding: EdgeInsets.only(bottom: Dimensions.paddingSize),
       child: Row(
         children: [
           GardenFilterOutlineButtonWidget(
@@ -92,7 +92,6 @@ class FiltersMobileScreenLayout extends StatelessWidget {
                 _controller.gardenFilterOutlineButtonOnchange(0);
               },
               title: Strings.withoutGarden),
-
         ],
       ),
     );
@@ -215,7 +214,7 @@ class FiltersMobileScreenLayout extends StatelessWidget {
                 return SizedBox(
                     width: Dimensions.widthSize * 6.5,
                     child: Obx(
-                          () => GestureDetector(
+                      () => GestureDetector(
                         onTap: () {
                           _controller.sellAndRentButtonOnChange(index);
                         },
@@ -236,7 +235,7 @@ class FiltersMobileScreenLayout extends StatelessWidget {
                             color: _controller.myIndex.value == index
                                 ? CustomColor.whiteColor
                                 : CustomColor.primaryDarkColor,
-                            fontSize: Dimensions.headingTextSize3,
+                            fontSize: Dimensions.headingTextSize4,
                           ),
                         ),
                       ),

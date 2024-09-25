@@ -46,17 +46,12 @@ class _PrimaryAppBarState extends State<PrimaryAppBar> {
   }
 
   _logoWidget() {
-    return GestureDetector(
-      onTap: () {
-        Get.toNamed(Routes.aboutUSScreen);
-      },
-      child: Padding(
-        padding: EdgeInsets.only(left: Dimensions.widthSize * 1.8),
-        child: CustomImageWidget(
-          path: Assets.logos.appLogo.path,
-          height: Dimensions.heightSize * 5,
-          width: Dimensions.widthSize * 5,
-        ),
+    return Padding(
+      padding: EdgeInsets.only(left: Dimensions.widthSize * 1.8),
+      child: CustomImageWidget(
+        path: Assets.logos.appLogo.path,
+        height: Dimensions.heightSize * 5,
+        width: Dimensions.widthSize * 5,
       ),
     );
   }

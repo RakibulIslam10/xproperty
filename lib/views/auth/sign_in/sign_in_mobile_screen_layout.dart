@@ -38,7 +38,7 @@ class SignInMobileScreenLayout extends StatelessWidget {
       children: [
         Padding(
           padding: EdgeInsets.symmetric(
-            horizontal: Dimensions.paddingSize,
+            horizontal: Dimensions.paddingSize * 0.8,
           ),
           child: SingleChildScrollView(
             child: Column(
@@ -69,7 +69,7 @@ class SignInMobileScreenLayout extends StatelessWidget {
                 return Strings.emailIsRequired;
               }
               final emailRegExp = RegExp(
-                  r"^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?\.[a-zA-Z][a-zA-Z0-9]{1,}$");
+                  r"^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?\.[a-zA-Z][a-zA-Z0-9]+$");
               if (!emailRegExp.hasMatch(value)) {
                 return Strings.pleaseEnterAValidEmail;
               }
@@ -78,6 +78,7 @@ class SignInMobileScreenLayout extends StatelessWidget {
             label: Strings.email,
           ),
           MyInputFiled(
+            isObscure: true,
             controller: _passwordController,
             validator: (value) {
               if (value == null || value.isEmpty) {
@@ -87,24 +88,6 @@ class SignInMobileScreenLayout extends StatelessWidget {
               if (value.length < 6) {
                 return Strings.passwordTooShort;
               }
-
-              final hasUppercase = RegExp(r'[A-Z]').hasMatch(value);
-              final hasLowercase = RegExp(r'[a-z]').hasMatch(value);
-              final hasDigits = RegExp(r'[0-9]').hasMatch(value);
-              final hasSpecialChars =
-                  RegExp(r'[!@#$%^&*()_+{}\[\]:;<>?./|-]').hasMatch(value);
-
-              if (!hasUppercase ||
-                  !hasLowercase ||
-                  !hasDigits ||
-                  !hasSpecialChars) {
-                return Strings.pleaseMakeStrongPassword;
-              }
-
-              // Additional checks (optional)
-              // - Avoid common patterns (e.g., "password123")
-              // - Check for dictionary words
-
               return null;
             },
             label: Strings.password,
@@ -140,7 +123,7 @@ class SignInMobileScreenLayout extends StatelessWidget {
           borderColor: Colors.transparent,
           onPressed: () {
             if (formKey.currentState!.validate()) {
-              Get.toNamed(Routes.navigationScreen);
+              Get.offAllNamed(Routes.navigationScreen);
             }
           }),
     );

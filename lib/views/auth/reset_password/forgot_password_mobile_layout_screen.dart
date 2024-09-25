@@ -12,7 +12,9 @@ import '../../utils/dimensions.dart';
 import '../../utils/size.dart';
 
 class ForgotPasswordMobileLayoutScreen extends StatelessWidget {
-  const ForgotPasswordMobileLayoutScreen({super.key});
+  ForgotPasswordMobileLayoutScreen({super.key});
+
+  final GlobalKey<FormState> formKey = GlobalKey<FormState>();
 
   @override
   Widget build(BuildContext context) {
@@ -27,16 +29,35 @@ class ForgotPasswordMobileLayoutScreen extends StatelessWidget {
       children: [
         Padding(
           padding: EdgeInsets.symmetric(horizontal: Dimensions.paddingSize),
-          child: Column(
-            children: [
-              verticalSpace(Dimensions.marginSizeVertical * 2.5),
-              const MyInputFiled(label: Strings.email),
-              _sendButtonWidget(),
-            ],
-          ),
+          child: _textFormField(),
         ),
         _circularContainers()
       ],
+    );
+  }
+
+  _textFormField() {
+    return Form(
+      key: formKey,
+      child: Column(
+        children: [
+          verticalSpace(Dimensions.marginSizeVertical * 2.5),
+          MyInputFiled(
+              validator: (value) {
+                if (value == null || value.isEmpty) {
+                  return Strings.emailIsRequired;
+                }
+                final emailRegExp = RegExp(
+                    r"^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?\.[a-zA-Z][a-zA-Z0-9]+$");
+                if (!emailRegExp.hasMatch(value)) {
+                  return Strings.pleaseEnterAValidEmail;
+                }
+                return null;
+              },
+              label: Strings.email),
+          _sendButtonWidget(),
+        ],
+      ),
     );
   }
 
@@ -90,6 +111,9 @@ class ForgotPasswordMobileLayoutScreen extends StatelessWidget {
         radius: Dimensions.radius * 22,
         borderColor: Colors.transparent,
         onPressed: () {
+          if (formKey.currentState!.validate()) {
+            Get.toNamed(Routes.otpVerificationScreen);
+          }
           Get.toNamed(Routes.otpVerificationScreen);
         },
       ),

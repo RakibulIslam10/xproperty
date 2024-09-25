@@ -27,7 +27,6 @@ dependencies:
   get: any
   flutter_svg: any
   smooth_page_indicator: any
-  dropdown_button2: any
   flutter_otp_text_field: any
   country_code_picker: ^3.0.0
   get_storage: any
@@ -83,10 +82,10 @@ flutter_gen:
   # "family" key with the font family name, and a "fonts" key with a
   # list giving the asset and other descriptors for the font. For
   # example:
-  # fonts:
-  #   - family: Schyler
-  #     fonts:
-  #       - asset: fonts/Schyler-Regular.ttf
+  fonts:
+     - family: MyFont
+       fonts:
+         - asset: fonts/JosefinSans-Regular.ttf
   #       - asset: fonts/Schyler-Italic.ttf
   #         style: italic
   #   - family: Trajan Pro

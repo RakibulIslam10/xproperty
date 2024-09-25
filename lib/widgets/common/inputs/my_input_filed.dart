@@ -4,10 +4,12 @@ import '../../../views/utils/custom_color.dart';
 import '../../../views/utils/dimensions.dart';
 
 class MyInputFiled extends StatelessWidget {
+
   final String? label;
   final String? hintText;
   final TextInputType keyboardType;
   final bool isRequired;
+  final bool? isObscure;
   final String? initialValue;
   final IconData? suffixIcon;
   final FormFieldValidator? validator;
@@ -22,7 +24,7 @@ class MyInputFiled extends StatelessWidget {
     this.hintText,
     this.suffixIcon,
     this.validator,
-    this.controller,
+    this.controller, this.isObscure,
   });
 
   @override
@@ -30,6 +32,7 @@ class MyInputFiled extends StatelessWidget {
     return Padding(
       padding: EdgeInsets.only(bottom: Dimensions.paddingSize * 0.5),
       child: TextFormField(
+        obscureText: isObscure ?? false,
         validator: validator,
         style: const TextStyle(
           color: CustomColor.primaryLightColor,

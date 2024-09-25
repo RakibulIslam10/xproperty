@@ -210,7 +210,6 @@ class AddPropertyMobileLayoutScreen extends StatelessWidget {
     );
   }
 
-
   _imagePickWidget() {
     return Row(
       mainAxisAlignment: mainSpaceBet,
@@ -343,7 +342,7 @@ class AddPropertyMobileLayoutScreen extends StatelessWidget {
                             color: _controller.myIndex.value == index
                                 ? CustomColor.whiteColor
                                 : CustomColor.primaryDarkColor,
-                            fontSize: Dimensions.headingTextSize3,
+                            fontSize: Dimensions.headingTextSize4,
                           ),
                         ),
                       ),

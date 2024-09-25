@@ -17,7 +17,9 @@ import '../../utils/dimensions.dart';
 import '../../utils/size.dart';
 
 class SignUpMobileScreenLayout extends StatelessWidget {
-  const SignUpMobileScreenLayout({super.key});
+  SignUpMobileScreenLayout({super.key});
+
+  final GlobalKey<FormState> formKey = GlobalKey<FormState>();
 
   @override
   Widget build(BuildContext context) {
@@ -37,18 +39,66 @@ class SignUpMobileScreenLayout extends StatelessWidget {
             child: Column(
               children: [
                 _logoWidget(),
-             const Column(children: [
-               MyInputFiled(
-                 label: Strings.username,
-               ),
-               MyInputFiled(
-                 label: Strings.email,
-               ),
-               MyInputFiled(
-                 label: Strings.password,
-                 suffixIcon: Icons.visibility_off,
-               ),
-             ],),
+                Form(
+                  key: formKey,
+                  child: Column(
+                    children: [
+                      MyInputFiled(
+                        label: Strings.username,
+                        validator: (value) {
+                          if (value == null || value.isEmpty) {
+                            return Strings.userNameIsRequired;
+                          }
+                          return null;
+                        },
+                      ),
+                      MyInputFiled(
+                        label: Strings.email,
+                        validator: (value) {
+                          if (value == null || value.isEmpty) {
+                            return Strings.emailIsRequired;
+                          }
+                          final emailRegExp = RegExp(
+                              r"^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?\.[a-zA-Z][a-zA-Z0-9]+$");
+                          if (!emailRegExp.hasMatch(value)) {
+                            return Strings.pleaseEnterAValidEmail;
+                          }
+                          return null;
+                        },
+                      ),
+                      MyInputFiled(
+                        isObscure: true,
+                        label: Strings.password,
+                        suffixIcon: Icons.visibility_off,
+                        validator: (value) {
+                          if (value == null || value.isEmpty) {
+                            return Strings.passwordRequired;
+                          }
+
+                          if (value.length < 6) {
+                            return Strings.passwordTooShort;
+                          }
+
+                          final hasUppercase = RegExp(r'[A-Z]').hasMatch(value);
+                          final hasLowercase = RegExp(r'[a-z]').hasMatch(value);
+                          final hasDigits = RegExp(r'[0-9]').hasMatch(value);
+                          final hasSpecialChars =
+                              RegExp(r'[!@#$%^&*()_+{}\[\]:;<>?./|-]')
+                                  .hasMatch(value);
+
+                          if (!hasUppercase ||
+                              !hasLowercase ||
+                              !hasDigits ||
+                              !hasSpecialChars) {
+                            return Strings.pleaseMakeStrongPassword;
+                          }
+
+                          return null;
+                        },
+                      ),
+                    ],
+                  ),
+                ),
                 _privacyPolicyTextWidget(),
                 verticalSpace(Dimensions.heightSize * 3.5),
                 _buttonWidget(),
@@ -92,7 +142,9 @@ class SignUpMobileScreenLayout extends StatelessWidget {
           radius: Dimensions.radius * 22,
           borderColor: Colors.transparent,
           onPressed: () {
-            Get.toNamed(Routes.emailVerificationScreen);
+            if (formKey.currentState!.validate()) {
+              Get.toNamed(Routes.emailVerificationScreen);
+            }
           },
         ),
         verticalSpace(Dimensions.heightSize),
@@ -134,21 +186,6 @@ class SignUpMobileScreenLayout extends StatelessWidget {
       color: CustomColor.primaryLightColor.withOpacity(0.60),
     );
   }
-
-  // _textFieldWidget() {
-  //   return  Column(
-  //     children: [
-  //       MyInputField(label: Strings.username),
-  //       MyInputField(
-  //         label: Strings.email,
-  //       ),
-  //       MyInputField(
-  //         label: Strings.password,
-  //         suffixIcon: Icons.visibility_off,
-  //       ),
-  //     ],
-  //   );
-  // }
 
   _logoWidget() {
     return Padding(

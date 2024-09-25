@@ -22,31 +22,34 @@ class NotificationsMobileScreenLayout extends StatelessWidget {
   }
 
   _bodyWidget() {
-    return ListView.builder(
-      itemBuilder: (context, index) {
-        return ListTile(
-          leading: _logoWidget(),
-          title: TitleHeading2Widget(
-            text: "Lomongi follow you",
-            color: CustomColor.primaryLightColor,
-            fontSize: Dimensions.headingTextSize4,
-          ),
-          subtitle: TitleHeading2Widget(
-            text: "11:28 AM 3/1/2022",
-            color: CustomColor.secondaryLightColor,
-            fontSize: Dimensions.headingTextSize6,
-          ),
-          trailing: GestureDetector(
-              onTap: () {
-                showDialog(
-                  context: context,
-                  builder: (BuildContext context) =>
-                      const RemoveFromNotificationDialog(),
-                );
-              },
-              child: CustomImageWidget(path: Assets.icons.iconVertical)),
-        );
-      },
+    return Padding(
+      padding: EdgeInsets.symmetric(horizontal: Dimensions.paddingSize * 0.25),
+      child: ListView.builder(
+        itemBuilder: (context, index) {
+          return ListTile(
+            leading: _logoWidget(),
+            title: TitleHeading2Widget(
+              text: "Lomongi follow you",
+              color: CustomColor.primaryLightColor,
+              fontSize: Dimensions.headingTextSize4,
+            ),
+            subtitle: TitleHeading2Widget(
+              text: "11:28 AM 3/1/2022",
+              color: CustomColor.secondaryLightColor,
+              fontSize: Dimensions.headingTextSize6,
+            ),
+            trailing: GestureDetector(
+                onTap: () {
+                  showDialog(
+                    context: context,
+                    builder: (BuildContext context) =>
+                        const RemoveFromNotificationDialog(),
+                  );
+                },
+                child: CustomImageWidget(path: Assets.icons.iconVertical)),
+          );
+        },
+      ),
     );
   }
 

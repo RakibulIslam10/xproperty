@@ -17,6 +17,7 @@ class Strings {
   static const String filters = "Filters";
   static const String agents = "Agents";
   static const String emailIsRequired = "Email Required";
+  static const String userNameIsRequired = "Username Required";
   static const String passwordRequired = "Password Required";
   static const String passwordTooShort = "Password TooShort";
   static const String pleaseMakeStrongPassword = "Please Make A Strong Password";

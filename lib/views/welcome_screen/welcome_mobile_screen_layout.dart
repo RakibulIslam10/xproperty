@@ -52,7 +52,7 @@ class WelcomeHomeMobileScreenLayout extends StatelessWidget {
           radius: Dimensions.radius * 22,
           borderColor: Colors.transparent,
           onPressed: () {
-            Get.toNamed(Routes.signInScreen);
+            Get.offAllNamed(Routes.signInScreen);
           },
         ),
         verticalSpace(Dimensions.heightSize),
@@ -65,7 +65,7 @@ class WelcomeHomeMobileScreenLayout extends StatelessWidget {
           radius: Dimensions.radius * 22,
           borderColor: Colors.transparent,
           onPressed: () {
-            Get.toNamed(Routes.signUpScreen);
+            Get.offAllNamed(Routes.signUpScreen);
           },
         ),
       ],

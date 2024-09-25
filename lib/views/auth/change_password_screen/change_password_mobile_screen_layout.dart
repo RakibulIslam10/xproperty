@@ -42,14 +42,47 @@ class ChangePasswordMobileScreenLayout extends StatelessWidget {
   _passwordFieldWidget() {
     return Column(
       children: [
-        const MyInputFiled(
-            suffixIcon: Icons.visibility_off, label: Strings.oldPassword),
+        MyInputFiled(
+            validator: (value) {
+              if (value == null || value.isEmpty) {
+                return Strings.passwordRequired;
+              }
+              return null;
+            },
+            isObscure: true,
+            suffixIcon: Icons.visibility_off,
+            label: Strings.oldPassword),
         verticalSpace(Dimensions.marginSizeVertical * 0.5),
-        const MyInputFiled(
+        MyInputFiled(
+          validator: (value) {
+            if (value == null || value.isEmpty) {
+              return Strings.passwordRequired;
+            }
+
+            if (value.length < 6) {
+              return Strings.passwordTooShort;
+            }
+
+            final hasUppercase = RegExp(r'[A-Z]').hasMatch(value);
+            final hasLowercase = RegExp(r'[a-z]').hasMatch(value);
+            final hasDigits = RegExp(r'[0-9]').hasMatch(value);
+            final hasSpecialChars =
+                RegExp(r'[!@#$%^&*()_+{}\[\]:;<>?./|-]').hasMatch(value);
+
+            if (!hasUppercase ||
+                !hasLowercase ||
+                !hasDigits ||
+                !hasSpecialChars) {
+              return Strings.pleaseMakeStrongPassword;
+            }
+
+            return null;
+          },
           label: Strings.newPassword,
           suffixIcon: Icons.visibility_off,
         ),
         const MyInputFiled(
+          isObscure: true,
           label: Strings.confirmNewPassword,
           suffixIcon: Icons.visibility_off,
         ),
