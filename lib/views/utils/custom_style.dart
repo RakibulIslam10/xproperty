@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'custom_color.dart';
 import 'dimensions.dart';
 
@@ -8,26 +9,31 @@ class CustomStyle {
     color: CustomColor.primaryLightColor,
     fontSize: Dimensions.headingTextSize1,
     fontWeight: FontWeight.w700,
+    fontFamily: GoogleFonts.josefinSans().fontFamily,
   );
   static var darkHeading2TextStyle = TextStyle(
     color: CustomColor.primaryDarkTextColor,
     fontSize: Dimensions.headingTextSize2,
     fontWeight: FontWeight.w700,
+    fontFamily: GoogleFonts.josefinSans().fontFamily,
   );
   static var darkHeading3TextStyle = TextStyle(
     color: CustomColor.primaryDarkTextColor,
     fontSize: Dimensions.headingTextSize3,
     fontWeight: FontWeight.w700,
+    fontFamily: GoogleFonts.josefinSans().fontFamily,
   );
   static var darkHeading4TextStyle = TextStyle(
     color: CustomColor.primaryDarkTextColor,
     fontSize: Dimensions.headingTextSize4,
     fontWeight: FontWeight.w400,
+    fontFamily: GoogleFonts.josefinSans().fontFamily,
   );
   static var darkHeading5TextStyle = TextStyle(
     color: CustomColor.primaryDarkTextColor,
     fontSize: Dimensions.headingTextSize5,
     fontWeight: FontWeight.w400,
+    fontFamily: GoogleFonts.josefinSans().fontFamily,
   );
 
 //------------------------light--------------------------------
@@ -35,26 +41,31 @@ class CustomStyle {
     color: CustomColor.primaryLightTextColor,
     fontSize: Dimensions.headingTextSize1,
     fontWeight: FontWeight.w700,
+    fontFamily: GoogleFonts.josefinSans().fontFamily,
   );
   static var lightHeading2TextStyle = TextStyle(
     color: CustomColor.primaryLightTextColor,
     fontSize: Dimensions.headingTextSize2,
     fontWeight: FontWeight.w700,
+    fontFamily: GoogleFonts.josefinSans().fontFamily,
   );
   static var lightHeading3TextStyle = TextStyle(
     color: CustomColor.primaryLightTextColor,
     fontSize: Dimensions.headingTextSize3,
     fontWeight: FontWeight.w700,
+    fontFamily: GoogleFonts.josefinSans().fontFamily,
   );
   static var lightHeading4TextStyle = TextStyle(
     color: CustomColor.primaryLightTextColor,
     fontSize: Dimensions.headingTextSize4,
     fontWeight: FontWeight.w400,
+    fontFamily: GoogleFonts.josefinSans().fontFamily,
   );
   static var lightHeading5TextStyle = TextStyle(
     color: CustomColor.primaryLightTextColor,
     fontSize: Dimensions.headingTextSize5,
     fontWeight: FontWeight.w400,
+    fontFamily: GoogleFonts.josefinSans().fontFamily,
   );
 
   static var screenGradientBG2 = const BoxDecoration(
@@ -70,16 +81,19 @@ class CustomStyle {
     color: CustomColor.whiteColor,
     fontSize: Dimensions.headingTextSize3,
     fontWeight: FontWeight.w500,
+    fontFamily: GoogleFonts.josefinSans().fontFamily,
   );
 
   static var statusTextStyle = TextStyle(
     fontSize: Dimensions.headingTextSize6,
     fontWeight: FontWeight.w600,
+    fontFamily: GoogleFonts.josefinSans().fontFamily,
   );
 
   static var yellowTextStyle = TextStyle(
     color: CustomColor.orangeColor,
     fontSize: Dimensions.headingTextSize6,
     fontWeight: FontWeight.w600,
+    fontFamily: GoogleFonts.josefinSans().fontFamily,
   );
 }

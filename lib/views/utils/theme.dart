@@ -24,9 +24,6 @@ class Themes {
     // ignore: deprecated_member_use
     useMaterial3: true,
     primaryColor: CustomColor.primaryLightColor,
-    colorScheme: const ColorScheme.dark(
-      background: CustomColor.primaryBGLightColor,
-    ),
     scaffoldBackgroundColor: CustomColor.whiteColor,
     brightness: Brightness.light,
     textTheme: ThemeData.light().textTheme.apply(
