@@ -342,18 +342,19 @@ class AddPropertyMobileLayoutScreen extends StatelessWidget {
         mainAxisAlignment: mainSpaceBet,
         children: [
           const TitleHeading3Widget(text: Strings.addfor),
-          SizedBox(
+          Container(
             height: Dimensions.heightSize * 2.8,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(Dimensions.radius * .5),
+              color: CustomColor.secondaryLightColor,
+            ),
             child: ListView.builder(
               shrinkWrap: true,
               scrollDirection: Axis.horizontal,
               itemCount: 2,
               itemBuilder: (context, index) {
-                return Container(
+                return SizedBox(
                     width: Dimensions.widthSize * 6.5,
-                    decoration: const BoxDecoration(
-                      color: CustomColor.secondaryLightColor,
-                    ),
                     child: Obx(
                       () => GestureDetector(
                         onTap: () {
@@ -362,6 +363,10 @@ class AddPropertyMobileLayoutScreen extends StatelessWidget {
                         child: Container(
                           alignment: Alignment.center,
                           decoration: BoxDecoration(
+                            borderRadius: BorderRadius.horizontal(
+                              left: Radius.circular(Dimensions.radius * (index == 0 ? .5: 0)),
+                              right: Radius.circular(Dimensions.radius * (index == 1 ? .5: 0)),
+                            ),
                               color: _controller.myIndex.value == index
                                   ? CustomColor.primaryLightColor
                                   : Colors.transparent),
