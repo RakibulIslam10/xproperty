@@ -85,11 +85,6 @@ class OnboardMobileScreenLayout extends StatelessWidget {
                 color: CustomColor.primaryLightColor,
               ),
             ),
-            if (_onboardingController.items.length == 1)
-              IconButton(
-                onPressed: () {},
-                icon: const Icon(Icons.home),
-              ),
           ],
         ),
       ),

@@ -25,6 +25,7 @@ class BottomNavScreen extends StatelessWidget {
   _bottomNavWidget() {
     return Obx(
       () => BottomNavigationBar(
+        backgroundColor: CustomColor.whiteColor,
         selectedItemColor: CustomColor.primaryLightColor,
         type: BottomNavigationBarType.fixed,
         unselectedItemColor: CustomColor.greyColor,

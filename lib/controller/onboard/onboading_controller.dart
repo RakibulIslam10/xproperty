@@ -17,6 +17,9 @@ class OnboardingController extends GetxController {
     OnboardingInfo(
         title: "Take Your Place of Residence\nAccording to Your Choice",
         image: AssetsRes.onboardLogo4),
+    OnboardingInfo(
+        title: "Take Your Place of Residence\nAccording to Your Choice",
+        image: AssetsRes.onboardLogo4),
   ];
 
   void skipToWelcomeScreen() {
