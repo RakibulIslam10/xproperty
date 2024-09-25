@@ -5,11 +5,12 @@ import '../views/utils/dimensions.dart';
 
 class CustomInquiryFormWidget extends StatelessWidget {
   const CustomInquiryFormWidget(
-      {super.key, required this.hintText, this.maxline, this.suffix});
+      {super.key, required this.hintText, this.maxline, this.suffix, this.keyboardType});
 
   final String hintText;
   final int? maxline;
   final IconData? suffix;
+  final TextInputType? keyboardType;
 
   @override
   Widget build(BuildContext context) {
@@ -18,6 +19,7 @@ class CustomInquiryFormWidget extends StatelessWidget {
         bottom: Dimensions.marginSizeVertical * 0.25,
       ),
       child: TextFormField(
+        keyboardType: keyboardType,
         maxLines: maxline,
         decoration: InputDecoration(
             suffixIcon: Icon(suffix),

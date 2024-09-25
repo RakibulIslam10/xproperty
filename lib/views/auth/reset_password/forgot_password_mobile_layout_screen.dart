@@ -14,7 +14,7 @@ import '../../utils/size.dart';
 class ForgotPasswordMobileLayoutScreen extends StatelessWidget {
   ForgotPasswordMobileLayoutScreen({super.key});
 
-  final GlobalKey<FormState> formKey = GlobalKey<FormState>();
+  final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
   @override
   Widget build(BuildContext context) {
@@ -38,7 +38,7 @@ class ForgotPasswordMobileLayoutScreen extends StatelessWidget {
 
   _textFormField() {
     return Form(
-      key: formKey,
+      key: _formKey,
       child: Column(
         children: [
           verticalSpace(Dimensions.marginSizeVertical * 2.5),
@@ -111,10 +111,9 @@ class ForgotPasswordMobileLayoutScreen extends StatelessWidget {
         radius: Dimensions.radius * 22,
         borderColor: Colors.transparent,
         onPressed: () {
-          if (formKey.currentState!.validate()) {
+          if (_formKey.currentState!.validate()) {
             Get.toNamed(Routes.otpVerificationScreen);
           }
-          Get.toNamed(Routes.otpVerificationScreen);
         },
       ),
     );

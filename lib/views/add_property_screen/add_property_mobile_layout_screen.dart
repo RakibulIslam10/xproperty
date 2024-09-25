@@ -150,7 +150,7 @@ class AddPropertyMobileLayoutScreen extends StatelessWidget {
         Row(
           children: [
             Container(
-              height: Dimensions.heightSize * 3.5,
+              height: Dimensions.heightSize * 3,
               alignment: Alignment.center,
               decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(Dimensions.radius * 2.5),
@@ -173,7 +173,9 @@ class AddPropertyMobileLayoutScreen extends StatelessWidget {
             ),
             horizontalSpace(Dimensions.marginSizeHorizontal * 0.5),
             const Expanded(
-              child: CustomInquiryFormWidget(hintText: Strings.phoneNumber),
+              child: CustomInquiryFormWidget(
+                  keyboardType: TextInputType.number,
+                  hintText: Strings.phoneNumber),
             ),
           ],
         )

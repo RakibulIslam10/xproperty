@@ -7,7 +7,7 @@ class ResetPasswordScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const ResponsiveLayout(
+    return ResponsiveLayout(
       mobileScaffold: ResetPasswordMobileLayoutScreen(),
     );
   }

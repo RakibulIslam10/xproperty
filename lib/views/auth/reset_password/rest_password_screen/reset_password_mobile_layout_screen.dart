@@ -11,7 +11,9 @@ import '../../../utils/dimensions.dart';
 import '../../../utils/size.dart';
 
 class ResetPasswordMobileLayoutScreen extends StatelessWidget {
-  const ResetPasswordMobileLayoutScreen({super.key});
+  ResetPasswordMobileLayoutScreen({super.key});
+
+  final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
   @override
   Widget build(BuildContext context) {
@@ -26,12 +28,14 @@ class ResetPasswordMobileLayoutScreen extends StatelessWidget {
       children: [
         Padding(
           padding: EdgeInsets.all(Dimensions.paddingSize),
-          child: Column(
-            children: [
-              verticalSpace(Dimensions.marginSizeVertical * 2.5),
-              _passwordFieldWidget(),
-              _resetPasswordButtonWidget(),
-            ],
+          child: SingleChildScrollView(
+            child: Column(
+              children: [
+                verticalSpace(Dimensions.marginSizeVertical * 2.5),
+                _passwordFieldWidget(),
+                _resetPasswordButtonWidget(),
+              ],
+            ),
           ),
         ),
         _circularContainers(),
@@ -40,16 +44,37 @@ class ResetPasswordMobileLayoutScreen extends StatelessWidget {
   }
 
   _passwordFieldWidget() {
-    return Column(
-      children: [
-        MyInputFiled(
-            suffixIcon: Icons.visibility_off, label: Strings.newPassword),
-        verticalSpace(Dimensions.marginSizeVertical * 0.5),
-        MyInputFiled(
-          label: Strings.confirmPassword,
-          suffixIcon: Icons.visibility_off,
-        ),
-      ],
+    return Form(
+      key: _formKey,
+      child: Column(
+        children: [
+          MyInputFiled(
+              validator: (value) {
+                if (value == null || value.isEmpty) {
+                  return Strings.passwordRequired;
+                }
+                if (value.length < 6) {
+                  return Strings.passwordTooShort;
+                }
+                return null;
+              },
+              isObscure: true,
+              suffixIcon: Icons.visibility_off,
+              label: Strings.newPassword),
+          verticalSpace(Dimensions.marginSizeVertical * 0.5),
+          MyInputFiled(
+            validator: (value) {
+              if (value == null || value.isEmpty) {
+                return Strings.passwordRequired;
+              }
+              return null;
+            },
+            isObscure: true,
+            label: Strings.confirmPassword,
+            suffixIcon: Icons.visibility_off,
+          ),
+        ],
+      ),
     );
   }
 
@@ -103,7 +128,9 @@ class ResetPasswordMobileLayoutScreen extends StatelessWidget {
         radius: Dimensions.radius * 22,
         borderColor: Colors.transparent,
         onPressed: () {
-          Get.toNamed(Routes.confirmScreen);
+          if (_formKey.currentState!.validate()) {
+            Get.toNamed(Routes.confirmScreen);
+          }
         },
       ),
     );
