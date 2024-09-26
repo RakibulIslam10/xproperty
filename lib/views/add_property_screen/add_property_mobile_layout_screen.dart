@@ -53,7 +53,7 @@ class AddPropertyMobileLayoutScreen extends StatelessWidget {
           children: [
             _sellAndRentButtonWidget(),
             _titleAndDescriptionFormWidget(),
-            PriceSectionHeaderDropDownWidget(title: Strings.price),
+            PriceSectionHeaderDropDownWidget(title: Strings.area),
             const CustomInquiryFormWidget(hintText: "Area"),
             PriceSectionHeaderDropDownWidget(title: Strings.price),
             const CustomInquiryFormWidget(hintText: "0.00"),

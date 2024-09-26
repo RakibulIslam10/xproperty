@@ -27,7 +27,7 @@ dependencies:
   get: any
   flutter_svg: any
   smooth_page_indicator: any
-  flutter_otp_text_field: any
+  pin_code_fields: any
   country_code_picker: ^3.0.0
   get_storage: any
   google_fonts: ^6.2.1

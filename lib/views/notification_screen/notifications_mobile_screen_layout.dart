@@ -23,7 +23,7 @@ class NotificationsMobileScreenLayout extends StatelessWidget {
 
   _bodyWidget() {
     return Padding(
-      padding: EdgeInsets.symmetric(horizontal: Dimensions.paddingSize * 0.25),
+      padding: EdgeInsets.symmetric(horizontal: Dimensions.paddingSize * 0.2),
       child: ListView.builder(
         itemBuilder: (context, index) {
           return ListTile(

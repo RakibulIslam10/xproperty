@@ -94,10 +94,14 @@ class OnboardMobileScreenLayout extends StatelessWidget {
   _slideContent(index, context) {
     return Column(
       children: [
-        CustomImageWidget(
-          path: _onboardingController.items[index].image,
-          height: MediaQuery.of(context).size.height * 0.35,
-          width: double.infinity,
+        Padding(
+          padding:
+              EdgeInsets.symmetric(horizontal: Dimensions.paddingSize * 0.6),
+          child: CustomImageWidget(
+            path: _onboardingController.items[index].image,
+            height: MediaQuery.of(context).size.height * 0.35,
+            width: double.infinity,
+          ),
         ),
         TitleHeading2Widget(
           text: _onboardingController.items[index].title,

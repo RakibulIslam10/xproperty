@@ -5,10 +5,10 @@ import '../views/utils/dimensions.dart';
 
 class CustomInquiryFormWidget extends StatelessWidget {
   const CustomInquiryFormWidget(
-      {super.key, required this.hintText, this.maxline, this.suffix, this.keyboardType});
+      {super.key, required this.hintText, this.maxLine, this.suffix, this.keyboardType});
 
   final String hintText;
-  final int? maxline;
+  final int? maxLine;
   final IconData? suffix;
   final TextInputType? keyboardType;
 
@@ -19,8 +19,9 @@ class CustomInquiryFormWidget extends StatelessWidget {
         bottom: Dimensions.marginSizeVertical * 0.25,
       ),
       child: TextFormField(
+        style: const TextStyle(color: CustomColor.primaryLightColor),
         keyboardType: keyboardType,
-        maxLines: maxline,
+        maxLines: maxLine,
         decoration: InputDecoration(
             suffixIcon: Icon(suffix),
             contentPadding: EdgeInsets.symmetric(

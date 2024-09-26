@@ -97,6 +97,7 @@ class Strings {
   static const String rangoHouse = "Rango House";
   static const String newYorkUasUSA = "New York USA 1750 sqft";
   static const String newsANdBlog = "News & Blog";
+  static const String news = "News ";
   static const String followers = "Followers";
   static const String alexaCone = "Alexa Cone";
   static const String follow = "FOLLOW";

@@ -62,9 +62,9 @@ class MyInputFiled extends StatelessWidget {
           ),
           suffixIcon: suffixIcon != null
               ? Icon(
-                  suffixIcon,
+                  suffixIcon,size: Dimensions.heightSize * 1.25,
                   color:
-                      CustomColor.secondaryLightColor, // Adjust color as needed
+                      CustomColor.primaryLightColor.withOpacity(0.70), // Adjust color as needed
                 )
               : null,
         ),

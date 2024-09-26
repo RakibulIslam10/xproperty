@@ -86,7 +86,6 @@ class ChangePasswordMobileScreenLayout extends StatelessWidget {
             suffixIcon: Icons.visibility_off,
           ),
           const MyInputFiled(
-            isObscure: true,
             label: Strings.confirmNewPassword,
             suffixIcon: Icons.visibility_off,
           ),

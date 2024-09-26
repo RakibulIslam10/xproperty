@@ -17,7 +17,7 @@ class MessageBoxInquiryFormWidget extends StatelessWidget {
       crossAxisAlignment: crossStart,
       children: [
         TextFormField(
-          maxLines: 5,
+          maxLines: maxline ?? 5,
           decoration: InputDecoration(
               suffixIcon: Icon(suffix),
               contentPadding: EdgeInsets.symmetric(

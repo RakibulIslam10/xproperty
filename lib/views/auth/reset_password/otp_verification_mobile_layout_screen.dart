@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_otp_text_field/flutter_otp_text_field.dart';
 import 'package:get/get.dart';
+import 'package:pin_code_fields/pin_code_fields.dart';
 import '../../../language/language.dart';
 import '../../../routes/routes.dart';
 import '../../../widgets/common/appbar/back_button.dart';
@@ -18,11 +18,11 @@ class OtpVerificationMobileLayoutScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: _appBarWidget(),
-      body: _bodyWidget(),
+      body: _bodyWidget(context),
     );
   }
 
-  _bodyWidget() {
+  _bodyWidget(context) {
     return Stack(
       children: [
         Padding(
@@ -32,7 +32,7 @@ class OtpVerificationMobileLayoutScreen extends StatelessWidget {
           child: Column(
             children: [
               verticalSpace(Dimensions.marginSizeVertical * 2.5),
-              otpTextFieldWidget(),
+              _pinCodeTextField(context),
               _buttonWidget(),
               _otpResendTextWidget(),
             ],
@@ -40,6 +40,15 @@ class OtpVerificationMobileLayoutScreen extends StatelessWidget {
         ),
         _circularContainers(),
       ],
+    );
+  }
+
+  _pinCodeTextField(context) {
+    return PinCodeTextField(
+      appContext: context,
+      length: 6,
+      keyboardType: TextInputType.number,
+      pinTheme: PinTheme(inactiveColor: CustomColor.secondaryLightColor),
     );
   }
 
@@ -70,15 +79,6 @@ class OtpVerificationMobileLayoutScreen extends StatelessWidget {
               color: CustomColor.primaryLightColor.withOpacity(0.80),
             ),
           )),
-    );
-  }
-
-  otpTextFieldWidget() {
-    return OtpTextField(
-      numberOfFields: 4,
-      onSubmit: (value) {},
-      enabledBorderColor: CustomColor.secondaryLightColor,
-      fillColor: CustomColor.secondaryLightColor,
     );
   }
 

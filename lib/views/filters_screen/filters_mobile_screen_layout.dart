@@ -89,7 +89,7 @@ class FiltersMobileScreenLayout extends StatelessWidget {
           GardenFilterOutlineButtonWidget(
               index: 1,
               onPressed: () {
-                _controller.gardenFilterOutlineButtonOnchange(0);
+                _controller.gardenFilterOutlineButtonOnchange(1);
               },
               title: Strings.withoutGarden),
         ],

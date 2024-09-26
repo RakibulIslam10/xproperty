@@ -25,7 +25,9 @@ class ContactUsMobileLayoutScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: const CustomAppBar(title: Strings.contactUs),
+      appBar:  const CustomAppBar(
+          statusBarColor: CustomColor.primaryLightColor,
+          title: Strings.contactUs),
       body: _bodyWidget(),
     );
   }
@@ -184,14 +186,14 @@ class ContactUsMobileLayoutScreen extends StatelessWidget {
   _messageBoxWidget() {
     return Padding(
       padding: EdgeInsets.only(top: Dimensions.heightSize * 0.55),
-      child: const MessageBoxInquiryFormWidget(hintText: Strings.message),
+      child: const MessageBoxInquiryFormWidget(
+          maxline: 4, hintText: Strings.message),
     );
   }
 
   _logoAndTitleWidget() {
     return Padding(
-      padding:
-          EdgeInsets.symmetric(vertical: Dimensions.marginSizeVertical * 0.5),
+      padding: EdgeInsets.only(bottom: Dimensions.marginSizeVertical * 0.6),
       child: Column(
         children: [
           CustomImageWidget(

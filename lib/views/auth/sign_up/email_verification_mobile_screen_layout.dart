@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_otp_text_field/flutter_otp_text_field.dart';
 import 'package:get/get.dart';
+import 'package:pin_code_fields/pin_code_fields.dart';
 import '../../../language/language.dart';
 import '../../../routes/routes.dart';
 import '../../../widgets/common/appbar/back_button.dart';
@@ -16,10 +16,10 @@ class EmailVerificationMobileScreenLayout extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(appBar: _appBarWidget(), body: _bodyWidget());
+    return Scaffold(appBar: _appBarWidget(), body: _bodyWidget(context));
   }
 
-  _bodyWidget() {
+  _bodyWidget(context) {
     return Stack(
       children: [
         Padding(
@@ -28,7 +28,7 @@ class EmailVerificationMobileScreenLayout extends StatelessWidget {
               vertical: Dimensions.paddingSize * 4),
           child: Column(
             children: [
-              _codeFieldWidget(),
+              _pinCodeTextField(context),
               _buttonWidget(),
               _otpResendTextWidget()
             ],
@@ -39,12 +39,12 @@ class EmailVerificationMobileScreenLayout extends StatelessWidget {
     );
   }
 
-  _codeFieldWidget() {
-    return OtpTextField(
-      numberOfFields: 4,
-      onSubmit: (value) {},
-      enabledBorderColor: CustomColor.secondaryLightColor,
-      fillColor: CustomColor.secondaryLightColor,
+  _pinCodeTextField(context) {
+    return PinCodeTextField(
+      appContext: context,
+      length: 6,
+      keyboardType: TextInputType.number,
+      pinTheme: PinTheme(inactiveColor: CustomColor.secondaryLightColor),
     );
   }
 

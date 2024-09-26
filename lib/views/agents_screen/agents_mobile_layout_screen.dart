@@ -22,24 +22,27 @@ class AgentsMobileLayoutScreen extends StatelessWidget {
   }
 
   _bodyWidget() {
-    return ListView.builder(
-      itemBuilder: (context, index) {
-        return ListTile(
-          onTap: () {
-            Get.toNamed(Routes.agentsDetailsScreen);
-          },
-          leading: _logoWidget(),
-          title: TitleHeading2Widget(
-            text: Strings.lomongi,
-            fontSize: Dimensions.headingTextSize4,
-          ),
-          subtitle: TitleHeading2Widget(
-            text: Strings.agentNumber,
-            fontWeight: FontWeight.normal,
-            fontSize: Dimensions.headingTextSize6,
-          ),
-        );
-      },
+    return Padding(
+      padding:  EdgeInsets.symmetric(horizontal: Dimensions.paddingSize * 0.2),
+      child: ListView.builder(
+        itemBuilder: (context, index) {
+          return ListTile(
+            onTap: () {
+              Get.toNamed(Routes.agentsDetailsScreen);
+            },
+            leading: _logoWidget(),
+            title: TitleHeading2Widget(
+              text: Strings.lomongi,
+              fontSize: Dimensions.headingTextSize4,
+            ),
+            subtitle: TitleHeading2Widget(
+              text: Strings.agentNumber,
+              fontWeight: FontWeight.normal,
+              fontSize: Dimensions.headingTextSize6,
+            ),
+          );
+        },
+      ),
     );
   }
 

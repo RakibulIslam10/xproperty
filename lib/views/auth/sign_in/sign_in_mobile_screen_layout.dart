@@ -111,7 +111,7 @@ class SignInMobileScreenLayout extends StatelessWidget {
   _singInButton() {
     return Padding(
       padding: EdgeInsets.only(
-          top: Dimensions.marginSizeVertical * 1.6,
+          top: Dimensions.marginSizeVertical * 1.8,
           bottom: Dimensions.marginSizeVertical * 0.5),
       child: PrimaryButton(
           fontWeight: FontWeight.bold,
@@ -152,34 +152,14 @@ class SignInMobileScreenLayout extends StatelessWidget {
     return const Stack(
       children: [
         CustomCircularContainer(
-          top: 100,
-          left: -10,
+          top: 0,
+          left: -8,
           size: 25,
         ),
         CustomCircularContainer(
-          top: 90,
+          top: 0,
           left: 370,
-          size: 45,
-        ),
-        CustomCircularContainer(
-          top: 200,
-          left: 250,
-          size: 22,
-        ),
-        CustomCircularContainer(
-          top: 450,
-          left: 250,
-          size: 37,
-        ),
-        CustomCircularContainer(
-          top: 680,
-          left: 40,
-          size: 21,
-        ),
-        CustomCircularContainer(
-          top: 390,
-          left: 70,
-          size: 25,
+          size: 40,
         ),
       ],
     );
@@ -189,7 +169,7 @@ class SignInMobileScreenLayout extends StatelessWidget {
     return Column(
       children: [
         _textWidget(),
-        verticalSpace(Dimensions.marginSizeVertical * 1.5),
+        verticalSpace(Dimensions.marginSizeVertical * 2),
         _googleSignInButton(),
         verticalSpace(Dimensions.marginSizeVertical * 0.5),
         _facebookSignInButton(),
@@ -208,9 +188,7 @@ class SignInMobileScreenLayout extends StatelessWidget {
           buttonColor: CustomColor.secondaryLightColor,
           radius: Dimensions.radius * 22,
           borderColor: Colors.transparent,
-          onPressed: () {
-
-          },
+          onPressed: () {},
         ),
         Positioned(
             top: 5,
@@ -240,9 +218,7 @@ class SignInMobileScreenLayout extends StatelessWidget {
           buttonColor: CustomColor.secondaryLightColor,
           radius: Dimensions.radius * 22,
           borderColor: Colors.transparent,
-          onPressed: () {
-
-          },
+          onPressed: () {},
         ),
         Positioned(
             top: 5,
