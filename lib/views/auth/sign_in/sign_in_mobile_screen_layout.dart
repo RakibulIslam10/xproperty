@@ -209,10 +209,7 @@ class SignInMobileScreenLayout extends StatelessWidget {
           radius: Dimensions.radius * 22,
           borderColor: Colors.transparent,
           onPressed: () {
-            if (formKey.currentState!.validate()) {
-              Get.offAllNamed(Routes.navigationScreen);
-            }
-            ;
+
           },
         ),
         Positioned(
@@ -244,9 +241,7 @@ class SignInMobileScreenLayout extends StatelessWidget {
           radius: Dimensions.radius * 22,
           borderColor: Colors.transparent,
           onPressed: () {
-            if (formKey.currentState!.validate()) {
-              Get.offAllNamed(Routes.navigationScreen);
-            }
+
           },
         ),
         Positioned(

@@ -36,7 +36,7 @@ class MyApp extends StatelessWidget {
           brightness: Brightness.light,
           textTheme: ThemeData.light().textTheme.apply(
                 // fontFamily: GoogleFonts.josefinSans().fontFamily,
-                 fontFamily: "MyFonts",
+                fontFamily: "MyFonts",
               ),
         ),
         navigatorKey: Get.key,

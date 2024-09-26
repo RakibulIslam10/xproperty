@@ -18,7 +18,8 @@ import '../utils/dimensions.dart';
 import '../utils/size.dart';
 
 class ContactUsMobileLayoutScreen extends StatelessWidget {
-   ContactUsMobileLayoutScreen({super.key});
+  ContactUsMobileLayoutScreen({super.key});
+
   final PhoneNumberController controller = Get.put(PhoneNumberController());
 
   @override
@@ -41,11 +42,6 @@ class ContactUsMobileLayoutScreen extends StatelessWidget {
       ),
     );
   }
-
-
-
-
-
 
   _contactInformationWidget() {
     return Padding(
@@ -78,14 +74,6 @@ class ContactUsMobileLayoutScreen extends StatelessWidget {
     );
   }
 
-
-
-
-
-
-
-
-
   _tapBarViewWidget() {
     return DefaultTabController(
       length: 2,
@@ -107,8 +95,8 @@ class ContactUsMobileLayoutScreen extends StatelessWidget {
 
   _tabBarTextWidget() {
     return TabBar(
-      labelColor: CustomColor.primaryLightColor,
-      unselectedLabelColor: CustomColor.secondaryLightColor,
+        labelColor: CustomColor.primaryLightColor,
+        unselectedLabelColor: CustomColor.secondaryLightColor,
         indicatorSize: TabBarIndicatorSize.tab,
         indicatorColor: CustomColor.primaryLightColor,
         dividerColor: Colors.transparent,
@@ -138,16 +126,15 @@ class ContactUsMobileLayoutScreen extends StatelessWidget {
               text: Strings.inquiryForm, fontSize: Dimensions.headingTextSize4),
           verticalSpace(Dimensions.marginSizeVertical * 0.5),
           const CustomInquiryFormWidget(hintText: "Name"),
-          const CustomInquiryFormWidget(
-            hintText: Strings.email
-          ),
+          const CustomInquiryFormWidget(hintText: Strings.email),
           Row(
             children: [
               Container(
                 height: Dimensions.heightSize * 3,
                 alignment: Alignment.center,
                 decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(Dimensions.radius * 2.5),
+                    borderRadius:
+                        BorderRadius.circular(Dimensions.radius * 2.5),
                     border: Border.all(
                         width: 1.5, color: CustomColor.primaryLightColor)),
                 child: Row(
@@ -159,8 +146,8 @@ class ContactUsMobileLayoutScreen extends StatelessWidget {
                         controller.setCountryCode(countryCode.toString());
                       },
                       initialSelection: 'US',
-                      textStyle:
-                      const TextStyle(color: CustomColor.secondaryLightColor),
+                      textStyle: const TextStyle(
+                          color: CustomColor.secondaryLightColor),
                     ),
                   ],
                 ),
@@ -201,15 +188,6 @@ class ContactUsMobileLayoutScreen extends StatelessWidget {
     );
   }
 
-
-
-
-
-
-
-
-
-
   _logoAndTitleWidget() {
     return Padding(
       padding:
@@ -225,7 +203,7 @@ class ContactUsMobileLayoutScreen extends StatelessWidget {
             isCenterText: true,
             subTitleFontSize: Dimensions.headingTextSize5,
             title: Strings.appName,
-          subTitleFonWeight: FontWeight.bold,
+            subTitleFonWeight: FontWeight.bold,
             titleFontSize: Dimensions.headingTextSize4,
             subTitle: Strings.findYourNook,
             titleColor: CustomColor.primaryLightColor.withOpacity(0.90),
