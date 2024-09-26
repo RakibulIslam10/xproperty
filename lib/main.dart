@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:xproperty/routes/routes.dart';
 import 'language/language.dart';
 import 'views/utils/custom_color.dart';
@@ -35,8 +36,8 @@ class MyApp extends StatelessWidget {
           scaffoldBackgroundColor: CustomColor.whiteColor,
           brightness: Brightness.light,
           textTheme: ThemeData.light().textTheme.apply(
-                // fontFamily: GoogleFonts.josefinSans().fontFamily,
-                fontFamily: "MyFonts",
+                fontFamily: GoogleFonts.jost().fontFamily,
+
               ),
         ),
         navigatorKey: Get.key,

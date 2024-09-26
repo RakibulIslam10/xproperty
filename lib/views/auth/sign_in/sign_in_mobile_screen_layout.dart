@@ -78,6 +78,7 @@ class SignInMobileScreenLayout extends StatelessWidget {
             label: Strings.email,
           ),
           MyInputFiled(
+            suffixIcon: Icons.visibility_off_sharp,
             isObscure: true,
             controller: _passwordController,
             validator: (value) {

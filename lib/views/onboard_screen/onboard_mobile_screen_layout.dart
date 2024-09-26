@@ -125,8 +125,10 @@ class OnboardMobileScreenLayout extends StatelessWidget {
           SmoothPageIndicator(
             controller: pageController, // PageController
             count: _onboardingController.items.length,
-            effect:
-                const WormEffect(activeDotColor: CustomColor.primaryLightColor),
+            effect: WormEffect(
+                activeDotColor: CustomColor.primaryLightColor,
+                spacing: Dimensions.widthSize * 2,
+                dotHeight: Dimensions.heightSize,dotWidth: Dimensions.heightSize),
           ),
           _nextArrowButton(),
         ],

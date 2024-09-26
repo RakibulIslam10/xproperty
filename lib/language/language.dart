@@ -30,6 +30,8 @@ class Strings {
   static const String signUp = "Sign Up";
   static const String signUp2 = "SIGN UP";
   static const String ok = "Okay";
+  static const String otp = "OTP";
+  static const String resend = "Resend";
   static const String confirm = "Confirm";
   static const String congratulation = "Congratulation";
   static const String otpResend = "OTP Resend";

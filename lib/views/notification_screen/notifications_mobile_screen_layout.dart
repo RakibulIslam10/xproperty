@@ -59,8 +59,8 @@ class NotificationsMobileScreenLayout extends StatelessWidget {
       icon: CustomImageWidget(path: Assets.icons.iconVertical),
       itemBuilder: (context) => [
         PopupMenuItem(
-            height: Dimensions.heightSize * 4,
             padding: EdgeInsets.zero,
+            height: Dimensions.heightSize * 4,
             child: const Center(
               child: TitleHeading3Widget(
                   color: CustomColor.primaryLightColor,

@@ -32,7 +32,7 @@ class WelcomeHomeMobileScreenLayout extends StatelessWidget {
           crossAxisAlignment: crossStart,
           children: [
             _titleSubTitleWidget(),
-            verticalSpace(Dimensions.marginSizeVertical * 8.5),
+            verticalSpace(Dimensions.marginSizeVertical * 9),
             _twoButtonWidget(),
           ],
         ),

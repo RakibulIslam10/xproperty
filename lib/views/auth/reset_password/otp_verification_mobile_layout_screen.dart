@@ -84,12 +84,23 @@ class OtpVerificationMobileLayoutScreen extends StatelessWidget {
 
   _otpResendTextWidget() {
     return Padding(
-      padding: EdgeInsets.only(top: Dimensions.paddingSize),
-      child: TitleHeading2Widget(
-        text: Strings.otpResend,
-        fontSize: Dimensions.headingTextSize3,
-        color: CustomColor.primaryLightColor.withOpacity(0.60),
-        fontWeight: FontWeight.w500,
+      padding:  EdgeInsets.only(top: Dimensions.paddingSize * 0.6),
+      child: Row(
+        mainAxisAlignment: mainCenter,
+        children: [
+          TitleHeading2Widget(
+            text: Strings.otp,
+            color: CustomColor.secondaryLightColor,
+            fontSize: Dimensions.headingTextSize4,
+          ),
+          horizontalSpace(Dimensions.marginSizeHorizontal * 0.25),
+          TitleHeading2Widget(
+            text: Strings.resend,
+            fontWeight: FontWeight.bold,
+            color: CustomColor.secondaryLightColor,
+            fontSize: Dimensions.headingTextSize4,
+          )
+        ],
       ),
     );
   }

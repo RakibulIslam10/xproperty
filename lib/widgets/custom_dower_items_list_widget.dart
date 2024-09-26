@@ -27,7 +27,9 @@ class CustomDowerItemsListWidget extends StatelessWidget {
         padding:
             EdgeInsets.symmetric(horizontal: Dimensions.marginSizeHorizontal),
         child: ListTile(
-          minTileHeight: 50,
+          selected: true,
+          selectedColor: CustomColor.redColor,
+          minTileHeight: Dimensions.heightSize * 3.5,
           contentPadding:
               EdgeInsets.symmetric(horizontal: Dimensions.paddingSize),
           onTap: onTap,
@@ -41,6 +43,7 @@ class CustomDowerItemsListWidget extends StatelessWidget {
             fontWeight: FontWeight.w500,
             fontSize: Dimensions.headingTextSize3,
           ),
+          splashColor: Colors.blue, // Add the splash color here
         ),
       ),
     );
