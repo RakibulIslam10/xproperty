@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:xproperty/widgets/custom_app_bar.dart';
-import 'package:xproperty/widgets/dialog_box.dart';
 import '../../custom_assets/assets.gen.dart';
 import '../../language/language.dart';
 import '../../widgets/common/others/custom_image_widget.dart';
 import '../../widgets/common/text_lebels/title_heading2_widget.dart';
+import '../../widgets/common/text_lebels/title_heading3_widget.dart';
 import '../utils/custom_color.dart';
 import '../utils/dimensions.dart';
 
@@ -22,34 +22,51 @@ class NotificationsMobileScreenLayout extends StatelessWidget {
   }
 
   _bodyWidget() {
-    return Padding(
-      padding: EdgeInsets.symmetric(horizontal: Dimensions.paddingSize * 0.2),
-      child: ListView.builder(
-        itemBuilder: (context, index) {
-          return ListTile(
+    return ListView.builder(
+      itemBuilder: (context, index) {
+        return ListTile(
             leading: _logoWidget(),
-            title: TitleHeading2Widget(
-              text: "Lomongi follow you",
-              color: CustomColor.primaryLightColor,
-              fontSize: Dimensions.headingTextSize4,
-            ),
-            subtitle: TitleHeading2Widget(
-              text: "11:28 AM 3/1/2022",
-              color: CustomColor.secondaryLightColor,
-              fontSize: Dimensions.headingTextSize6,
-            ),
-            trailing: GestureDetector(
-                onTap: () {
-                  showDialog(
-                    context: context,
-                    builder: (BuildContext context) =>
-                        const RemoveFromNotificationDialog(),
-                  );
-                },
-                child: CustomImageWidget(path: Assets.icons.iconVertical)),
-          );
-        },
-      ),
+            title: _titleWidget(),
+            subtitle: _subtitleWidget(),
+            trailing: _popupMenuButton());
+      },
+    );
+  }
+
+  _subtitleWidget() {
+    return TitleHeading2Widget(
+      text: "11:28 AM 3/1/2022",
+      color: CustomColor.secondaryLightColor,
+      fontSize: Dimensions.headingTextSize6,
+    );
+  }
+
+  _titleWidget() {
+    return TitleHeading2Widget(
+      text: "Lomongi followed you",
+      color: CustomColor.primaryLightColor,
+      fontSize: Dimensions.headingTextSize4,
+    );
+  }
+
+  _popupMenuButton() {
+    return PopupMenuButton(
+      onSelected: (value) {},
+      menuPadding: const EdgeInsets.all(0),
+      shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(Dimensions.radius)),
+      color: CustomColor.whiteColor,
+      icon: CustomImageWidget(path: Assets.icons.iconVertical),
+      itemBuilder: (context) => [
+        PopupMenuItem(
+            height: Dimensions.heightSize * 4,
+            padding: EdgeInsets.zero,
+            child: const Center(
+              child: TitleHeading3Widget(
+                  color: CustomColor.primaryLightColor,
+                  text: Strings.removefromNotification),
+            )),
+      ],
     );
   }
 

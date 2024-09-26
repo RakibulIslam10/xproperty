@@ -20,7 +20,8 @@ class Strings {
   static const String userNameIsRequired = "Username Required";
   static const String passwordRequired = "Password Required";
   static const String passwordTooShort = "Password TooShort";
-  static const String pleaseMakeStrongPassword = "Please Make A Strong Password";
+  static const String pleaseMakeStrongPassword =
+      "Please Make A Strong Password";
   static const String pleaseEnterAValidEmail = "Please Enter a valid Email";
   static const String addfor = "ADD FOR";
   static const String contactInfo = "CONTACT INFO";
@@ -77,6 +78,7 @@ class Strings {
   static const String inbox = "INBOX";
   static const String profile = "PROFILE";
   static const String notification = "Notification";
+  static const String removefromNotification = "Remove from Notification";
   static const String call = "Call";
   static const String message = "Message";
   static const String alexaConton = "Alexa Conton";
