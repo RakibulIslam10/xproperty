@@ -5,25 +5,23 @@ import '../views/utils/custom_color.dart';
 import '../views/utils/dimensions.dart';
 import 'common/text_lebels/title_heading2_widget.dart';
 
-class NumberedContainer extends StatelessWidget {
-  NumberedContainer({
+class BedNumberedContainer extends StatelessWidget {
+  BedNumberedContainer({
     super.key,
   });
 
-  final controller = Get.put(NumberSelectionController());
+  final controller = Get.put(BedNumberSelectionController());
 
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.only(
-          top: Dimensions.marginSizeVertical * 0.2,
-          bottom: Dimensions.marginSizeVertical),
+      padding: EdgeInsets.only(bottom: Dimensions.paddingSize * 0.2),
       child: Container(
         width: double.infinity,
-        height: Dimensions.heightSize * 3.5,
+        height: Dimensions.heightSize * 3,
         decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(Dimensions.radius),
-          color: CustomColor.secondaryLightColor, // Default background color
+          borderRadius: BorderRadius.circular(Dimensions.radius * 2),
+          color: CustomColor.secondaryLightColor,
         ),
         child: Padding(
             padding: EdgeInsets.symmetric(
@@ -41,7 +39,6 @@ class NumberedContainer extends StatelessWidget {
                       width: Dimensions.widthSize * 5,
                       alignment: Alignment.center,
                       decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(Dimensions.radius),
                         color: isSelected
                             ? CustomColor.primaryLightColor
                             : CustomColor.secondaryLightColor,

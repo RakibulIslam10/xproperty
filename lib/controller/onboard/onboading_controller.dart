@@ -4,6 +4,9 @@ import '../../views/res/assets_res.dart';
 import 'onboarding_info.dart';
 
 class OnboardingController extends GetxController {
+
+  RxBool index = false.obs;
+
   final items = [
     OnboardingInfo(
         title: "We Develop It For You", image: AssetsRes.onboardLogo1),

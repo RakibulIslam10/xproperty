@@ -50,7 +50,7 @@ class EmailVerificationMobileScreenLayout extends StatelessWidget {
 
   _otpResendTextWidget() {
     return Padding(
-      padding: EdgeInsets.only(top: Dimensions.paddingSize),
+      padding: EdgeInsets.only(top: Dimensions.paddingSize * 0.6),
       child: TitleHeading2Widget(
         text: Strings.otpResend,
         fontSize: Dimensions.headingTextSize3,
@@ -62,7 +62,7 @@ class EmailVerificationMobileScreenLayout extends StatelessWidget {
 
   _buttonWidget() {
     return Padding(
-      padding: EdgeInsets.only(top: Dimensions.paddingSize * 1.8),
+      padding: EdgeInsets.only(top: Dimensions.paddingSize * 1.5),
       child: PrimaryButton(
         fontWeight: FontWeight.bold,
         title: Strings.confirm,

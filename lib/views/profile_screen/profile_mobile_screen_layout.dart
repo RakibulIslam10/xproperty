@@ -55,7 +55,7 @@ class ProfileMobileScreenLayout extends StatelessWidget {
 
   _titleAndSubTitleWidget() {
     return Padding(
-      padding: EdgeInsets.only(bottom: Dimensions.heightSize * 1.5),
+      padding: EdgeInsets.only(bottom: Dimensions.heightSize * 0.8),
       child: const TitleSubTitleWidget(
           isCenterText: true,
           subTitleColor: CustomColor.greyColor,
@@ -68,7 +68,7 @@ class ProfileMobileScreenLayout extends StatelessWidget {
   _logoWidget() {
     return Padding(
       padding: EdgeInsets.only(
-          top: Dimensions.heightSize * 3, bottom: Dimensions.heightSize),
+          top: Dimensions.heightSize * 2, bottom: Dimensions.heightSize),
       child: CircleAvatar(
         backgroundImage: AssetImage(Assets.background.personProfile.path),
         radius: Dimensions.radius * 6,

@@ -61,7 +61,6 @@ class ResetPasswordMobileLayoutScreen extends StatelessWidget {
               isObscure: true,
               suffixIcon: Icons.visibility_off,
               label: Strings.newPassword),
-          verticalSpace(Dimensions.marginSizeVertical * 0.5),
           MyInputFiled(
             validator: (value) {
               if (value == null || value.isEmpty) {

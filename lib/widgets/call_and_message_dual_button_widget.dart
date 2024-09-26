@@ -26,7 +26,7 @@ class CallAndMessageDualButtonWidget extends StatelessWidget {
           iconPath: Assets.icons.iconCall,
           text: Strings.call,
         ),
-        horizontalSpace(Dimensions.marginSizeHorizontal * 0.8),
+        horizontalSpace(Dimensions.marginSizeHorizontal),
         _buildButton(
           onPressed: onMessagePressed,
           iconPath: Assets.icons.iconMail,
@@ -36,7 +36,7 @@ class CallAndMessageDualButtonWidget extends StatelessWidget {
     );
   }
 
-  Widget _buildButton({
+  _buildButton({
     required VoidCallback onPressed,
     required String iconPath,
     required String text,
@@ -44,7 +44,8 @@ class CallAndMessageDualButtonWidget extends StatelessWidget {
     return ElevatedButton(
       onPressed: onPressed,
       style: ElevatedButton.styleFrom(
-        backgroundColor: CustomColor.greyColor.withOpacity(0.1),
+        padding: EdgeInsets.symmetric(horizontal: Dimensions.paddingSize,vertical: Dimensions.paddingSize * 0.1),
+        backgroundColor: CustomColor.greyColor.withOpacity(0.20),
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(Dimensions.radius * 2),
         ),

@@ -189,8 +189,7 @@ class SignUpMobileScreenLayout extends StatelessWidget {
 
   _logoWidget() {
     return Padding(
-      padding: EdgeInsets.only(
-          top: Dimensions.paddingSize * 0.2, bottom: Dimensions.paddingSize),
+      padding: EdgeInsets.only(bottom: Dimensions.paddingSize),
       child: Row(
         mainAxisAlignment: mainCenter,
         children: [

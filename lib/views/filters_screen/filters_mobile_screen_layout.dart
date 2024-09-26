@@ -6,11 +6,12 @@ import '../../controller/filters_screen/slider_controller.dart';
 import '../../language/language.dart';
 import '../../routes/routes.dart';
 import '../../widgets/Custom_slider_widget.dart';
+import '../../widgets/bathrooms_number_container_widget.dart';
 import '../../widgets/common/buttons/primary_button.dart';
 import '../../widgets/common/text_lebels/title_heading2_widget.dart';
 import '../../widgets/common/text_lebels/title_heading3_widget.dart';
 import '../../widgets/fgarden_filter_button_widget.dart';
-import '../../widgets/number_container_widget.dart';
+import '../../widgets/bed_number_container_widget.dart';
 import '../../widgets/outline_button_widget.dart';
 import '../../widgets/street_outline_button.dart';
 import '../utils/custom_color.dart';
@@ -47,6 +48,7 @@ class FiltersMobileScreenLayout extends StatelessWidget {
             _priceRangeTextWidget(),
             CustomSliderWidget(controller: _sliderController),
             _bedroomsTextAndNumberedContainerWidget(),
+            _bathroomsTextAndNumberedContainerWidget(),
             _gardenFilterButton(),
             _streetButtonWidget(),
             _buttonWidget(),
@@ -59,7 +61,7 @@ class FiltersMobileScreenLayout extends StatelessWidget {
   _bedroomsTextAndNumberedContainerWidget() {
     return Padding(
       padding: EdgeInsets.only(
-        top: Dimensions.marginSizeVertical,
+        top: Dimensions.marginSizeVertical * 0.5,
       ),
       child: Column(
         crossAxisAlignment: crossStart,
@@ -68,7 +70,25 @@ class FiltersMobileScreenLayout extends StatelessWidget {
             padding: EdgeInsets.only(bottom: Dimensions.paddingSize * 0.2),
             child: const TitleHeading3Widget(text: Strings.bedrooms),
           ),
-          NumberedContainer(),
+          BedNumberedContainer(),
+        ],
+      ),
+    );
+  }
+
+  _bathroomsTextAndNumberedContainerWidget() {
+    return Padding(
+      padding: EdgeInsets.only(
+        top: Dimensions.marginSizeVertical,
+      ),
+      child: Column(
+        crossAxisAlignment: crossStart,
+        children: [
+          Padding(
+            padding: EdgeInsets.only(bottom: Dimensions.paddingSize * 0.2),
+            child: const TitleHeading3Widget(text: Strings.bathrooms),
+          ),
+          BathroomsNumberedContainer(),
         ],
       ),
     );
@@ -76,7 +96,8 @@ class FiltersMobileScreenLayout extends StatelessWidget {
 
   _gardenFilterButton() {
     return Padding(
-      padding: EdgeInsets.only(bottom: Dimensions.paddingSize),
+      padding: EdgeInsets.only(
+          bottom: Dimensions.paddingSize, top: Dimensions.paddingSize),
       child: Row(
         children: [
           GardenFilterOutlineButtonWidget(
@@ -186,7 +207,7 @@ class FiltersMobileScreenLayout extends StatelessWidget {
           const TitleHeading3Widget(text: Strings.priceRange),
           Obx(
             () => TitleHeading3Widget(
-                text: "${_sliderController.sliderValue} - 10000.0"),
+                text: "\$${_sliderController.sliderValue}  -  \$10000.0"),
           )
         ],
       ),
@@ -203,7 +224,7 @@ class FiltersMobileScreenLayout extends StatelessWidget {
           Container(
             height: Dimensions.heightSize * 2.8,
             decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(Dimensions.radius * .5),
+              borderRadius: BorderRadius.circular(Dimensions.radius * 10),
               color: CustomColor.secondaryLightColor,
             ),
             child: ListView.builder(
@@ -223,9 +244,9 @@ class FiltersMobileScreenLayout extends StatelessWidget {
                           decoration: BoxDecoration(
                               borderRadius: BorderRadius.horizontal(
                                 left: Radius.circular(
-                                    Dimensions.radius * (index == 0 ? .5 : 0)),
+                                    Dimensions.radius * (index == 0 ? 100 : 0)),
                                 right: Radius.circular(
-                                    Dimensions.radius * (index == 1 ? .5 : 0)),
+                                    Dimensions.radius * (index == 1 ? 100 : 0)),
                               ),
                               color: _controller.myIndex.value == index
                                   ? CustomColor.primaryLightColor

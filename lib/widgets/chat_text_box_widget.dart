@@ -7,25 +7,40 @@ class ChatTextBoxWidget extends StatelessWidget {
   final String text;
   final Color? color;
   final Color? textColor;
+  final double bottomLeftRadius;
+  final double bottomRightRadius;
+  final double topRightRadius;
+  final double topLeftRadius;
 
   const ChatTextBoxWidget({
     super.key,
-    required this.text, this.color, this.textColor,
+    required this.text,
+    this.color,
+    this.textColor,
+    this.bottomLeftRadius = 10.0,
+    this.bottomRightRadius = 10.0,
+    this.topRightRadius = 10,
+    this.topLeftRadius = 10,
   });
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.all(10),
+      padding: EdgeInsets.symmetric(
+          horizontal: Dimensions.paddingSize * 0.6,
+          vertical: Dimensions.paddingSize * 0.3),
       decoration: BoxDecoration(
         color: color ?? CustomColor.greyColor.withOpacity(0.15),
-        borderRadius: const BorderRadius.only(
-            bottomLeft: Radius.circular(10),
-            bottomRight: Radius.circular(10),
-            topRight: Radius.circular(8)),
+        borderRadius: BorderRadius.only(
+          bottomLeft: Radius.circular(bottomLeftRadius),
+          bottomRight: Radius.circular(bottomRightRadius),
+          topRight: Radius.circular(topRightRadius),
+          topLeft: Radius.circular(topLeftRadius),
+        ),
       ),
       child: TitleHeading1Widget(
-        text: text,color: textColor,
+        text: text,
+        color: textColor,
         fontSize: Dimensions.headingTextSize3,
         fontWeight: FontWeight.w500,
       ),

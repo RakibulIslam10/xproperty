@@ -216,8 +216,8 @@ class DetailsMobileLayoutScreen extends StatelessWidget {
             ),
             child: ClipRRect(
               borderRadius: BorderRadius.only(
-                bottomLeft: Radius.circular(Dimensions.radius * 1.5),
-                bottomRight: Radius.circular(Dimensions.radius * 1.5),
+                bottomLeft: Radius.circular(Dimensions.radius *2),
+                bottomRight: Radius.circular(Dimensions.radius * 2),
               ),
               child: CustomImageWidget(
                 path: Assets.background.house.path,

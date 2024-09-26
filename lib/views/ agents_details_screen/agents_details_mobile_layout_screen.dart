@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:xproperty/widgets/contact_info_widget.dart';
 import '../../custom_assets/assets.gen.dart';
 import '../../language/language.dart';
-import '../../routes/routes.dart';
 import '../../widgets/call_and_message_dual_button_widget.dart';
 import '../../widgets/common/title_sub_title_widget.dart';
 import '../../widgets/custom_app_bar.dart';
@@ -167,12 +165,14 @@ class AgentsDetailsMobileLayoutScreen extends StatelessWidget {
 
   _titleAndSubTitleWidget() {
     return Padding(
-      padding: EdgeInsets.only(bottom: Dimensions.heightSize * 1.5),
-      child: const TitleSubTitleWidget(
+      padding: EdgeInsets.only(bottom: Dimensions.heightSize * 0.6),
+      child: TitleSubTitleWidget(
           isCenterText: true,
           subTitleColor: CustomColor.greyColor,
           titleColor: CustomColor.primaryLightColor,
+          subTitleFontSize: Dimensions.headingTextSize5,
           title: Strings.alexaConton,
+          titleFontSize: Dimensions.headingTextSize4,
           subTitle: Strings.takefulRealEstate),
     );
   }
@@ -183,7 +183,7 @@ class AgentsDetailsMobileLayoutScreen extends StatelessWidget {
           top: Dimensions.heightSize, bottom: Dimensions.heightSize),
       child: CircleAvatar(
         backgroundImage: AssetImage(Assets.background.personProfile.path),
-        radius: Dimensions.radius * 6,
+        radius: Dimensions.radius * 5,
       ),
     );
   }

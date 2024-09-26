@@ -12,13 +12,14 @@ import '../../language/language.dart';
 import '../../routes/routes.dart';
 import '../../widgets/Custom_slider_widget.dart';
 import '../../widgets/add_button_container.dart';
+import '../../widgets/bathrooms_number_container_widget.dart';
 import '../../widgets/common/buttons/primary_button.dart';
 import '../../widgets/common/text_lebels/title_heading2_widget.dart';
 import '../../widgets/common/text_lebels/title_heading3_widget.dart';
 import '../../widgets/custom_inquiry_form_widget.dart';
 import '../../widgets/fgarden_filter_button_widget.dart';
 import '../../widgets/message_box_inquiry_form_widget.dart';
-import '../../widgets/number_container_widget.dart';
+import '../../widgets/bed_number_container_widget.dart';
 import '../../widgets/outline_button_widget.dart';
 import '../utils/custom_color.dart';
 import '../utils/dimensions.dart';
@@ -61,6 +62,7 @@ class AddPropertyMobileLayoutScreen extends StatelessWidget {
             _priceRangeTextWidget(),
             CustomSliderWidget(controller: _sliderController),
             _bedroomsTextAndNumberedContainerWidget(),
+            _bathroomsTextAndNumberedContainerWidget(),
             _gardenFilterButton(),
             _selectImageTextWidget(),
             _imagePickWidget(),
@@ -81,8 +83,26 @@ class AddPropertyMobileLayoutScreen extends StatelessWidget {
             padding: EdgeInsets.symmetric(
                 vertical: Dimensions.marginSizeVertical * 0.2),
             text: Strings.bedrooms),
-        NumberedContainer(),
+        BedNumberedContainer(),
       ],
+    );
+  }
+
+  _bathroomsTextAndNumberedContainerWidget() {
+    return Padding(
+      padding: EdgeInsets.only(
+        top: Dimensions.marginSizeVertical,
+      ),
+      child: Column(
+        crossAxisAlignment: crossStart,
+        children: [
+          Padding(
+            padding: EdgeInsets.only(bottom: Dimensions.paddingSize * 0.2),
+            child: const TitleHeading3Widget(text: Strings.bathrooms),
+          ),
+          BathroomsNumberedContainer(),
+        ],
+      ),
     );
   }
 
@@ -244,26 +264,29 @@ class AddPropertyMobileLayoutScreen extends StatelessWidget {
   }
 
   _gardenFilterButton() {
-    return Row(
-      children: [
-        Padding(
-          padding: EdgeInsets.only(
-            right: Dimensions.marginSizeHorizontal * 0.5,
+    return Padding(
+      padding: EdgeInsets.only(top: Dimensions.paddingSize),
+      child: Row(
+        children: [
+          Padding(
+            padding: EdgeInsets.only(
+              right: Dimensions.marginSizeHorizontal * 0.5,
+            ),
+            child: GardenFilterOutlineButtonWidget(
+                index: 0,
+                onPressed: () {
+                  _controller.gardenFilterOutlineButtonOnchange(0);
+                },
+                title: Strings.withGarden),
           ),
-          child: GardenFilterOutlineButtonWidget(
-              index: 0,
+          GardenFilterOutlineButtonWidget(
+              index: 1,
               onPressed: () {
-                _controller.gardenFilterOutlineButtonOnchange(0);
+                _controller.gardenFilterOutlineButtonOnchange(1);
               },
-              title: Strings.withGarden),
-        ),
-        GardenFilterOutlineButtonWidget(
-            index: 1,
-            onPressed: () {
-              _controller.gardenFilterOutlineButtonOnchange(1);
-            },
-            title: Strings.withoutGarden),
-      ],
+              title: Strings.withoutGarden),
+        ],
+      ),
     );
   }
 
@@ -312,7 +335,7 @@ class AddPropertyMobileLayoutScreen extends StatelessWidget {
           Container(
             height: Dimensions.heightSize * 2.8,
             decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(Dimensions.radius * .5),
+              borderRadius: BorderRadius.circular(Dimensions.radius * 10),
               color: CustomColor.secondaryLightColor,
             ),
             child: ListView.builder(
@@ -332,9 +355,9 @@ class AddPropertyMobileLayoutScreen extends StatelessWidget {
                           decoration: BoxDecoration(
                               borderRadius: BorderRadius.horizontal(
                                 left: Radius.circular(
-                                    Dimensions.radius * (index == 0 ? .5 : 0)),
+                                    Dimensions.radius * (index == 0 ? 100 : 0)),
                                 right: Radius.circular(
-                                    Dimensions.radius * (index == 1 ? .5 : 0)),
+                                    Dimensions.radius * (index == 1 ? 100 : 0)),
                               ),
                               color: _controller.myIndex.value == index
                                   ? CustomColor.primaryLightColor

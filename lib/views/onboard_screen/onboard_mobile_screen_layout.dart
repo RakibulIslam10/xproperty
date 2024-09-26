@@ -43,6 +43,13 @@ class OnboardMobileScreenLayout extends StatelessWidget {
           if (index == _onboardingController.items.length - 1) {
             Get.offAllNamed(Routes.welcomeScreen);
           }
+          if (index == 0) {
+            _onboardingController.index.value = false;
+          } else {
+            _onboardingController.index.value = true;
+          }
+          debugPrint('$index');
+          debugPrint('${_onboardingController.index.value}');
         },
         itemCount: _onboardingController.items.length,
         controller: pageController,
@@ -61,31 +68,36 @@ class OnboardMobileScreenLayout extends StatelessWidget {
         padding: EdgeInsets.only(
             left: Dimensions.paddingSize * 0.25,
             right: Dimensions.paddingSize * 0.5),
-        child: Row(
-          mainAxisAlignment: mainSpaceBet,
-          children: [
-            BackButtonWidget(
-              onTap: () {
-                final currentPageIndex = pageController.page?.toInt() ?? 0;
-                if (currentPageIndex > 0) {
-                  pageController.animateToPage(
-                    currentPageIndex - 1,
-                    duration: const Duration(milliseconds: 300),
-                    curve: Curves.easeIn,
-                  );
-                }
-              },
-            ),
-            GestureDetector(
-              onTap: () {
-                _onboardingController.skipToWelcomeScreen();
-              },
-              child: const TitleHeading2Widget(
-                text: Strings.skip,
-                color: CustomColor.primaryLightColor,
+        child: Obx(
+          () => Row(
+            mainAxisAlignment: mainSpaceBet,
+            children: [
+              Visibility(
+                visible: _onboardingController.index.value,
+                child: BackButtonWidget(
+                  onTap: () {
+                    final currentPageIndex = pageController.page?.toInt() ?? 0;
+                    if (currentPageIndex > 0) {
+                      pageController.animateToPage(
+                        currentPageIndex - 1,
+                        duration: const Duration(milliseconds: 300),
+                        curve: Curves.easeIn,
+                      );
+                    }
+                  },
+                ),
               ),
-            ),
-          ],
+              GestureDetector(
+                onTap: () {
+                  _onboardingController.skipToWelcomeScreen();
+                },
+                child: const TitleHeading2Widget(
+                  text: Strings.skip,
+                  color: CustomColor.primaryLightColor,
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );
@@ -128,7 +140,8 @@ class OnboardMobileScreenLayout extends StatelessWidget {
             effect: WormEffect(
                 activeDotColor: CustomColor.primaryLightColor,
                 spacing: Dimensions.widthSize * 2,
-                dotHeight: Dimensions.heightSize,dotWidth: Dimensions.heightSize),
+                dotHeight: Dimensions.heightSize,
+                dotWidth: Dimensions.heightSize),
           ),
           _nextArrowButton(),
         ],

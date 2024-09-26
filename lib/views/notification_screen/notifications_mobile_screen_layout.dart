@@ -51,29 +51,31 @@ class NotificationsMobileScreenLayout extends StatelessWidget {
 
   _popupMenuButton() {
     return PopupMenuButton(
-      onSelected: (value) {},
-      menuPadding: const EdgeInsets.all(0),
-      shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(Dimensions.radius)),
-      color: CustomColor.whiteColor,
-      icon: CustomImageWidget(path: Assets.icons.iconVertical),
-      itemBuilder: (context) => [
-        PopupMenuItem(
-            padding: EdgeInsets.zero,
-            height: Dimensions.heightSize * 4,
-            child: const Center(
-              child: TitleHeading3Widget(
-                  color: CustomColor.primaryLightColor,
-                  text: Strings.removefromNotification),
-            )),
-      ],
-    );
+        offset: const Offset(-35, 0),
+        onSelected: (value) {},
+        menuPadding: const EdgeInsets.all(0),
+        shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(Dimensions.radius)),
+        color: CustomColor.whiteColor,
+        icon: CustomImageWidget(path: Assets.icons.iconVertical),
+        itemBuilder: (context) {
+          return [
+            PopupMenuItem(
+                padding: EdgeInsets.zero,
+                height: Dimensions.heightSize * 4,
+                child: const Center(
+                  child: TitleHeading3Widget(
+                      color: CustomColor.primaryLightColor,
+                      text: Strings.removefromNotification),
+                )),
+          ];
+        });
   }
 
   _logoWidget() {
     return CircleAvatar(
       backgroundImage: AssetImage(Assets.background.person.path),
-      radius: Dimensions.radius * 2,
+      radius: Dimensions.radius * 2.6,
     );
   }
 }

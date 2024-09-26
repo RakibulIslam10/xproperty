@@ -73,10 +73,10 @@ class CongratulationsMobileLayoutScreen extends StatelessWidget {
 
   _imageWidget() {
     return Padding(
-      padding: EdgeInsets.only(top: Dimensions.paddingSize * 2.8),
+      padding: EdgeInsets.only(top: Dimensions.paddingSize * 3),
       child: CustomImageWidget(
         path: Assets.background.congratulations.path,
-        width: Dimensions.widthSize * 36,
+        width: double.infinity,
         height: Dimensions.heightSize * 20,
       ),
     );

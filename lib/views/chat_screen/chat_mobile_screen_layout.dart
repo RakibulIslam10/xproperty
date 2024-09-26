@@ -44,9 +44,6 @@ class ChatMobileScreenLayout extends StatelessWidget {
     );
   }
 
-
-
-
   _typeMessageBoxWidget() {
     return Padding(
       padding: EdgeInsets.all(Dimensions.paddingSize),
@@ -104,7 +101,8 @@ class ChatMobileScreenLayout extends StatelessWidget {
                 fontWeight: FontWeight.normal,
               ),
               verticalSpace(Dimensions.heightSize * 0.2),
-              const ChatTextBoxWidget(text: Strings.whatsUpBuddy)
+              const ChatTextBoxWidget(
+                  bottomRightRadius: 0, text: Strings.whatsUpBuddy)
             ],
           ),
         ),
@@ -143,6 +141,7 @@ class ChatMobileScreenLayout extends StatelessWidget {
           ),
           verticalSpace(Dimensions.heightSize * 0.2),
           const ChatTextBoxWidget(
+              topLeftRadius: 0,
               textColor: CustomColor.whiteColor,
               color: CustomColor.primaryLightColor,
               text: "Helloo")
@@ -189,7 +188,7 @@ class ChatMobileScreenLayout extends StatelessWidget {
                 fontWeight: FontWeight.normal,
               ),
               verticalSpace(Dimensions.heightSize * 0.2),
-              const ChatTextBoxWidget(text: "Hii")
+              const ChatTextBoxWidget(bottomRightRadius: 0, text: "Hii")
             ],
           ),
         ),
