@@ -146,39 +146,34 @@ class DashboardMobileScreenLayout extends StatelessWidget {
   }
 
   _sliderImageList() {
-    return GestureDetector(
-      onTap: () {
-        Get.toNamed(Routes.detailsScreen);
-      },
-      child: PageView(
-        controller: _controller,
-        children: [
-          Padding(
-            padding: EdgeInsets.all(Dimensions.marginSizeHorizontal * 0.15),
-            child: CustomImageWidget(
-              path: Assets.background.sliderImage.path,
-              borderRadius: BorderRadius.circular(15),
-              fit: BoxFit.cover,
-            ),
+    return PageView(
+      controller: _controller,
+      children: [
+        Padding(
+          padding: EdgeInsets.all(Dimensions.marginSizeHorizontal * 0.15),
+          child: CustomImageWidget(
+            path: Assets.background.sliderImage.path,
+            borderRadius: BorderRadius.circular(Dimensions.radius * 1.5),
+            fit: BoxFit.cover,
           ),
-          Padding(
-            padding: EdgeInsets.all(Dimensions.marginSizeHorizontal * 0.15),
-            child: CustomImageWidget(
-              path: Assets.background.sliderImage.path,
-              borderRadius: BorderRadius.circular(15),
-              fit: BoxFit.cover,
-            ),
+        ),
+        Padding(
+          padding: EdgeInsets.all(Dimensions.marginSizeHorizontal * 0.15),
+          child: CustomImageWidget(
+            path: Assets.background.houses.path,
+            borderRadius: BorderRadius.circular(Dimensions.radius * 1.5),
+            fit: BoxFit.cover,
           ),
-          Padding(
-            padding: EdgeInsets.all(Dimensions.marginSizeHorizontal * 0.15),
-            child: CustomImageWidget(
-              path: Assets.background.sliderImage.path,
-              borderRadius: BorderRadius.circular(15),
-              fit: BoxFit.cover,
-            ),
+        ),
+        Padding(
+          padding: EdgeInsets.all(Dimensions.marginSizeHorizontal * 0.15),
+          child: CustomImageWidget(
+            path: Assets.background.sliderImage.path,
+            borderRadius: BorderRadius.circular(Dimensions.radius * 1.5),
+            fit: BoxFit.cover,
           ),
-        ],
-      ),
+        ),
+      ],
     );
   }
 
