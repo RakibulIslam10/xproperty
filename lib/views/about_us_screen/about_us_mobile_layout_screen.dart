@@ -23,7 +23,6 @@ class AboutUsMobileLayoutScreen extends StatelessWidget {
     );
   }
 
-
   _bodyWidget() {
     return Stack(
       children: [

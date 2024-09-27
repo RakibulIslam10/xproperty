@@ -9,9 +9,13 @@ import '../../../views/utils/dimensions.dart';
 import 'custom_image_widget.dart';
 
 class PriceSectionHeaderDropDownWidget extends StatelessWidget {
+
+  final Function(String?) onChanged;
+
   PriceSectionHeaderDropDownWidget({
     super.key,
-    required this.title,
+    required this.title, required this.onChanged,
+
   });
 
   final priceController = Get.put(PriceController());
@@ -26,32 +30,33 @@ class PriceSectionHeaderDropDownWidget extends StatelessWidget {
           text: title,
         ),
         Obx(
-          () => DropdownButton<String>(
-            icon: CustomImageWidget(
-              path: Assets.icons.dropdown,
-              height: Dimensions.heightSize * 0.35,
-            ),
-            dropdownColor: CustomColor.whiteColor,
-            underline: Container(),
-            value: priceController.selectedCurrency.value,
-            items: <String>['USD', 'BDT'].map((String value) {
-              return DropdownMenuItem<String>(
-                value: value,
-                child: Padding(
-                  padding: EdgeInsets.only(
-                      right: Dimensions.marginSizeHorizontal * 0.3),
-                  child: Text(
-                    value,
-                    style: TextStyle(
-                        color: CustomColor.primaryLightColor,
-                        fontSize: Dimensions.headingTextSize5,
-                        fontWeight: FontWeight.bold),
+              () =>
+              DropdownButton<String>(
+                  icon: CustomImageWidget(
+                    path: Assets.icons.dropdown,
+                    height: Dimensions.heightSize * 0.35,
                   ),
-                ),
-              );
-            }).toList(),
-            onChanged: priceController.changeCurrency,
-          ),
+                  dropdownColor: CustomColor.whiteColor,
+                  underline: Container(),
+                  value: priceController.selectedCurrency.value,
+                  items: <String>['USD', 'BDT'].map((String value) {
+                    return DropdownMenuItem<String>(
+                      value: value,
+                      child: Padding(
+                        padding: EdgeInsets.only(
+                            right: Dimensions.marginSizeHorizontal * 0.3),
+                        child: Text(
+                          value,
+                          style: TextStyle(
+                              color: CustomColor.primaryLightColor,
+                              fontSize: Dimensions.headingTextSize5,
+                              fontWeight: FontWeight.bold),
+                        ),
+                      ),
+                    );
+                  }).toList(),
+                  onChanged: onChanged
+              ),
         )
       ],
     );

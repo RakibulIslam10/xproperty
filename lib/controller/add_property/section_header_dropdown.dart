@@ -8,7 +8,10 @@ class PriceController extends GetxController {
   }
 }
 
-class SqFeetController extends GetxController {
-  var selectedCurrency = 'Sq Feet'.obs;
+class SqController extends GetxController {
+  var selectedFeet = 'USD'.obs;
 
+  void changeFeet(String? newCurrency) {
+    selectedFeet.value = newCurrency!;
+  }
 }

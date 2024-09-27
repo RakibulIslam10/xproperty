@@ -2,7 +2,6 @@ import 'package:country_code_picker/country_code_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:xproperty/widgets/common/appbar/custom_app_bar.dart';
-import 'package:xproperty/widgets/common/others/section_header_dropdown_widget.dart';
 import 'package:xproperty/widgets/search_bar_dropdown.dart';
 import '../../controller/add_property/poneNumberController.dart';
 import '../../controller/dropdown/dropdown_controller.dart';
@@ -14,6 +13,7 @@ import '../../widgets/common/others/Custom_slider_widget.dart';
 import '../../widgets/common/buttons/add_button_container.dart';
 import '../../widgets/common/others/bathrooms_number_container_widget.dart';
 import '../../widgets/common/buttons/primary_button.dart';
+import '../../widgets/common/others/section_header_dropdown_widget.dart';
 import '../../widgets/common/text_lebels/title_heading2_widget.dart';
 import '../../widgets/common/text_lebels/title_heading3_widget.dart';
 import '../../widgets/common/inputs/custom_inquiry_form_widget.dart';
@@ -32,6 +32,9 @@ class AddPropertyMobileLayoutScreen extends StatelessWidget {
   final _sliderController = Get.put(SliderController());
   final ddController = Get.put(DropdownController2());
   final PhoneNumberController controller = Get.put(PhoneNumberController());
+
+  final _selectedValue = ValueNotifier<String?>('');
+  final selectedCurrency = ValueNotifier<String?>('');
 
   @override
   Widget build(BuildContext context) {
@@ -54,9 +57,13 @@ class AddPropertyMobileLayoutScreen extends StatelessWidget {
           children: [
             _sellAndRentButtonWidget(),
             _titleAndDescriptionFormWidget(),
-            PriceSectionHeaderDropDownWidget(title: Strings.area),
+            PriceSectionHeaderDropDownWidget(
+              title: "Dd",
+              onChanged: (value) {
+                selectedCurrency.value = value;
+              },
+            ),
             const CustomInquiryFormWidget(hintText: "Area"),
-            PriceSectionHeaderDropDownWidget(title: Strings.price),
             const CustomInquiryFormWidget(hintText: "0.00"),
             _propertyTypeTextAndButtonWidget(),
             _priceRangeTextWidget(),
@@ -207,7 +214,6 @@ class AddPropertyMobileLayoutScreen extends StatelessWidget {
     return Column(
       crossAxisAlignment: crossStart,
       children: [
-        PriceSectionHeaderDropDownWidget(title: Strings.address),
         Padding(
           padding: EdgeInsets.only(bottom: Dimensions.marginSizeVertical * 0.2),
           child:
@@ -215,18 +221,33 @@ class AddPropertyMobileLayoutScreen extends StatelessWidget {
         ),
         MySearchBarDropdownWidget(
           hintText: Strings.chooseProvince,
+          onChanged: (value) {
+            _selectedValue.value = value;
+          },
         ),
         MySearchBarDropdownWidget(
           hintText: Strings.chooseProvince,
+          onChanged: (value) {
+            _selectedValue.value = value;
+          },
         ),
         MySearchBarDropdownWidget(
           hintText: Strings.chooseCity,
+          onChanged: (value) {
+            _selectedValue.value = value;
+          },
         ),
         MySearchBarDropdownWidget(
           hintText: Strings.state,
+          onChanged: (value) {
+            _selectedValue.value = value;
+          },
         ),
         MySearchBarDropdownWidget(
           hintText: Strings.street,
+          onChanged: (value) {
+            _selectedValue.value = value;
+          },
         ),
       ],
     );

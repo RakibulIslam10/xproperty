@@ -23,7 +23,6 @@ class CustomContainer extends StatefulWidget {
     this.focusColor,
     this.hoverColor,
     this.highlightColor,
-    this.overlayColor,
     this.splashColor,
     this.splashFactory,
     this.inkSplashRadius,
@@ -104,8 +103,6 @@ class CustomContainer extends StatefulWidget {
 
   final Color? splashColor;
 
-  final MaterialStateProperty<Color?>? overlayColor;
-
   final InteractiveInkFeatureFactory? splashFactory;
 
   final double? inkSplashRadius;
@@ -185,7 +182,6 @@ class _CustomContainerState extends State<CustomContainer> {
           focusColor: widget.focusColor,
           hoverColor: widget.hoverColor,
           highlightColor: widget.highlightColor,
-          overlayColor: widget.overlayColor,
           splashColor: widget.splashColor,
           splashFactory: widget.splashFactory,
           customBorder: widget.customBorder,
