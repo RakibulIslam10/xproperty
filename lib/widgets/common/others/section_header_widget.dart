@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import '../language/language.dart';
-import '../views/utils/custom_color.dart';
-import '../views/utils/dimensions.dart';
-import '../views/utils/size.dart';
+import '../../../language/language.dart';
+import '../../../views/utils/custom_color.dart';
+import '../../../views/utils/dimensions.dart';
+import '../../../views/utils/size.dart';
 
 class SectionHeader extends StatelessWidget {
   const SectionHeader({

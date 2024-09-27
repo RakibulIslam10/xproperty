@@ -1,12 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:xproperty/widgets/custom_app_bar.dart';
+import 'package:xproperty/widgets/common/appbar/custom_app_bar.dart';
 import '../../language/language.dart';
 import '../../routes/routes.dart';
-import '../../widgets/common/appbar/back_button.dart';
-import '../../widgets/common/text_lebels/title_heading2_widget.dart';
-import '../../widgets/custom_circular_container_widget.dart';
-import '../../widgets/list_card_widget.dart';
+import '../../widgets/common/others/custom_circular_container_widget.dart';
+import '../../widgets/card/list_card_widget.dart';
 import '../../widgets/listing_data.dart';
 import '../utils/custom_color.dart';
 import '../utils/dimensions.dart';

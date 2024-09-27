@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import '../controller/filters_screen/slider_controller.dart';
-import '../views/utils/custom_color.dart';
+import '../../../controller/filters_screen/slider_controller.dart';
+import '../../../views/utils/custom_color.dart';
 
 class CustomSliderWidget extends StatelessWidget {
   const CustomSliderWidget({super.key, required this.controller});
@@ -15,10 +15,10 @@ class CustomSliderWidget extends StatelessWidget {
         activeColor: CustomColor.primaryLightColor,
         value: controller.sliderValue,
         onChanged: (value) {
-          controller.sliderValue = value;
+        controller.sliderValue = value;
         },
         min: 100.0,
-        max: 10000.0,
+        max: 100000.0,
         divisions: 9,
       ),
     );

@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:xproperty/views/utils/size.dart';
 import 'package:xproperty/widgets/common/text_lebels/title_heading3_widget.dart';
-import '../controller/add_property/section_header_dropdown.dart';
-import '../custom_assets/assets.gen.dart';
-import '../views/utils/custom_color.dart';
-import '../views/utils/dimensions.dart';
-import 'common/others/custom_image_widget.dart';
+import '../../../controller/add_property/section_header_dropdown.dart';
+import '../../../custom_assets/assets.gen.dart';
+import '../../../views/utils/custom_color.dart';
+import '../../../views/utils/dimensions.dart';
+import 'custom_image_widget.dart';
 
 class PriceSectionHeaderDropDownWidget extends StatelessWidget {
   PriceSectionHeaderDropDownWidget({

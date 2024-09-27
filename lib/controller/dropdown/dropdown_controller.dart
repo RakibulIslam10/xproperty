@@ -2,8 +2,7 @@ import 'package:get/get_rx/src/rx_types/rx_types.dart';
 import 'package:get/get_state_manager/src/simple/get_controllers.dart';
 
 class DropdownController2 extends GetxController {
-  final RxList<String> sqFeetList =
-      RxList<String>([]); // Observable list for countries
+  final RxList<String> sqFeetList = RxList<String>([]);
 
   String? selectedCountry;
 
@@ -15,11 +14,10 @@ class DropdownController2 extends GetxController {
       "USA",
       "China",
       "Canada"
-    ]; // Example initialization
+    ];
   }
 
   void setCountry(String newCountry) {
     selectedCountry = newCountry;
   }
 }
-

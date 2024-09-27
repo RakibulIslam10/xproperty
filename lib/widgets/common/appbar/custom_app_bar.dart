@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import '../views/utils/custom_color.dart';
-import '../views/utils/dimensions.dart';
-import 'common/appbar/back_button.dart';
-import 'common/text_lebels/title_heading2_widget.dart';
+import '../../../views/utils/custom_color.dart';
+import '../../../views/utils/dimensions.dart';
+import 'back_button.dart';
+import '../text_lebels/title_heading2_widget.dart';
 
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   final String title;

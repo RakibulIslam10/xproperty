@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
-import '../views/utils/custom_color.dart';
-import '../views/utils/dimensions.dart';
-import '../views/utils/size.dart';
-import 'common/others/custom_image_widget.dart';
-import 'common/title_sub_title_widget.dart';
+import '../../../views/utils/custom_color.dart';
+import '../../../views/utils/dimensions.dart';
+import '../../../views/utils/size.dart';
+import 'custom_image_widget.dart';
+import '../title_sub_title_widget.dart';
 
 class ContactInfoWidget extends StatelessWidget {
   final String title;

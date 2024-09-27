@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import '../views/utils/custom_color.dart';
-import '../views/utils/dimensions.dart';
-import 'common/others/custom_image_widget.dart';
-import 'common/text_lebels/title_heading3_widget.dart';
+import '../../../views/utils/custom_color.dart';
+import '../../../views/utils/dimensions.dart';
+import 'custom_image_widget.dart';
+import '../text_lebels/title_heading3_widget.dart';
 
 class CustomDowerItemsListWidget extends StatelessWidget {
   final String iconPath;

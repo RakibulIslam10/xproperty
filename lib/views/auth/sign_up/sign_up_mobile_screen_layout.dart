@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:xproperty/widgets/custom_app_Bar.dart';
+import '../../../controller/password_visibility/password_visibility_controller.dart';
 import '../../../language/language.dart';
 import '../../../routes/routes.dart';
 import '../../../widgets/common/buttons/primary_button.dart';
@@ -9,8 +10,8 @@ import '../../../widgets/common/others/custom_image_widget.dart';
 import '../../../widgets/common/text_lebels/title_heading1_widget.dart';
 import '../../../widgets/common/text_lebels/title_heading2_widget.dart';
 import '../../../widgets/common/text_lebels/title_heading4_widget.dart';
-import '../../../widgets/custom_circular_container_widget.dart';
-import '../../../widgets/custom_paint_widget.dart';
+import '../../../widgets/common/others/custom_circular_container_widget.dart';
+import '../../../widgets/common/others/custom_paint_widget.dart';
 import '../../res/assets_res.dart';
 import '../../utils/custom_color.dart';
 import '../../utils/dimensions.dart';
@@ -20,6 +21,7 @@ class SignUpMobileScreenLayout extends StatelessWidget {
   SignUpMobileScreenLayout({super.key});
 
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
+  final _controller = PasswordVisibilityController();
 
   @override
   Widget build(BuildContext context) {
@@ -66,36 +68,27 @@ class SignUpMobileScreenLayout extends StatelessWidget {
                           return null;
                         },
                       ),
-                      MyInputFiled(
-                        isObscure: true,
-                        label: Strings.password,
-                        suffixIcon: Icons.visibility_off,
-                        validator: (value) {
-                          if (value == null || value.isEmpty) {
-                            return Strings.passwordRequired;
-                          }
+                      Obx(
+                        () => MyInputFiled(
+                          suffixIcon: InkWell(
+                            onTap: () {
+                              _controller.isPasswordHidden.value =
+                                  !_controller.isPasswordHidden.value;
+                            },
+                            splashColor: Colors.transparent,
+                            child: Icon(
+                              _controller.isPasswordHidden.value
+                                  ? Icons.visibility_off
+                                  : Icons.visibility,
+                              color: CustomColor.secondaryLightColor,
+                              size: Dimensions.heightSize * 1.3,
+                            ),
+                          ),
+                          isObscure: _controller.isPasswordHidden.value,
+                          label: Strings.password,
 
-                          if (value.length < 6) {
-                            return Strings.passwordTooShort;
-                          }
-
-                          final hasUppercase = RegExp(r'[A-Z]').hasMatch(value);
-                          final hasLowercase = RegExp(r'[a-z]').hasMatch(value);
-                          final hasDigits = RegExp(r'[0-9]').hasMatch(value);
-                          final hasSpecialChars =
-                              RegExp(r'[!@#$%^&*()_+{}\[\]:;<>?./|-]')
-                                  .hasMatch(value);
-
-                          if (!hasUppercase ||
-                              !hasLowercase ||
-                              !hasDigits ||
-                              !hasSpecialChars) {
-                            return Strings.pleaseMakeStrongPassword;
-                          }
-
-                          return null;
-                        },
-                      ),
+                        ),
+                      )
                     ],
                   ),
                 ),

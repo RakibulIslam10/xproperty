@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
-import 'package:xproperty/widgets/chat_text_box_widget.dart';
+import 'package:xproperty/widgets/common/others/chat_text_box_widget.dart';
 import 'package:xproperty/widgets/profile_picture_status_widget.dart';
 import '../../custom_assets/assets.gen.dart';
 import '../../language/language.dart';

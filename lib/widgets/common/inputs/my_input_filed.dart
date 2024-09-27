@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import '../../../views/utils/custom_color.dart';
 import '../../../views/utils/dimensions.dart';
 
@@ -8,23 +7,24 @@ class MyInputFiled extends StatelessWidget {
   final String? label;
   final String? hintText;
   final TextInputType keyboardType;
-  final bool isRequired;
+
   final bool? isObscure;
   final String? initialValue;
-  final IconData? suffixIcon;
+  final Widget? suffixIcon;
   final FormFieldValidator? validator;
   final TextEditingController? controller;
 
-  const MyInputFiled({
+  MyInputFiled({
     super.key,
     this.label,
     this.keyboardType = TextInputType.text,
-    this.isRequired = false,
+
     this.initialValue,
     this.hintText,
     this.suffixIcon,
     this.validator,
-    this.controller, this.isObscure,
+    this.controller,
+    this.isObscure,
   });
 
   @override
@@ -60,13 +60,7 @@ class MyInputFiled extends StatelessWidget {
           focusedErrorBorder: const UnderlineInputBorder(
             borderSide: BorderSide(color: CustomColor.redColor),
           ),
-          suffixIcon: suffixIcon != null
-              ? Icon(
-                  suffixIcon,size: Dimensions.heightSize * 1.25,
-                  color:
-                      CustomColor.primaryLightColor.withOpacity(0.70), // Adjust color as needed
-                )
-              : null,
+          suffixIcon: suffixIcon,
         ),
       ),
     );

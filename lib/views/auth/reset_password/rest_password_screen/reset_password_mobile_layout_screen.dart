@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import '../../../../controller/password_visibility/password_visibility_controller.dart';
 import '../../../../language/language.dart';
 import '../../../../routes/routes.dart';
 import '../../../../widgets/common/buttons/primary_button.dart';
 import '../../../../widgets/common/inputs/my_input_filed.dart';
 import '../../../../widgets/common/text_lebels/title_heading2_widget.dart';
-import '../../../../widgets/custom_circular_container_widget.dart';
+import '../../../../widgets/common/others/custom_circular_container_widget.dart';
 import '../../../utils/custom_color.dart';
 import '../../../utils/dimensions.dart';
 import '../../../utils/size.dart';
@@ -14,6 +15,8 @@ class ResetPasswordMobileLayoutScreen extends StatelessWidget {
   ResetPasswordMobileLayoutScreen({super.key});
 
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
+  final _controller = PasswordVisibilityController();
+
 
   @override
   Widget build(BuildContext context) {
@@ -49,29 +52,39 @@ class ResetPasswordMobileLayoutScreen extends StatelessWidget {
       child: Column(
         children: [
           MyInputFiled(
-              validator: (value) {
-                if (value == null || value.isEmpty) {
-                  return Strings.passwordRequired;
-                }
-                if (value.length < 6) {
-                  return Strings.passwordTooShort;
-                }
-                return null;
-              },
-              isObscure: true,
-              suffixIcon: Icons.visibility_off,
+              suffixIcon: InkWell(
+                onTap: () {
+                  _controller.isPasswordHidden.value =
+                  !_controller.isPasswordHidden.value;
+                },
+                splashColor: Colors.transparent,
+                child: Icon(
+                  _controller.isPasswordHidden.value
+                      ? Icons.visibility_off
+                      : Icons.visibility,
+                  color: CustomColor.secondaryLightColor,
+                  size: Dimensions.heightSize * 1.3,
+                ),),
+              isObscure: _controller.isPasswordHidden.value,
               label: Strings.newPassword),
-          MyInputFiled(
-            validator: (value) {
-              if (value == null || value.isEmpty) {
-                return Strings.passwordRequired;
-              }
-              return null;
-            },
-            isObscure: true,
-            label: Strings.confirmPassword,
-            suffixIcon: Icons.visibility_off,
-          ),
+         Obx(() =>  MyInputFiled(
+           suffixIcon: InkWell(
+             onTap: () {
+               _controller.isPasswordHidden.value =
+               !_controller.isPasswordHidden.value;
+             },
+             splashColor: Colors.transparent,
+             child: Icon(
+               _controller.isPasswordHidden.value
+                   ? Icons.visibility_off
+                   : Icons.visibility,
+               color: CustomColor.secondaryLightColor,
+               size: Dimensions.heightSize * 1.3,
+             ),),
+           isObscure: _controller.isPasswordHidden.value,
+           label: Strings.confirmPassword,
+
+         ),)
         ],
       ),
     );

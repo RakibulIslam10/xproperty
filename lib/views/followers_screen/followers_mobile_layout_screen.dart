@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:xproperty/views/utils/custom_color.dart';
-import 'package:xproperty/widgets/custom_app_bar.dart';
+import 'package:xproperty/widgets/common/appbar/custom_app_bar.dart';
 import '../../custom_assets/assets.gen.dart';
 import '../../language/language.dart';
 import '../../widgets/common/others/custom_image_widget.dart';
 import '../../widgets/common/text_lebels/title_heading2_widget.dart';
-import '../../widgets/follow_button_widget.dart';
+import '../../widgets/common/buttons/follow_button_widget.dart';
 import '../utils/dimensions.dart';
 
 class FollowersMobileLayoutScreen extends StatelessWidget {

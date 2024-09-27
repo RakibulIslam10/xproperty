@@ -6,7 +6,7 @@ import '../../routes/routes.dart';
 import '../../widgets/common/buttons/primary_button.dart';
 import '../../widgets/common/others/custom_image_widget.dart';
 import '../../widgets/common/title_sub_title_widget.dart';
-import '../../widgets/custom_circular_container_widget.dart';
+import '../../widgets/common/others/custom_circular_container_widget.dart';
 import '../utils/custom_color.dart';
 import '../utils/dimensions.dart';
 import '../utils/size.dart';

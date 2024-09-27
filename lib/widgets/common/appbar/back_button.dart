@@ -1,4 +1,4 @@
-import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../../custom_assets/assets.gen.dart';
 import '../../../views/utils/dimensions.dart';
@@ -11,7 +11,9 @@ class BackButtonWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
+    return InkWell(
+      splashColor: Colors.transparent,
+      highlightColor: Colors.transparent,
       onTap: onTap ?? () => Get.back(),
       child: Padding(
         padding: EdgeInsets.only(

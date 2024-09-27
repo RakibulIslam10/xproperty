@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
-import '../custom_assets/assets.gen.dart';
-import '../language/language.dart';
-import '../routes/routes.dart';
-import '../views/utils/custom_color.dart';
-import '../views/utils/dimensions.dart';
-import 'common/others/custom_image_widget.dart';
-import 'common/title_sub_title_widget.dart';
+import '../../../custom_assets/assets.gen.dart';
+import '../../../language/language.dart';
+import '../../../routes/routes.dart';
+import '../../../views/utils/custom_color.dart';
+import '../../../views/utils/dimensions.dart';
+import '../others/custom_image_widget.dart';
+import '../title_sub_title_widget.dart';
 
 class PrimaryAppBar extends StatefulWidget implements PreferredSizeWidget {
   const PrimaryAppBar({

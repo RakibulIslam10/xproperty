@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:xproperty/widgets/call_and_message_dual_button_widget.dart';
+import 'package:xproperty/widgets/common/buttons/call_and_message_dual_button_widget.dart';
 import '../../custom_assets/assets.gen.dart';
 import '../../language/language.dart';
 import '../../routes/routes.dart';
 import '../../widgets/common/title_sub_title_widget.dart';
-import '../../widgets/custom_app_bar_widget.dart';
-import '../../widgets/list_card_widget.dart';
+import '../../widgets/common/appbar/custom_app_bar_widget.dart';
+import '../../widgets/card/list_card_widget.dart';
 import '../../widgets/listing_data.dart';
 import '../drawer_menu_screen/drawer_menu_mobile_layout_screen.dart';
 import '../utils/custom_color.dart';

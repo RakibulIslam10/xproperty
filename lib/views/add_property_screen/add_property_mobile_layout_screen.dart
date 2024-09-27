@@ -1,8 +1,8 @@
 import 'package:country_code_picker/country_code_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:xproperty/widgets/custom_app_bar.dart';
-import 'package:xproperty/widgets/section_header_dropdown_widget.dart';
+import 'package:xproperty/widgets/common/appbar/custom_app_bar.dart';
+import 'package:xproperty/widgets/common/others/section_header_dropdown_widget.dart';
 import 'package:xproperty/widgets/search_bar_dropdown.dart';
 import '../../controller/add_property/poneNumberController.dart';
 import '../../controller/dropdown/dropdown_controller.dart';
@@ -10,17 +10,17 @@ import '../../controller/filters_screen/button_color_controlller.dart';
 import '../../controller/filters_screen/slider_controller.dart';
 import '../../language/language.dart';
 import '../../routes/routes.dart';
-import '../../widgets/Custom_slider_widget.dart';
-import '../../widgets/add_button_container.dart';
-import '../../widgets/bathrooms_number_container_widget.dart';
+import '../../widgets/common/others/Custom_slider_widget.dart';
+import '../../widgets/common/buttons/add_button_container.dart';
+import '../../widgets/common/others/bathrooms_number_container_widget.dart';
 import '../../widgets/common/buttons/primary_button.dart';
 import '../../widgets/common/text_lebels/title_heading2_widget.dart';
 import '../../widgets/common/text_lebels/title_heading3_widget.dart';
-import '../../widgets/custom_inquiry_form_widget.dart';
-import '../../widgets/fgarden_filter_button_widget.dart';
-import '../../widgets/message_box_inquiry_form_widget.dart';
-import '../../widgets/bed_number_container_widget.dart';
-import '../../widgets/outline_button_widget.dart';
+import '../../widgets/common/inputs/custom_inquiry_form_widget.dart';
+import '../../widgets/common/buttons/garden_filter_button_widget.dart';
+import '../../widgets/common/inputs/message_box_inquiry_form_widget.dart';
+import '../../widgets/common/others/bed_number_container_widget.dart';
+import '../../widgets/common/buttons/outline_button_widget.dart';
 import '../utils/custom_color.dart';
 import '../utils/dimensions.dart';
 import '../utils/size.dart';
@@ -301,7 +301,7 @@ class AddPropertyMobileLayoutScreen extends StatelessWidget {
           const TitleHeading3Widget(text: Strings.priceRange),
           Obx(
             () => TitleHeading3Widget(
-                text: "${_sliderController.sliderValue} - 10000.0"),
+                text: "\$${_sliderController.sliderValue} - \$${100000.0}"),
           )
         ],
       ),

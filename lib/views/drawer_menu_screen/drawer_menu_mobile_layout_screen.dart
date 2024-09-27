@@ -5,7 +5,7 @@ import '../../custom_assets/assets.gen.dart';
 import '../../language/language.dart';
 import '../../routes/routes.dart';
 import '../../widgets/common/title_sub_title_widget.dart';
-import '../../widgets/custom_dower_items_list_widget.dart';
+import '../../widgets/common/others/custom_dower_items_list_widget.dart';
 import '../utils/custom_color.dart';
 import '../utils/dimensions.dart';
 import '../utils/size.dart';
@@ -40,6 +40,7 @@ class MyDrawerMenu extends StatelessWidget {
         CustomDowerItemsListWidget(
           onTap: () {
             _navBarController.backToHome();
+            Get.back();
           },
           iconPath: Assets.icons.home,
           text: Strings.home,

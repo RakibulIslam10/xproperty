@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import '../views/utils/custom_color.dart';
-import '../views/utils/dimensions.dart';
-import '../views/utils/size.dart';
+import '../../../views/utils/custom_color.dart';
+import '../../../views/utils/dimensions.dart';
+import '../../../views/utils/size.dart';
 
 class MessageBoxInquiryFormWidget extends StatelessWidget {
   const MessageBoxInquiryFormWidget(

@@ -1,19 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:xproperty/widgets/custom_app_bar.dart';
+import 'package:xproperty/widgets/common/appbar/custom_app_bar.dart';
 import '../../controller/filters_screen/button_color_controlller.dart';
 import '../../controller/filters_screen/slider_controller.dart';
 import '../../language/language.dart';
 import '../../routes/routes.dart';
-import '../../widgets/Custom_slider_widget.dart';
-import '../../widgets/bathrooms_number_container_widget.dart';
+import '../../widgets/common/others/Custom_slider_widget.dart';
+import '../../widgets/common/others/bathrooms_number_container_widget.dart';
 import '../../widgets/common/buttons/primary_button.dart';
 import '../../widgets/common/text_lebels/title_heading2_widget.dart';
 import '../../widgets/common/text_lebels/title_heading3_widget.dart';
-import '../../widgets/fgarden_filter_button_widget.dart';
-import '../../widgets/bed_number_container_widget.dart';
-import '../../widgets/outline_button_widget.dart';
-import '../../widgets/street_outline_button.dart';
+import '../../widgets/common/buttons/garden_filter_button_widget.dart';
+import '../../widgets/common/others/bed_number_container_widget.dart';
+import '../../widgets/common/buttons/outline_button_widget.dart';
+import '../../widgets/common/buttons/street_outline_button.dart';
 import '../utils/custom_color.dart';
 import '../utils/dimensions.dart';
 import '../utils/size.dart';
@@ -207,7 +207,7 @@ class FiltersMobileScreenLayout extends StatelessWidget {
           const TitleHeading3Widget(text: Strings.priceRange),
           Obx(
             () => TitleHeading3Widget(
-                text: "\$${_sliderController.sliderValue}  -  \$10000.0"),
+                text: "\$${_sliderController.sliderValue}  -  \$100000.0"),
           )
         ],
       ),

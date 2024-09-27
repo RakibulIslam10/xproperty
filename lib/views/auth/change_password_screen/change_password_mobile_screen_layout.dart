@@ -5,7 +5,8 @@ import '../../../../routes/routes.dart';
 import '../../../../widgets/common/buttons/primary_button.dart';
 import '../../../../widgets/common/inputs/my_input_filed.dart';
 import '../../../../widgets/common/text_lebels/title_heading2_widget.dart';
-import '../../../../widgets/custom_circular_container_widget.dart';
+import '../../../widgets/common/others/custom_circular_container_widget.dart';
+import '../../../controller/password_visibility/password_visibility_controller.dart';
 import '../../../widgets/common/appbar/back_button.dart';
 import '../../utils/custom_color.dart';
 import '../../utils/dimensions.dart';
@@ -15,6 +16,7 @@ class ChangePasswordMobileScreenLayout extends StatelessWidget {
   ChangePasswordMobileScreenLayout({super.key});
 
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
+  final _controller = PasswordVisibilityController();
 
   @override
   Widget build(BuildContext context) {
@@ -46,48 +48,70 @@ class ChangePasswordMobileScreenLayout extends StatelessWidget {
       key: formKey,
       child: Column(
         children: [
-          MyInputFiled(
-              validator: (value) {
-                if (value == null || value.isEmpty) {
-                  return Strings.passwordRequired;
-                }
-                return null;
-              },
-              isObscure: true,
-              suffixIcon: Icons.visibility_off,
-              label: Strings.oldPassword),
-          verticalSpace(Dimensions.marginSizeVertical * 0.5),
-          MyInputFiled(
-            validator: (value) {
-              if (value == null || value.isEmpty) {
-                return Strings.passwordRequired;
-              }
-
-              if (value.length < 6) {
-                return Strings.passwordTooShort;
-              }
-
-              final hasUppercase = RegExp(r'[A-Z]').hasMatch(value);
-              final hasLowercase = RegExp(r'[a-z]').hasMatch(value);
-              final hasDigits = RegExp(r'[0-9]').hasMatch(value);
-              final hasSpecialChars =
-                  RegExp(r'[!@#$%^&*()_+{}\[\]:;<>?./|-]').hasMatch(value);
-
-              if (!hasUppercase ||
-                  !hasLowercase ||
-                  !hasDigits ||
-                  !hasSpecialChars) {
-                return Strings.pleaseMakeStrongPassword;
-              }
-
-              return null;
-            },
-            label: Strings.newPassword,
-            suffixIcon: Icons.visibility_off,
+          Obx(
+            () => MyInputFiled(
+                validator: (value) {
+                  if (value == null || value.isEmpty) {
+                    return Strings.passwordRequired;
+                  }
+                  return null;
+                },
+                isObscure: true,
+                suffixIcon: InkWell(
+                  onTap: () {
+                    _controller.isPasswordHidden.value =
+                        !_controller.isPasswordHidden.value;
+                  },
+                  splashColor: Colors.transparent,
+                  child: Icon(
+                    _controller.isPasswordHidden.value
+                        ? Icons.visibility_off
+                        : Icons.visibility,
+                    color: CustomColor.secondaryLightColor,
+                    size: Dimensions.heightSize * 1.3,
+                  ),
+                ),
+                label: Strings.oldPassword),
           ),
-          const MyInputFiled(
-            label: Strings.confirmNewPassword,
-            suffixIcon: Icons.visibility_off,
+          verticalSpace(Dimensions.marginSizeVertical * 0.5),
+          Obx(
+            () => MyInputFiled(
+              suffixIcon: InkWell(
+                onTap: () {
+                  _controller.isPasswordHidden.value =
+                      !_controller.isPasswordHidden.value;
+                },
+                splashColor: Colors.transparent,
+                child: Icon(
+                  _controller.isPasswordHidden.value
+                      ? Icons.visibility_off
+                      : Icons.visibility,
+                  color: CustomColor.secondaryLightColor,
+                  size: Dimensions.heightSize * 1.3,
+                ),
+              ),
+              isObscure: _controller.isPasswordHidden.value,
+              label: Strings.newPassword,
+            ),
+          ),
+          Obx(
+            () => MyInputFiled(
+              suffixIcon: InkWell(
+                onTap: () {
+                  _controller.isPasswordHidden.value =
+                      !_controller.isPasswordHidden.value;
+                },
+                splashColor: Colors.transparent,
+                child: Icon(
+                  _controller.isPasswordHidden.value
+                      ? Icons.visibility_off
+                      : Icons.visibility,
+                  color: CustomColor.secondaryLightColor,
+                  size: Dimensions.heightSize * 1.3,
+                ),
+              ),
+              label: Strings.confirmNewPassword,
+            ),
           ),
         ],
       ),

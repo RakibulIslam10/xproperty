@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import '../custom_assets/assets.gen.dart';
-import '../language/language.dart';
-import '../views/utils/custom_color.dart';
-import '../views/utils/dimensions.dart';
-import '../views/utils/size.dart';
-import 'common/others/custom_image_widget.dart';
+import '../../../custom_assets/assets.gen.dart';
+import '../../../language/language.dart';
+import '../../../views/utils/custom_color.dart';
+import '../../../views/utils/dimensions.dart';
+import '../../../views/utils/size.dart';
+import '../others/custom_image_widget.dart';
 
 class CallAndMessageDualButtonWidget extends StatelessWidget {
   final VoidCallback onCallPressed;

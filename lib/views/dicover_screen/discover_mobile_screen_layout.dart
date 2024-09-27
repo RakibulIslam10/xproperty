@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import '../../widgets/custom_app_bar_widget.dart';
-import '../../widgets/custom_circular_container_widget.dart';
-import '../../widgets/list_card_widget.dart';
+import '../../widgets/common/appbar/custom_app_bar_widget.dart';
+import '../../widgets/common/others/custom_circular_container_widget.dart';
+import '../../widgets/card/list_card_widget.dart';
 import '../../widgets/listing_data.dart';
 import '../drawer_menu_screen/drawer_menu_mobile_layout_screen.dart';
 import '../utils/custom_color.dart';

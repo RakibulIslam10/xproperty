@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:xproperty/widgets/custom_app_bar.dart';
+import 'package:xproperty/widgets/common/appbar/custom_app_bar.dart';
+import '../../../controller/password_visibility/password_visibility_controller.dart';
 import '../../../custom_assets/assets.gen.dart';
 import '../../../language/language.dart';
 import '../../../routes/routes.dart';
@@ -10,8 +11,8 @@ import '../../../widgets/common/others/custom_image_widget.dart';
 import '../../../widgets/common/text_lebels/title_heading2_widget.dart';
 import '../../../widgets/common/text_lebels/title_heading4_widget.dart';
 import '../../../widgets/common/title_sub_title_widget.dart';
-import '../../../widgets/custom_circular_container_widget.dart';
-import '../../../widgets/custom_paint_widget.dart';
+import '../../../widgets/common/others/custom_circular_container_widget.dart';
+import '../../../widgets/common/others/custom_paint_widget.dart';
 import '../../res/assets_res.dart';
 import '../../utils/custom_color.dart';
 import '../../utils/dimensions.dart';
@@ -23,6 +24,7 @@ class SignInMobileScreenLayout extends StatelessWidget {
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
+  final _controller = PasswordVisibilityController();
 
   @override
   Widget build(BuildContext context) {
@@ -77,23 +79,35 @@ class SignInMobileScreenLayout extends StatelessWidget {
             },
             label: Strings.email,
           ),
-          MyInputFiled(
-            suffixIcon: Icons.visibility_off_sharp,
-            isObscure: true,
-            controller: _passwordController,
-            validator: (value) {
-              if (value == null || value.isEmpty) {
-                return Strings.passwordRequired;
-              }
-
-              if (value.length < 6) {
-                return Strings.passwordTooShort;
-              }
-              return null;
-            },
-            label: Strings.password,
+          Obx(
+            () => MyInputFiled(
+              suffixIcon: InkWell(
+                onTap: () {
+                  _controller.isPasswordHidden.value =
+                      !_controller.isPasswordHidden.value;
+                },
+                splashColor: Colors.transparent,
+                child: Icon(
+                  _controller.isPasswordHidden.value
+                      ? Icons.visibility_off
+                      : Icons.visibility,
+                  color: CustomColor.secondaryLightColor,
+                  size: Dimensions.heightSize * 1.3,
+                ),
+              ),
+              isObscure: _controller.isPasswordHidden.value,
+              controller: _passwordController,
+              label: Strings.password,
+              validator: (value) {
+                if (value == null || value.isEmpty) {
+                  return Strings.passwordRequired;
+                }
+                return null;
+              },
+            ),
           ),
-          GestureDetector(
+          InkWell(
+            splashColor: Colors.transparent,
             onTap: () {
               Get.toNamed(Routes.forgotPasswordScreen);
             },

@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 
-import '../views/utils/custom_color.dart';
+import '../../../views/utils/custom_color.dart';
 
 class CustomCircularContainer extends StatelessWidget {
   final double top;

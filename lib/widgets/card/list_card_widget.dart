@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import '../custom_assets/assets.gen.dart';
-import '../routes/routes.dart';
-import '../views/utils/custom_color.dart';
-import '../views/utils/dimensions.dart';
-import '../views/utils/size.dart';
-import 'common/others/custom_image_widget.dart';
-import 'common/text_lebels/title_heading3_widget.dart';
-import 'common/title_sub_title_widget.dart';
+import '../../custom_assets/assets.gen.dart';
+import '../../routes/routes.dart';
+import '../../views/utils/custom_color.dart';
+import '../../views/utils/dimensions.dart';
+import '../../views/utils/size.dart';
+import '../common/others/custom_image_widget.dart';
+import '../common/text_lebels/title_heading3_widget.dart';
+import '../common/title_sub_title_widget.dart';
 class ListCardItems extends StatelessWidget {
   final String title;
   final String title2;

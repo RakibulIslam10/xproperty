@@ -87,7 +87,9 @@ class OnboardMobileScreenLayout extends StatelessWidget {
                   },
                 ),
               ),
-              GestureDetector(
+              InkWell(
+                splashColor: Colors.transparent,
+                highlightColor: Colors.transparent,
                 onTap: () {
                   _onboardingController.skipToWelcomeScreen();
                 },
@@ -136,7 +138,7 @@ class OnboardMobileScreenLayout extends StatelessWidget {
         children: [
           SmoothPageIndicator(
             controller: pageController, // PageController
-            count: _onboardingController.items.length,
+            count: _onboardingController.items.length - 1,
             effect: WormEffect(
                 activeDotColor: CustomColor.primaryLightColor,
                 spacing: Dimensions.widthSize * 2,

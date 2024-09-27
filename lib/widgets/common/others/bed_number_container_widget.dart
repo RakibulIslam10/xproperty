@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import '../controller/filters_screen/number_selection_controller.dart';
-import '../views/utils/custom_color.dart';
-import '../views/utils/dimensions.dart';
-import 'common/text_lebels/title_heading2_widget.dart';
+import '../../../controller/filters_screen/number_selection_controller.dart';
+import '../../../views/utils/custom_color.dart';
+import '../../../views/utils/dimensions.dart';
+import '../text_lebels/title_heading2_widget.dart';
 
-class BathroomsNumberedContainer extends StatelessWidget {
-  BathroomsNumberedContainer({
+class BedNumberedContainer extends StatelessWidget {
+  BedNumberedContainer({
     super.key,
   });
 
-  final controller = Get.put(BathroomNumberSelectionController());
+  final controller = Get.put(BedNumberSelectionController());
 
   @override
   Widget build(BuildContext context) {
@@ -39,7 +39,6 @@ class BathroomsNumberedContainer extends StatelessWidget {
                       width: Dimensions.widthSize * 5,
                       alignment: Alignment.center,
                       decoration: BoxDecoration(
-
                         color: isSelected
                             ? CustomColor.primaryLightColor
                             : CustomColor.secondaryLightColor,

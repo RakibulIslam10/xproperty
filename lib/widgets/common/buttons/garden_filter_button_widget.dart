@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../controller/filters_screen/button_color_controlller.dart';
-import '../views/utils/custom_color.dart';
-import '../views/utils/dimensions.dart';
+import '../../../controller/filters_screen/button_color_controlller.dart';
+import '../../../views/utils/custom_color.dart';
+import '../../../views/utils/dimensions.dart';
 
 class GardenFilterOutlineButtonWidget extends StatelessWidget {
   final int index;

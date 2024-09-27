@@ -6,7 +6,7 @@ import '../../language/language.dart';
 import '../../routes/routes.dart';
 import '../../widgets/common/others/custom_image_widget.dart';
 import '../../widgets/common/text_lebels/title_heading2_widget.dart';
-import '../../widgets/custom_app_bar_widget.dart';
+import '../../widgets/common/appbar/custom_app_bar_widget.dart';
 import '../drawer_menu_screen/drawer_menu_mobile_layout_screen.dart';
 import '../utils/custom_color.dart';
 import '../utils/dimensions.dart';
