@@ -22,29 +22,27 @@ class CustomDowerItemsListWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       margin: EdgeInsets.only(top: Dimensions.marginSizeVertical * 0.1),
-      color: backgroundColor,
-      child: Padding(
-        padding:
-            EdgeInsets.symmetric(horizontal: Dimensions.marginSizeHorizontal),
-        child: ListTile(
-          selected: true,
-          selectedColor: CustomColor.redColor,
-          minTileHeight: Dimensions.heightSize * 3.5,
-          contentPadding:
-              EdgeInsets.symmetric(horizontal: Dimensions.paddingSize),
-          onTap: onTap,
-          focusColor: CustomColor.primaryLightColor,
-          leading: CustomImageWidget(
-            path: iconPath,
-            height: Dimensions.heightSize * 1.4,
-          ),
-          title: TitleHeading3Widget(
-            text: text,
-            fontWeight: FontWeight.w500,
-            fontSize: Dimensions.headingTextSize3,
-          ),
-          splashColor: Colors.blue, // Add the splash color here
+      // color: backgroundColor,
+      child: ListTile(
+        selected: true,
+        selectedColor: CustomColor.redColor,
+        minTileHeight: Dimensions.heightSize * 3.5,
+        contentPadding: EdgeInsets.symmetric(horizontal: Dimensions.paddingSize * 1.5),
+        onTap: onTap,
+        focusColor: CustomColor.primaryLightColor,
+
+        leading: CustomImageWidget(
+          path: iconPath,
+          height: Dimensions.heightSize * 1.4,
         ),
+        title: TitleHeading3Widget(
+          text: text,
+          fontWeight: FontWeight.w500,
+          fontSize: Dimensions.headingTextSize3,
+        ),
+        splashColor: Colors.blue,
+        hoverColor: backgroundColor,
+        // Add the splash color here
       ),
     );
   }
