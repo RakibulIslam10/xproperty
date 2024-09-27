@@ -61,11 +61,12 @@ class AudioCallMobileLayoutScreen extends StatelessWidget {
               width: Dimensions.widthSize,
             ),
           ),
-          child: ClipOval(
-            child: CustomImageWidget(
-              path: Assets.background.personProfile.path,
-            ),
-          ),
+          child: Container(
+            decoration: BoxDecoration(
+                shape: BoxShape.circle,
+                image: DecorationImage(image: AssetImage(Assets.background.personProfile.path))
+            ) 
+          )
         ),
         verticalSpace(Dimensions.marginSizeVertical),
         const TitleHeading2Widget(
