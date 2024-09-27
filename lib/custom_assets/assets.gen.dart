@@ -43,6 +43,10 @@ class $AssetsBackgroundGen {
   AssetGenImage get house3 =>
       const AssetGenImage('assets/background/house3.png');
 
+  /// File path: assets/background/houses.jpeg
+  AssetGenImage get houses =>
+      const AssetGenImage('assets/background/houses.jpeg');
+
   /// File path: assets/background/mapimage.png
   AssetGenImage get mapimage =>
       const AssetGenImage('assets/background/mapimage.png');
@@ -76,6 +80,7 @@ class $AssetsBackgroundGen {
         house1,
         house2,
         house3,
+        houses,
         mapimage,
         mmap,
         person,

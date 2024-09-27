@@ -104,21 +104,16 @@ class _PrimaryAppBarState extends State<PrimaryAppBar> {
   }
 
   _appBarTitleSubTitleWidget() {
-    return GestureDetector(
-      onTap: () {
-        Get.toNamed(Routes.aboutUSScreen);
-      },
-      child: TitleSubTitleWidget(
-        subTitleFonWeight: FontWeight.bold,
-        fontWeight: FontWeight.w500,
-        titleFontSize: Dimensions.headingTextSize3 * 1.1,
-        isCenterText: true,
-        title: Strings.appName,
-        subTitle: Strings.findYourNook,
-        subTitleFontSize: Dimensions.headingTextSize6,
-        titleColor: CustomColor.primaryLightColor.withOpacity(1),
-        subTitleColor: CustomColor.secondaryLightColor,
-      ),
+    return TitleSubTitleWidget(
+      subTitleFonWeight: FontWeight.bold,
+      fontWeight: FontWeight.w500,
+      titleFontSize: Dimensions.headingTextSize3 * 1.1,
+      isCenterText: true,
+      title: Strings.appName,
+      subTitle: Strings.findYourNook,
+      subTitleFontSize: Dimensions.headingTextSize6,
+      titleColor: CustomColor.primaryLightColor.withOpacity(1),
+      subTitleColor: CustomColor.secondaryLightColor,
     );
   }
 }

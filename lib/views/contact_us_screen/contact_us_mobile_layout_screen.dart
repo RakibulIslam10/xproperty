@@ -25,7 +25,7 @@ class ContactUsMobileLayoutScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar:  const CustomAppBar(
+      appBar: const CustomAppBar(
           statusBarColor: CustomColor.primaryLightColor,
           title: Strings.contactUs),
       body: _bodyWidget(),
@@ -198,15 +198,15 @@ class ContactUsMobileLayoutScreen extends StatelessWidget {
         children: [
           CustomImageWidget(
             path: AssetsRes.appLogo,
-            height: Dimensions.heightSize * 10,
-            width: double.infinity,
+            height: Dimensions.heightSize * 11,
+            width: Dimensions.widthSize * 12,
           ),
           TitleSubTitleWidget(
             isCenterText: true,
-            subTitleFontSize: Dimensions.headingTextSize5,
+            subTitleFontSize: Dimensions.headingTextSize4,
             title: Strings.appName,
             subTitleFonWeight: FontWeight.bold,
-            titleFontSize: Dimensions.headingTextSize4,
+            titleFontSize: Dimensions.headingTextSize3,
             subTitle: Strings.findYourNook,
             titleColor: CustomColor.primaryLightColor.withOpacity(0.90),
             subTitleColor: CustomColor.secondaryLightColor.withOpacity(0.50),
