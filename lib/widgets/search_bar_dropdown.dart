@@ -10,7 +10,8 @@ class MySearchBarDropdownWidget extends StatelessWidget {
   final String hintText;
   final Function(String?) onChanged;
 
-  MySearchBarDropdownWidget({super.key, required this.hintText, required this.onChanged});
+  MySearchBarDropdownWidget(
+      {super.key, required this.hintText, required this.onChanged});
 
   final _controller = Get.put(SearchBarDropdownController());
 
@@ -26,7 +27,7 @@ class MySearchBarDropdownWidget extends StatelessWidget {
         ),
         decoration: InputDecoration(
             contentPadding:
-            EdgeInsets.symmetric(horizontal: Dimensions.paddingSize),
+                EdgeInsets.symmetric(horizontal: Dimensions.paddingSize),
             labelStyle: TextStyle(
                 color: CustomColor.secondaryLightColor.withOpacity(0.90)),
             label: Text(hintText),
@@ -50,10 +51,10 @@ class MySearchBarDropdownWidget extends StatelessWidget {
         items: _controller.addressList
             .map(
               (e) => DropdownMenuItem<String>(
-            value: e,
-            child: Text(e),
-          ),
-        )
+                value: e,
+                child: Text(e),
+              ),
+            )
             .toList(),
         onChanged: onChanged,
       ),

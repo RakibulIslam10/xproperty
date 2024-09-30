@@ -59,7 +59,8 @@ class _PrimaryAppBarState extends State<PrimaryAppBar> {
   _actionButton() {
     return Row(
       children: [
-        GestureDetector(
+        InkWell(
+          splashColor: Colors.transparent,
           onTap: () {
             Get.toNamed(Routes.findMapScreen);
           },
@@ -72,7 +73,8 @@ class _PrimaryAppBarState extends State<PrimaryAppBar> {
             ),
           ),
         ),
-        GestureDetector(
+        InkWell(
+          splashColor: Colors.transparent,
           onTap: () {
             Get.toNamed(Routes.notificationScreen);
           },
@@ -89,7 +91,8 @@ class _PrimaryAppBarState extends State<PrimaryAppBar> {
           padding: EdgeInsets.only(
               left: Dimensions.marginSizeHorizontal * 0.3,
               right: Dimensions.marginSizeHorizontal),
-          child: GestureDetector(
+          child: InkWell(
+            splashColor: Colors.transparent,
             onTap: () {
               Scaffold.of(context).openEndDrawer();
             },

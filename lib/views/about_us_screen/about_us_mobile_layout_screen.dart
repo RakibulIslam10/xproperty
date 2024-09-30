@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:xproperty/widgets/custom_app_Bar.dart';
 import '../../language/language.dart';
+import '../../widgets/common/appbar/custom_app_bar.dart';
 import '../../widgets/common/others/custom_image_widget.dart';
 import '../../widgets/common/text_lebels/title_heading4_widget.dart';
 import '../../widgets/common/title_sub_title_widget.dart';

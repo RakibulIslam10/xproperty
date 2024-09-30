@@ -3,8 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:xproperty/widgets/common/appbar/custom_app_bar.dart';
 import 'package:xproperty/widgets/search_bar_dropdown.dart';
-import '../../controller/add_property/poneNumberController.dart';
-import '../../controller/dropdown/dropdown_controller.dart';
+import '../../controller/add_property/phone_number_controller.dart';
 import '../../controller/filters_screen/button_color_controlller.dart';
 import '../../controller/filters_screen/slider_controller.dart';
 import '../../language/language.dart';
@@ -28,13 +27,14 @@ import '../utils/size.dart';
 class AddPropertyMobileLayoutScreen extends StatelessWidget {
   AddPropertyMobileLayoutScreen({super.key});
 
+  final controller = Get.put(PhoneNumberController());
+
   final _controller = Get.put(ButtonColorController());
   final _sliderController = Get.put(SliderController());
-  final ddController = Get.put(DropdownController2());
-  final PhoneNumberController controller = Get.put(PhoneNumberController());
 
   final _selectedValue = ValueNotifier<String?>('');
   final selectedCurrency = ValueNotifier<String?>('');
+  final selectedSqFeet = ValueNotifier<String?>('');
 
   @override
   Widget build(BuildContext context) {
@@ -57,13 +57,21 @@ class AddPropertyMobileLayoutScreen extends StatelessWidget {
           children: [
             _sellAndRentButtonWidget(),
             _titleAndDescriptionFormWidget(),
-            PriceSectionHeaderDropDownWidget(
-              title: "Dd",
-              onChanged: (value) {
-                selectedCurrency.value = value;
+            SectionHeaderDropDownWidget(
+              title: Strings.area,
+              currencyOptions: const ['USD', 'BDT', 'EUR', 'GBP'],
+              onChanged: (newValue) {
+                selectedCurrency.value = newValue;
               },
             ),
-            const CustomInquiryFormWidget(hintText: "Area"),
+            const CustomInquiryFormWidget(hintText: Strings.area),
+            SectionHeaderDropDownWidget(
+              title: Strings.price,
+              currencyOptions: const ['USD', 'BDT', 'EUR', 'GBP'],
+              onChanged: (newValue) {
+                selectedCurrency.value = newValue;
+              },
+            ),
             const CustomInquiryFormWidget(hintText: "0.00"),
             _propertyTypeTextAndButtonWidget(),
             _priceRangeTextWidget(),
@@ -233,12 +241,6 @@ class AddPropertyMobileLayoutScreen extends StatelessWidget {
         ),
         MySearchBarDropdownWidget(
           hintText: Strings.chooseCity,
-          onChanged: (value) {
-            _selectedValue.value = value;
-          },
-        ),
-        MySearchBarDropdownWidget(
-          hintText: Strings.state,
           onChanged: (value) {
             _selectedValue.value = value;
           },

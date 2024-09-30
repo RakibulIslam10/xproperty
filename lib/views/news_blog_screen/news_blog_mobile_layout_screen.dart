@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:xproperty/widgets/custom_app_Bar.dart';
 import '../../language/language.dart';
 import '../../routes/routes.dart';
+import '../../widgets/common/appbar/custom_app_bar.dart';
 import '../../widgets/common/others/custom_circular_container_widget.dart';
 import '../../widgets/card/list_card_widget.dart';
 import '../../widgets/listing_data.dart';

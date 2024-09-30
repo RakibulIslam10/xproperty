@@ -2,7 +2,7 @@ import 'package:country_code_picker/country_code_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:xproperty/widgets/common/appbar/custom_app_bar.dart';
-import '../../controller/add_property/poneNumberController.dart';
+import '../../controller/add_property/phone_number_controller.dart';
 import '../../custom_assets/assets.gen.dart';
 import '../../language/language.dart';
 import '../../widgets/common/buttons/primary_button.dart';

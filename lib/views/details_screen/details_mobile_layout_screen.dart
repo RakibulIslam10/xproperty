@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../custom_assets/assets.gen.dart';
 import '../../language/language.dart';
-import '../../routes/routes.dart';
 import '../../widgets/common/buttons/call_and_message_dual_button_widget.dart';
 import '../../widgets/common/others/custom_image_widget.dart';
 import '../../widgets/common/text_lebels/title_heading1_widget.dart';
@@ -401,20 +400,15 @@ class DetailsMobileLayoutScreen extends StatelessWidget {
       padding: EdgeInsets.symmetric(
         vertical: Dimensions.heightSize * 0.1,
       ),
-      child: GestureDetector(
-        onTap: () {
-          Get.toNamed(Routes.newsScreen);
-        },
-        child: Card(
-          color: CustomColor.whiteColor,
-          elevation: 4,
-          child: ListCardItems(
-            title: myData['title'],
-            imageUrl: myData["imageUrl"],
-            subTitle: myData["subTitle"],
-            title2: myData["title2"],
-            subTitle2: myData["subTitle2"],
-          ),
+      child: Card(
+        color: CustomColor.whiteColor,
+        elevation: 4,
+        child: ListCardItems(
+          title: myData['title'],
+          imageUrl: myData["imageUrl"],
+          subTitle: myData["subTitle"],
+          title2: myData["title2"],
+          subTitle2: myData["subTitle2"],
         ),
       ),
     );
@@ -426,7 +420,8 @@ class DetailsMobileLayoutScreen extends StatelessWidget {
       child: CircleAvatar(
         backgroundColor: CustomColor.primaryDarkColor.withOpacity(0.30),
         radius: Dimensions.radius * 1.6,
-        child: GestureDetector(
+        child: InkWell(
+          splashColor: Colors.transparent,
           onTap: () {
             Get.back();
           },

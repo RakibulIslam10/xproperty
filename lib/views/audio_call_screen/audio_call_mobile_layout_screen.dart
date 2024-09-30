@@ -3,7 +3,6 @@ import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import '../../custom_assets/assets.gen.dart';
 import '../../language/language.dart';
-import '../../routes/routes.dart';
 import '../../widgets/background_widget/background_widget.dart';
 import '../../widgets/common/others/custom_image_widget.dart';
 import '../../widgets/common/text_lebels/title_heading2_widget.dart';
@@ -50,24 +49,23 @@ class AudioCallMobileLayoutScreen extends StatelessWidget {
       children: [
         verticalSpace(Dimensions.marginSizeVertical * 3),
         Container(
-          padding: EdgeInsets.all(Dimensions.paddingSize * 0.5),
-          width: Dimensions.widthSize * 18.6,
-          // Adjust the size as needed
-          height: Dimensions.heightSize * 14.5,
-          decoration: BoxDecoration(
-            shape: BoxShape.circle,
-            border: Border.all(
-              color: CustomColor.secondaryLightColor,
-              width: Dimensions.widthSize,
-            ),
-          ),
-          child: Container(
+            padding: EdgeInsets.all(Dimensions.paddingSize * 0.5),
+            width: Dimensions.widthSize * 18.6,
+            // Adjust the size as needed
+            height: Dimensions.heightSize * 14.5,
             decoration: BoxDecoration(
-                shape: BoxShape.circle,
-                image: DecorationImage(image: AssetImage(Assets.background.personProfile.path))
-            ) 
-          )
-        ),
+              shape: BoxShape.circle,
+              border: Border.all(
+                color: CustomColor.secondaryLightColor,
+                width: Dimensions.widthSize,
+              ),
+            ),
+            child: Container(
+                decoration: BoxDecoration(
+                    shape: BoxShape.circle,
+                    image: DecorationImage(
+                        image: AssetImage(
+                            Assets.background.personProfile.path))))),
         verticalSpace(Dimensions.marginSizeVertical),
         const TitleHeading2Widget(
           text: "00:01:50",
@@ -91,7 +89,8 @@ class AudioCallMobileLayoutScreen extends StatelessWidget {
           ),
         ),
         horizontalSpace(Dimensions.marginSizeHorizontal * 0.6),
-        GestureDetector(
+        InkWell(
+          splashColor: Colors.transparent,
           onTap: () {
             Get.back();
           },
@@ -156,9 +155,7 @@ class AudioCallMobileLayoutScreen extends StatelessWidget {
       padding: EdgeInsets.symmetric(
           horizontal: Dimensions.marginSizeHorizontal * 0.5),
       child: IconButton(
-          onPressed: () {
-            Get.toNamed(Routes.audioCallScreen);
-          },
+          onPressed: () {},
           icon: CustomImageWidget(
             path: Assets.icons.iconMail,
             height: Dimensions.heightSize,

@@ -4,7 +4,6 @@ import '../../custom_assets/assets.gen.dart';
 import '../../language/language.dart';
 import '../../widgets/common/others/custom_image_widget.dart';
 import '../../widgets/common/text_lebels/title_heading2_widget.dart';
-import '../../widgets/common/text_lebels/title_heading3_widget.dart';
 import '../../widgets/common/text_lebels/title_heading4_widget.dart';
 import '../../widgets/common/title_sub_title_widget.dart';
 import '../utils/custom_color.dart';
@@ -70,28 +69,24 @@ class NewsMobileLayoutScreen extends StatelessWidget {
   _imageAndTitleWidget() {
     return Padding(
         padding: EdgeInsets.only(bottom: Dimensions.heightSize),
-        child: Stack(
-          children: [
-            ClipRRect(
-              borderRadius: BorderRadius.only(
-                  bottomRight: Radius.circular(Dimensions.radius * 2),
-                  bottomLeft: Radius.circular(Dimensions.radius * 2)),
-              child: CustomImageWidget(
+        child: ClipRRect(
+          borderRadius: BorderRadius.only(
+              bottomRight: Radius.circular(Dimensions.radius * 2),
+              bottomLeft: Radius.circular(Dimensions.radius * 2)),
+          child: Stack(
+            children: [
+              CustomImageWidget(
                 path: Assets.background.house.path,
                 height: Dimensions.heightSize * 17.5,
                 width: double.infinity,
               ),
-            ),
-            Container(
-              decoration: BoxDecoration(
-                  color: CustomColor.primaryDarkColor.withOpacity(0.5),
-                  borderRadius: BorderRadius.only(
-                      bottomLeft: Radius.circular(Dimensions.radius * 2),
-                      bottomRight: Radius.circular(Dimensions.radius * 2))),
-              width: double.infinity,
-              height: Dimensions.heightSize * 17.3,
-            )
-          ],
+              Container(
+                height: Dimensions.heightSize * 17.5,
+                width: double.infinity,
+                color: Colors.black.withOpacity(0.35), // Adjust opacity here
+              ),
+            ],
+          ),
         ));
   }
 
@@ -101,7 +96,8 @@ class NewsMobileLayoutScreen extends StatelessWidget {
         CircleAvatar(
           backgroundColor: CustomColor.primaryDarkColor.withOpacity(0.30),
           radius: Dimensions.radius * 1.25,
-          child: GestureDetector(
+          child: InkWell(
+            splashColor: Colors.transparent,
             onTap: () {
               Get.back();
             },

@@ -22,7 +22,6 @@ class CustomDowerItemsListWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       margin: EdgeInsets.only(top: Dimensions.marginSizeVertical * 0.1),
-      // color: backgroundColor,
       child: ListTile(
         selected: true,
         selectedColor: CustomColor.redColor,
@@ -40,7 +39,7 @@ class CustomDowerItemsListWidget extends StatelessWidget {
           fontWeight: FontWeight.w500,
           fontSize: Dimensions.headingTextSize3,
         ),
-        splashColor: Colors.blue,
+        splashColor:CustomColor.primaryLightColor,
         hoverColor: backgroundColor,
         // Add the splash color here
       ),

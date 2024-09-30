@@ -102,7 +102,8 @@ class ProfileMobileScreenLayout extends StatelessWidget {
       child: Row(
         mainAxisAlignment: mainSpaceBet,
         children: [
-          GestureDetector(
+          InkWell(
+            splashColor: Colors.transparent,
             onTap: () {
               Get.toNamed(Routes.followersScreen);
             },
@@ -120,7 +121,8 @@ class ProfileMobileScreenLayout extends StatelessWidget {
             height: Dimensions.heightSize * 2.8,
             width: 1.5,
           ),
-          GestureDetector(
+          InkWell(
+            splashColor: Colors.transparent,
             onTap: () {
               Get.toNamed(Routes.propertyScreen);
             },
@@ -138,7 +140,8 @@ class ProfileMobileScreenLayout extends StatelessWidget {
             height: Dimensions.heightSize * 2.8,
             width: 1.5,
           ),
-          GestureDetector(
+          InkWell(
+            splashColor: Colors.transparent,
             onTap: () {
               Get.toNamed(Routes.followingScreen);
             },

@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:xproperty/widgets/custom_app_Bar.dart';
 import '../../../controller/password_visibility/password_visibility_controller.dart';
 import '../../../language/language.dart';
 import '../../../routes/routes.dart';
+import '../../../widgets/common/appbar/custom_app_bar.dart';
 import '../../../widgets/common/buttons/primary_button.dart';
 import '../../../widgets/common/inputs/my_input_filed.dart';
 import '../../../widgets/common/others/custom_image_widget.dart';
@@ -108,7 +108,7 @@ class SignUpMobileScreenLayout extends StatelessWidget {
     return Stack(
       children: [
         Transform.scale(
-          scale: 1.2, // Adjust the scale factor as needed
+          scale: 1.2,
           child: CustomPaint(
             size: const Size(360, 101.831),
             painter: RPSCustomPainter(),
